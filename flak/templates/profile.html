@@ -34,24 +34,24 @@
 </style>
 
 
-<div class="profile">
-    <h1>Login</h1>
-    <div class="links">
-        <a href="{{ url_for('profile') }}" class="active">profile</a>
-        <a href="#">Register</a>
-    </div>
-    <form action="{{ url_for('profile') }}" method="post">
-        <label for="username">
-            <i class="fas fa-user"></i>
-        </label>
-        <input type="text" name="username" placeholder="Username" id="username" required>
-        <label for="password">
-            <i class="fas fa-lock"></i>
-        </label>
-        <input type="password" name="password" placeholder="Password" id="password" required>
-        <div class="msg">{{ msg }}</div>
-        <input type="submit" value="Login">
-    </form>
+<h2>Profile Page</h2>
+
+<div>
+    <p>Your account details are below:</p>
+    <table>
+        <tr>
+            <td>Nome:</td>
+            <td>{{ cliente['Nome'] }}</td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>{{ cliente['password'] }}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{ cliente['Email'] }}</td>
+        </tr>
+    </table>
 </div>
     
 {% endblock %}

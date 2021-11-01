@@ -5,7 +5,8 @@ import MySQLdb.cursors
 import re
 
 app = Flask(__name__)
-
+app.secret_key = 'super secret key'
+app.config['SESSION_TYPE'] = 'filesystem'
 
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = 'localhost'
@@ -17,39 +18,78 @@ app.config['MYSQL_DB'] = 'wake'
 mysql = MySQL(app)
 
 
+
+
+
 @app.route("/")
 def home():
     return render_template("index.html", name="welcome to wake")
 
-@app.route("/profile", methods=['GET', 'POST'])
-def profile():
+@app.route("/login", methods=['GET', 'POST'])
+def login():
     # Output message if something goes wrong...
     msg = ''
     # Check if "username" and "password" POST requests exist (user submitted form)
-    if request.method == 'POST' and 'username' in request.form and 'password' in request.form:
+    if request.method == 'POST' and 'Nome' in request.form and 'password' in request.form:
         # Create variables for easy access
-        username = request.form['username']
+        Nome = request.form['Nome']
         password = request.form['password']
         # Check if account exists using MySQL
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM accounts WHERE username = %s AND password = %s', (username, password,))
+        cursor.execute('SELECT * FROM cliente WHERE Nome = %s AND password = %s', (Nome, password,))
         # Fetch one record and return result
-        account = cursor.fetchone()
+        cliente = cursor.fetchone()
         # If account exists in accounts table in out database
-        if account:
+        if cliente:
             # Create session data, we can access this data in other routes
             session['loggedin'] = True
-            session['id'] = account['id']
-            session['username'] = account['username']
+            session['Nome'] = cliente['Nome']
             # Redirect to home page
             return 'Logged in successfully!'
         else:
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
     # Show the login form with message (if any)
-    return render_template("profile.html",msg=msg)
+    return render_template("login.html",msg=msg)
     
 
+@app.route('/register', methods=['GET', 'POST'])
+def register():
+    # Output message if something goes wrong...
+    msg = ''
+    # Check if "username", "password" and "email" POST requests exist (user submitted form)
+    if request.method == 'POST' and 'Nome' in request.form and 'password' in request.form and 'Email' in request.form:
+        # Create variables for easy access
+        Nome = request.form['Nome']
+        password = request.form['password']
+        Email = request.form['Email']
+                # Check if account exists using MySQL
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM cliente WHERE Nome = %s', (Nome,))
+        cliente = cursor.fetchone()
+        cursor2 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor2.execute('SELECT * FROM cliente WHERE Email = %s', (Email,))
+        cliente2 = cursor2.fetchone()
+        # If account exists show error and validation checks
+        if cliente and cliente2:
+            msg = 'Account already exists!'
+        elif not re.match(r'[^@]+@[^@]+\.[^@]+', Email):
+            msg = 'Invalid email address!'
+        elif not re.match(r'[A-Za-z0-9]+', Nome):
+            msg = 'Username must contain only characters and numbers!'
+        elif not Nome or not password or not Email:
+            msg = 'Please fill out the form!'
+        else:
+            # Account doesnt exists and the form data is valid, now insert new account into accounts table
+            idCliente = cursor.execute('SELECT MAX(idCliente) FROM cliente')+1
+            cursor.execute('INSERT INTO cliente VALUES (%s, %s, %s,NULL,NULL, %s)', (idCliente, Email, Nome, password,))
+            mysql.connection.commit()
+            msg = 'You have successfully registered!'
+    elif request.method == 'POST':
+        # Form is empty... (no POST data)
+        msg = 'Please fill out the form!'
+    # Show registration form with message (if any)
+    return render_template("Register.html",msg=msg)
 
 @app.route("/json")
 def get_json():
@@ -70,8 +110,27 @@ def about_us():
 
 @app.route("/chart")
 def chart():
-    return render_template("chart.html")
+    if 'loggedin' in session:
+        # User is loggedin show them the home page
+        return render_template('chart.html', Nome=session['Nome'])
+    # User is not loggedin redirect to login page
+    return redirect(url_for('login'))
 
+@app.route("/profile")
+def profile():
+    if 'loggedin' in session:
+        # We need all the account info for the user so we can display it on the profile page
+        cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor.execute('SELECT * FROM cliente WHERE Nome = %s', (session['Nome'],))
+        cliente = cursor.fetchone()
+        # User is loggedin show them the home page
+        return render_template('profile.html', cliente=cliente)
+    # User is not loggedin redirect to login page
+    return redirect(url_for('login'))
+
+
+       
+  
 @app.route('/logout')
 def logout():
     # Remove session data, this will log the user out
