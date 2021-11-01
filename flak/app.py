@@ -66,12 +66,9 @@ def register():
                 # Check if account exists using MySQL
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM cliente WHERE Nome = %s', (Nome,))
-        cliente = cursor.fetchone()
-        cursor2 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor2.execute('SELECT * FROM cliente WHERE Email = %s', (Email,))
-        cliente2 = cursor2.fetchone()
+        cliente = cursor.fetchall()
         # If account exists show error and validation checks
-        if cliente and cliente2:
+        if cliente:
             msg = 'Account already exists!'
         elif not re.match(r'[^@]+@[^@]+\.[^@]+', Email):
             msg = 'Invalid email address!'
@@ -81,8 +78,13 @@ def register():
             msg = 'Please fill out the form!'
         else:
             # Account doesnt exists and the form data is valid, now insert new account into accounts table
-            idCliente = cursor.execute('SELECT MAX(idCliente) FROM cliente')+1
-            cursor.execute('INSERT INTO cliente VALUES (%s, %s, %s,NULL,NULL, %s)', (idCliente, Email, Nome, password,))
+            cursor2 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            clientess= cursor2.execute('SELECT * FROM cliente')
+            print(clientess)
+            idCliente = cursor2.execute('SELECT MAX(idCliente) FROM cliente')
+            print(idCliente)
+            idCliente=clientess+1
+            cursor2.execute('INSERT INTO cliente VALUES (%s, %s, %s,NULL,NULL, %s)', (idCliente, Email, Nome, password,))
             mysql.connection.commit()
             msg = 'You have successfully registered!'
     elif request.method == 'POST':
