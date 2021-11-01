@@ -1,4 +1,57 @@
 {% extends "base.html" %}
 {% block title %}{% endblock %}
 {% block content %}
+<style>
+    .profile {
+        color: rgb(194, 194, 174);
+        font-size: 22px;
+        font-family: "Bodoni MT";
+        
+    }
+
+    .center_img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+    }
+
+    /* Three image containers (use 25% for four, and 50% for two, etc) */
+    .column {
+        float: left;
+        width: 17.5%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 15px;
+    }
+
+    /* Clear floats after image containers */
+    .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+</style>
+
+
+<h2>Profile Page</h2>
+
+<div>
+    <p>Your account details are below:</p>
+    <table>
+        <tr>
+            <td>Nome:</td>
+            <td>{{ cliente['Nome'] }}</td>
+        </tr>
+        <tr>
+            <td>Password:</td>
+            <td>{{ cliente['password'] }}</td>
+        </tr>
+        <tr>
+            <td>Email:</td>
+            <td>{{ cliente['Email'] }}</td>
+        </tr>
+    </table>
+</div>
+    
 {% endblock %}
