@@ -84,7 +84,7 @@ def register():
             idCliente = cursor2.execute('SELECT MAX(idCliente) FROM cliente')
             print(idCliente)
             idCliente=clientess+1
-            cursor2.execute('INSERT INTO cliente VALUES (%s, %s, %s,NULL,NULL, %s)', (idCliente, Email, Nome, password,))
+            cursor2.execute('INSERT INTO cliente VALUES (NULL, %s, %s,NULL,NULL, %s)', ( Email, Nome,password,))
             mysql.connection.commit()
             msg = 'You have successfully registered!'
     elif request.method == 'POST':
