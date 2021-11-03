@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint, json, render_template, request, jsonify, redirect, url_for
 from flask import render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
+from werkzeug.security import generate_password_hash, check_password_hash
 import MySQLdb.cursors
 import re
 
@@ -32,7 +33,7 @@ def login():
         password = request.form['password']
         # Check if account exists using MySQL
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM cliente WHERE Nome = %s AND password = %s', (Nome, password,))
+        cursor.execute('SELECT * FROM cliente WHERE Nome = %s AND password = %s', (Nome, generate_password_hash(password),))
         # Fetch one record and return result
         cliente = cursor.fetchone()
         # If account exists in accounts table in out database
@@ -80,7 +81,7 @@ def register():
             idCliente = cursor2.execute('SELECT MAX(idCliente) FROM cliente')
             print(idCliente)
             idCliente=clientess+1
-            cursor2.execute('INSERT INTO cliente VALUES (NULL, %s, %s,NULL,NULL, %s)', ( Email, Nome,password,))
+            cursor2.execute('INSERT INTO cliente VALUES (NULL, %s, %s,NULL,NULL, %s)', ( Email, Nome,generate_password_hash(password),))
             mysql.connection.commit()
             msg = 'You have successfully registered!'
     elif request.method == 'POST':
