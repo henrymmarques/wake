@@ -17,10 +17,6 @@ app.config['MYSQL_DB'] = 'wake'
 # Intialize MySQL
 mysql = MySQL(app)
 
-
-
-
-
 @app.route("/")
 def home():
     return render_template("index.html", name="welcome to wake")
