@@ -1,7 +1,6 @@
 from flask import Flask, Blueprint, json, render_template, request, jsonify, redirect, url_for
 from flask import render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
-from werkzeug.security import generate_password_hash, check_password_hash
 import MySQLdb.cursors
 import re
 
@@ -33,7 +32,7 @@ def login():
         password = request.form['password']
         # Check if account exists using MySQL
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM cliente WHERE Nome = %s AND password = %s', (Nome, generate_password_hash(password),))
+        cursor.execute('SELECT * FROM cliente WHERE Nome = %s AND password = %s', (Nome, password,))
         # Fetch one record and return result
         cliente = cursor.fetchone()
         # If account exists in accounts table in out database
@@ -42,7 +41,7 @@ def login():
             session['loggedin'] = True
             session['Nome'] = cliente['Nome']
             # Redirect to home page
-            return 'Logged in successfully!'
+            return redirect(url_for("home"))
         else:
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
@@ -81,7 +80,7 @@ def register():
             idCliente = cursor2.execute('SELECT MAX(idCliente) FROM cliente')
             print(idCliente)
             idCliente=clientess+1
-            cursor2.execute('INSERT INTO cliente VALUES (NULL, %s, %s,NULL,NULL, %s)', ( Email, Nome,generate_password_hash(password),))
+            cursor2.execute('INSERT INTO cliente VALUES (NULL, %s, %s,%s,NULL, NULL)', ( Email, Nome,password,))
             mysql.connection.commit()
             msg = 'You have successfully registered!'
     elif request.method == 'POST':
@@ -90,18 +89,6 @@ def register():
     # Show registration form with message (if any)
     return render_template("Register.html",msg=msg)
 
-@app.route("/json")
-def get_json():
-    return jsonify({'name': 'tim', 'coolness': 10})
-
-@app.route("/data")
-def get_data():
-    data = request.json
-    return jsonify(data)
-
-@app.route("/go-to-home")
-def go_to_home():
-    return redirect(url_for("home"))
 
 @app.route("/aboutUs")
 def about_us():
