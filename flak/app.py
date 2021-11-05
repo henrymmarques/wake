@@ -32,7 +32,7 @@ def login():
         password = request.form['password']
         # Check if account exists using MySQL
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM cliente WHERE Nome = %s AND password = %s', (Nome, password,))
+        cursor.execute('SELECT * FROM cliente WHERE Nome = %s AND password = %s', (Nome, passwodrd,)) 
         # Fetch one record and return result
         cliente = cursor.fetchone()
         # If account exists in accounts table in out database
