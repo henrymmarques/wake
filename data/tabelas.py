@@ -1,11 +1,8 @@
 import numpy as np
 import pandas as pd
-import statsmodels.api as sm
-import matplotlib.pyplot as plt
-import seaborn as sns
-sns.set()
 
-data = pd.read_csv('forms.csv')
+
+data = pd.read_csv(r"C:\Users\henri\OneDrive\Ambiente de Trabalho\git\wake\data\forms.csv")
 
 
 data1=data.loc[data.Gender.isin([ 'Male', 'Masculino'])]
