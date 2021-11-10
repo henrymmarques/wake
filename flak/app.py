@@ -11,7 +11,8 @@ app.config['SESSION_TYPE'] = 'filesystem'
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
-app.config['MYSQL_PASSWORD'] = 'Wake4ever'
+app.config['MYSQL_PASSWORD'] = 'root'
+#app.config['MYSQL_PASSWORD'] = 'Wake4ever'
 app.config['MYSQL_DB'] = 'wake'
 
 # Intialize MySQL
@@ -46,7 +47,7 @@ def login():
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
     # Show the login form with message (if any)
-    return render_template("login.html",msg=msg)
+    return render_template("login_test.html",msg=msg)
     
 
 @app.route('/register', methods=['GET', 'POST'])
@@ -75,19 +76,21 @@ def register():
         else:
             # Account doesnt exists and the form data is valid, now insert new account into accounts table
             cursor2 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            clientess= cursor2.execute('SELECT * FROM cliente')
-            print(clientess)
-            idCliente = cursor2.execute('SELECT MAX(idCliente) FROM cliente')
-            print(idCliente)
-            idCliente=clientess+1
+           # clientess= cursor2.execute('SELECT * FROM cliente')
+            #print(clientess)
+            #idCliente = cursor2.execute('SELECT MAX(idCliente) FROM cliente')
+            #print(idCliente)
+            #idCliente=clientess+1
             cursor2.execute('INSERT INTO cliente VALUES (NULL, %s, %s,%s,NULL, NULL)', ( Email, Nome,password,))
             mysql.connection.commit()
             msg = 'You have successfully registered!'
+            
+            return redirect(url_for('login'))
     elif request.method == 'POST':
         # Form is empty... (no POST data)
         msg = 'Please fill out the form!'
     # Show registration form with message (if any)
-    return render_template("Register.html",msg=msg)
+    return render_template("Register_test.html",msg=msg)
 
 
 @app.route("/aboutUs")
