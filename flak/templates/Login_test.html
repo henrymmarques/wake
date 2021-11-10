@@ -7,7 +7,7 @@
 /* BASIC */
 
 html {
-  background-color: #56baed;
+  background-color: #3c3f41;
 }
 
 body {
@@ -48,6 +48,7 @@ h2 {
   width: 100%;
   min-height: 100%;
   padding: 20px;
+  background-image: url('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pexels-johannes-plenio-1103970.jpg');
 }
 
 #formContent {
@@ -124,8 +125,8 @@ input[type=button]:active, input[type=submit]:active, input[type=reset]:active  
   transform: scale(0.95);
 }
 
-input[type=text] {
-  background-color: #f6f6f6;
+input[type=text], input[type=password] {
+  background-color: #ddd8d8;
   border: none;
   color: #0d0d0d;
   padding: 15px 32px;
@@ -145,46 +146,14 @@ input[type=text] {
   border-radius: 5px 5px 5px 5px;
 }
 
-input[type=text]:focus {
-  background-color: #fff;
-  border-bottom: 2px solid #5fbae9;
+input[type=text]:focus, input[type=password]:focus {
+  background-color:#5fbae9;
+  border-bottom: 2px solid #3c3f41;
 }
 
-input[type=text]:placeholder {
+input[type=text]:placeholder, input[type=password]:placeholder {
   color: #cccccc;
 }
-
-input[type=password] {
-  background-color: #f6f6f6;
-  border: none;
-  color: #0d0d0d;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;
-  margin: 5px;
-  width: 85%;
-  border: 2px solid #f6f6f6;
-  -webkit-transition: all 0.5s ease-in-out;
-  -moz-transition: all 0.5s ease-in-out;
-  -ms-transition: all 0.5s ease-in-out;
-  -o-transition: all 0.5s ease-in-out;
-  transition: all 0.5s ease-in-out;
-  -webkit-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
-}
-
-input[type=password]:focus {
-  background-color: #fff;
-  border-bottom: 2px solid #5fbae9;
-}
-
-input[type=password]:placeholder {
-  color: #cccccc;
-}
-
-
 
 /* ANIMATIONS */
 
@@ -269,7 +238,7 @@ input[type=password]:placeholder {
 }
 
 /* Simple CSS3 Fade-in Animation */
-.underlineHover:after {
+.underlineHover:after, .active:after, .inactive-underlineHover:after {
   display: block;
   left: 0;
   bottom: -10px;
@@ -280,11 +249,11 @@ input[type=password]:placeholder {
   transition: width 0.2s;
 }
 
-.underlineHover:hover {
+.underlineHover:hover, .active:hover, .inactive-underlineHover:hover {
   color: #0d0d0d;
 }
 
-.underlineHover:hover:after{
+.underlineHover:hover:after, .active:hover:after, .inactive-underlineHover:hover:after{
   width: 100%;
 }
 
@@ -297,7 +266,7 @@ input[type=password]:placeholder {
 } 
 
 #icon {
-  width:60%;
+  width:35%;
 }
 
 * {
@@ -305,27 +274,7 @@ input[type=password]:placeholder {
 }
 </style>
 
-<!--
-<div class="login">
-    <h1>Login</h1>
-    <div class="links">
-        <a href="{{ url_for('login') }}" class="active">login</a>
-        <a href="{{ url_for('register') }}" class="active">Register</a>
-    </div>
-    <form action="{{ url_for('login') }}" method="post">
-        <label for="Nome">
-            <i class="fas fa-user"></i>
-        </label>
-        <input type="text" name="Nome" placeholder="Nome" id="Nome" required>
-        <label for="password">
-            <i class="fas fa-lock"></i>
-        </label>
-        <input type="password" name="password" placeholder="Password" id="password" required>
-        <div class="msg">{{ msg }}</div>
-        <input type="submit" value="Login">
-    </form>
-</div>
--->
+
 
 
 
@@ -339,7 +288,7 @@ input[type=password]:placeholder {
   
       <!-- Icon -->
       <div class="fadeIn first">
-        <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/logo.png"" id="icon" alt="User Icon" width="25%" height="25%" />
+        <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/logo.png"" id="icon" alt="User Icon"/>
       </div>
   
       <!-- Login Form -->

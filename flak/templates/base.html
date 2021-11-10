@@ -16,14 +16,14 @@
         .navbar-custom .navbar-text,
         .nav-link {
             color: rgb(15, 15, 15);
-            font-family: "Bodoni MT";
+            font-family: "Poppins""sans-serif";
             font-size: 22px;
             margin-left: 20px;
 
         }
 
         .navbar {
-            background-image: url('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/marble.png');
+            background-image: url('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pexels-johannes-plenio-1103970.jpg');
         }
 
         .nav-item-profile {
@@ -41,6 +41,7 @@
             right: 160px;
             bottom: 12px;
         }
+
     </style>
 </head>
 
@@ -70,10 +71,10 @@
                     {% if session['loggedin'] %}
                     <!-- Logged in -->
                     <li class="nav-item-cart">
-                    <a class="nav-link" href="chart">
-                        <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/cart.png"
-                            alt="profile" width="40" height="40">
-                    </a>
+                        <a class="nav-link" href="chart">
+                            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/cart.png"
+                                alt="profile" width="40" height="40">
+                        </a>
                     </li>
                     <li class="nav-item-logout">
                         <a class="nav-link" href="logout">Logout</a>
