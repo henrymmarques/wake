@@ -20,7 +20,7 @@ mysql = MySQL(app)
 
 @app.route("/")
 def home():
-    return render_template("index.html", name="welcome to wake")
+    return render_template("Form.html", name="welcome to wake")
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
