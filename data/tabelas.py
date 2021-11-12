@@ -29,3 +29,18 @@ data2=data2.drop(columns=['Carimbo de data/hora'])
 data2=data2.reset_index()
 data2=data2.drop(columns=['index'])  
 data2.to_csv('formsfeminino.csv') 
+
+data2=data2.replace('No', 0)
+data2=data2.replace('Yes',1)
+data2
+
+
+
+
+kmeans = KMeans(n_clusters=4)
+
+y = kmeans.fit_predict(data2[['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5','Unnamed: 6','Unnamed: 7','Unnamed: 8','Unnamed: 9','Unnamed: 10','Unnamed: 11','Unnamed: 12','Unnamed: 13','Unnamed: 14','Unnamed: 15','Unnamed: 16']])
+
+data2['Cluster'] = y
+
+data2
