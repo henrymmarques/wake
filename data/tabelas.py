@@ -81,6 +81,7 @@ plt.close("all")
 plt.figure(1)
 plt.clf()
 
+
 colors = cycle("bgrcmykbgrcmykbgrcmykbgrcmyk")
 for k, col in zip(range(n_clusters_), colors):
     class_members = labels == k
