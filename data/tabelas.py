@@ -2,7 +2,7 @@ import numpy as np
 import pandas as pd
 
 
-data = pd.read_csv(r"C:\Users\henri\OneDrive\Ambiente de Trabalho\git\wake\data\forms.csv")
+data = pd.read_csv("forms.csv")
 
 
 data1=data.loc[data.Gender.isin([ 'Male', 'Masculino'])]
