@@ -20,7 +20,7 @@ mysql = MySQL(app)
 
 @app.route("/")
 def home():
-    return render_template("Form.html", name="welcome to wake")
+    return render_template("index.html", name="welcome to wake")
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -129,6 +129,22 @@ def logout():
    # Redirect to login page
    return redirect(url_for('login'))
 
+
+@app.route('/shop', methods=['GET', 'POST'])
+def shop():
+     if request.method == 'POST' and 'genero' in request.form and 'altura' in request.form and 'peso' in request.form:
+        # Create variables for easy access
+        genero = request.form['genero']
+        altura = request.form['altura']
+        peso = request.form['peso']
+        session['genero'] = genero
+        return redirect(url_for('shop2'))
+     return render_template("FormPessoal.html")
+
+@app.route('/shop2')
+def shop2():
+    if session['genero']== 'Male':
+        return render_template("FormRoupa.html") 
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
