@@ -143,8 +143,8 @@ def shop():
 
 @app.route('/shop2')
 def shop2():
-    if session['genero']== 'Male':
-        return render_template("FormRoupa.html") 
+    #if session['genero']== 'Male':
+    return render_template("FormRoupa.html") 
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
