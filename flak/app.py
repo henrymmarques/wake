@@ -8,6 +8,8 @@ app = Flask(__name__)
 app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'
 
+
+
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
@@ -41,12 +43,16 @@ def login():
             # Create session data, we can access this data in other routes
             session['loggedin'] = True
             session['Nome'] = cliente['Nome']
+            print(session['url'])
+            if session['url']=='shop':
+                return redirect(url_for("shop"))
             # Redirect to home page
             return redirect(url_for("home"))
         else:
             # Account doesnt exist or username/password incorrect
             msg = 'Incorrect username/password!'
     # Show the login form with message (if any)
+   
     return render_template("login_test.html",msg=msg)
     
 
@@ -117,8 +123,6 @@ def profile():
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
 
-
-       
   
 @app.route('/logout')
 def logout():
@@ -132,8 +136,10 @@ def logout():
 
 @app.route('/shop', methods=['GET', 'POST'])
 def shop():
+     session['url']='shop'
      if request.method == 'POST' and 'genero' in request.form and 'altura' in request.form and 'peso' in request.form:
         # Create variables for easy access
+        session['url']='false'
         genero = request.form['genero']
         altura = request.form['altura']
         peso = request.form['peso']

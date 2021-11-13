@@ -3,31 +3,79 @@
 {% block content %}
 <style>
   
+  #header-waves {
+  width: 65%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+/* Container needed to position the button. Adjust the width as needed */
+.container {
+  position: relative;
+  width: 50%;
+}
+
+/* Make the image responsive */
+.container img {
+  width: 100%;
+  height: auto;
+}
+
+/* Style the button and place it in the middle of the container/image */
+.container .btn {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: #555;
+  color: white;
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.container .btn:hover {
+  background-color: black;
+
+}
 </style>
 
-  <div>
-    
-  <!-- Login Form -->
-  <form method="post">
-    <div>
-      <label>
-        Género
-        <select id='genero' name='genero' placeholder="Selecione o género" required>
-          <option value="">Escolha o género</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-        </select>
-      </label>
-    </div>
-    <input type="number" id="altura" class="fadeIn second" name="altura" placeholder="Altura em cm" required>
-    <br>
-    <input type="number" id="peso" class="fadeIn third" name="peso" placeholder="Peso em kg" required>
-    <br>
-    <input type="submit" class="fadeIn fourth" value="Next">
-  </form>
-  
+<body>
 
-</div>
+  {% if session['loggedin'] %}
+  <div>
+
+    <!-- Login Form -->
+    <form method="post">
+      <div>
+        <label>
+          Género
+          <select id='genero' name='genero' placeholder="Selecione o género" required>
+            <option value="">Escolha o género</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </label>
+      </div>
+      <input type="number" id="altura" class="fadeIn second" name="altura" placeholder="Altura em cm" required>
+      <br>
+      <input type="number" id="peso" class="fadeIn third" name="peso" placeholder="Peso em kg" required>
+      <br>
+      <input type="submit" class="fadeIn fourth" value="Next">
+    </form>
+  </div>
+  {% else %}
+  <div class ="container" id="header-waves">
+    <img class="bg" src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/femea_forms.jpg" />
+    <input class="btn" type="button" onclick="location.href='login';" value="FAZ LOGIN PARA PREENCHERES O TEU FORMULÁRIO...">
+    </div>
+
+
+  {% endif %}
+</body>
 
 
 
