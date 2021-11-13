@@ -1,31 +1,36 @@
 {% extends "base.html" %}
 {% block title %}{% endblock %}
 {% block content %}
+<style>
+  
+</style>
 
-<div>
-<!-- Login Form -->
-<form  method="post">
-   <div>
-    <label>
-      Género
-      <select id='genero' name='genero' placeholder="Selecione o género" required>
-        <option value="">Escolha o género</option>
-        <option value="Male">Male</option>
-        <option value="Female">Female</option>
-      </select>
-    </label>
-  </div>
-  <input type="number" id="altura" class="fadeIn second" name="altura" placeholder="Altura em cm" required>
-  <br>
-  <input type="number" id="peso" class="fadeIn third" name="peso" placeholder="Peso em kg" required>
-  <br>
-  <input type="submit" class="fadeIn fourth" value="Next">
-</form>
+  <div>
+    
+  <!-- Login Form -->
+  <form method="post">
+    <div>
+      <label>
+        Género
+        <select id='genero' name='genero' placeholder="Selecione o género" required>
+          <option value="">Escolha o género</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </label>
+    </div>
+    <input type="number" id="altura" class="fadeIn second" name="altura" placeholder="Altura em cm" required>
+    <br>
+    <input type="number" id="peso" class="fadeIn third" name="peso" placeholder="Peso em kg" required>
+    <br>
+    <input type="submit" class="fadeIn fourth" value="Next">
+  </form>
+  
 
 </div>
 
 
 
 
-    
+
 {% endblock %}
