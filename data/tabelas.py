@@ -1,5 +1,14 @@
 import numpy as np
 import pandas as pd
+import matplotlib.pyplot as plt
+from kneed import KneeLocator
+from sklearn.datasets import make_blobs
+from sklearn.cluster import KMeans
+from sklearn.metrics import silhouette_score
+from sklearn.preprocessing import StandardScaler
+from sklearn.datasets import make_blobs
+from sklearn.cluster import AffinityPropagation
+from sklearn import metrics
 
 
 data = pd.read_csv("forms.csv")
@@ -35,12 +44,59 @@ data2=data2.replace('Yes',1)
 data2
 
 
+X, data2 = make_blobs(n_samples=250, cluster_std=0.5, random_state=0)
+
+afprop = AffinityPropagation(max_iter=250)
+
+af = AffinityPropagation(preference=-50, random_state=0).fit(X)
+
+cluster_centers_indices = af.cluster_centers_indices_
+labels = af.labels_
+
+n_clusters_ = len(cluster_centers_indices)
 
 
-kmeans = KMeans(n_clusters=4)
+print("Estimated number of clusters: %d" % n_clusters_)
+print("Homogeneity: %0.3f" % metrics.homogeneity_score(data2, labels))
+print("Completeness: %0.3f" % metrics.completeness_score(data2, labels))
+print("V-measure: %0.3f" % metrics.v_measure_score(data2, labels))
+print("Adjusted Rand Index: %0.3f" % metrics.adjusted_rand_score(data2, labels))
+print(
+    "Adjusted Mutual Information: %0.3f"
+    % metrics.adjusted_mutual_info_score(data2, labels)
+)
+print(
+    "Silhouette Coefficient: %0.3f"
+    % metrics.silhouette_score(X, labels, metric="sqeuclidean")
+)
+##print("Relevância: %0.3f"
+##    % metrics. )
 
-y = kmeans.fit_predict(data2[['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4', 'Unnamed: 5','Unnamed: 6','Unnamed: 7','Unnamed: 8','Unnamed: 9','Unnamed: 10','Unnamed: 11','Unnamed: 12','Unnamed: 13','Unnamed: 14','Unnamed: 15','Unnamed: 16']])
+# #############################################################################
+# Plot result
+import matplotlib.pyplot as plt
+from itertools import cycle
 
-data2['Cluster'] = y
+plt.close("all")
+plt.figure(1)
+plt.clf()
 
-data2
+
+colors = cycle("bgrcmykbgrcmykbgrcmykbgrcmyk")
+for k, col in zip(range(n_clusters_), colors):
+    class_members = labels == k
+    cluster_center = X[cluster_centers_indices[k]]
+    plt.plot(X[class_members, 0], X[class_members, 1], col + ".")
+    plt.plot(
+        cluster_center[0],
+        cluster_center[1],
+        "o",
+        markerfacecolor=col,
+        markeredgecolor="k",
+        markersize=14,
+    )
+    for x in X[class_members]:
+        plt.plot([cluster_center[0], x[0]], [cluster_center[1], x[1]], col)
+
+plt.title("Estimated number of clusters: %d" % n_clusters_)
+plt.show()
