@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint, json, render_template, request, jsonify, redirect, url_for
 from flask import render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
+from werkzeug.security import generate_password_hash, check_password_hash
 import MySQLdb.cursors
 import re
 
@@ -32,26 +33,28 @@ def login():
     if request.method == 'POST' and 'Nome' in request.form and 'password' in request.form:
         # Create variables for easy access
         Nome = request.form['Nome']
-        password = request.form['password']
+        password1 = request.form['password']
         # Check if account exists using MySQL
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM cliente WHERE Nome = %s AND password = %s', (Nome, password,)) 
+        cursor.execute('SELECT * FROM cliente WHERE Nome = %s', (Nome,)) 
         # Fetch one record and return result
         cliente = cursor.fetchone()
+        print(cliente)
         # If account exists in accounts table in out database
         if cliente:
-            # Create session data, we can access this data in other routes
-            session['loggedin'] = True
-            session['Nome'] = cliente['Nome']
-            print(session['url'])
-            if session['url']=='shop':
-                return redirect(url_for("shop"))
-            # Redirect to home page
-            return redirect(url_for("home"))
-        else:
-            # Account doesnt exist or username/password incorrect
-            msg = 'Incorrect username/password!'
-    # Show the login form with message (if any)
+            if check_password_hash(cliente['Password'],password1 ):
+                # Create session data, we can access this data in other routes
+                session['loggedin'] = True
+                session['Nome'] = cliente['Nome']
+                print(session['url'])
+                if session['url']=='shop':
+                    return redirect(url_for("shop"))
+                # Redirect to home page
+                return redirect(url_for("home"))
+            else:
+                # Account doesnt exist or username/password incorrect
+                msg = 'Incorrect username/password!'
+                 #  Show the login form with message (if any)
    
     return render_template("login_test.html",msg=msg)
     
@@ -64,7 +67,7 @@ def register():
     if request.method == 'POST' and 'Nome' in request.form and 'password' in request.form and 'Email' in request.form:
         # Create variables for easy access
         Nome = request.form['Nome']
-        password = request.form['password']
+        password = generate_password_hash(request.form['password'])
         Email = request.form['Email']
                 # Check if account exists using MySQL
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -87,7 +90,7 @@ def register():
             #idCliente = cursor2.execute('SELECT MAX(idCliente) FROM cliente')
             #print(idCliente)
             #idCliente=clientess+1
-            cursor2.execute('INSERT INTO cliente VALUES (NULL, %s, %s,%s,NULL, NULL)', ( Email, Nome,password,))
+            cursor2.execute('INSERT INTO cliente VALUES (NULL, %s, %s, %s, NULL, NULL, NULL, NULL, NULL)', ( Email, Nome,password,))
             mysql.connection.commit()
             msg = 'You have successfully registered!'
             

@@ -27,9 +27,12 @@ CREATE TABLE IF NOT EXISTS `wake`.`Cliente` (
   `idCliente` INT NOT NULL AUTO_INCREMENT,
   `Email` VARCHAR(45) NOT NULL,
   `Nome` VARCHAR(45) NOT NULL,
-  `password` VARCHAR(45) NOT NULL,
-  `Morada de Entrega` VARCHAR(45) NULL,
+  `Password` VARCHAR(200) NOT NULL,
+  `Morada` VARCHAR(45) NULL,
   `Morada de Faturação` VARCHAR(45) NULL,
+  `Peso` INT NULL,
+  `Altura` INT NULL,
+  `Genero` VARCHAR(45) NULL,
   UNIQUE INDEX `Email_Cliente_UNIQUE` (`idCliente` ASC) VISIBLE,
   PRIMARY KEY (`idCliente`),
   UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) VISIBLE)
@@ -57,7 +60,22 @@ DROP TABLE IF EXISTS `wake`.`Formulario` ;
 
 CREATE TABLE IF NOT EXISTS `wake`.`Formulario` (
   `idFormulario` INT NOT NULL auto_increment,
-  `Resposta 1` VARCHAR(45) NULL,
+  `Resposta 1` INT NULL,
+   `Resposta 2` INT NULL,
+    `Resposta 3` INT NULL,
+     `Resposta 4` INT NULL,
+     `Resposta 5` INT NULL,
+      `Resposta 6` INT NULL,
+       `Resposta 7` INT NULL,
+        `Resposta 8` INT NULL,
+         `Resposta 9` INT NULL,
+          `Resposta 10` INT NULL,
+            `Resposta 11` INT NULL,
+             `Resposta 12` INT NULL,
+              `Resposta 13` INT NULL,
+               `Resposta 14` INT NULL,
+                `Resposta 15` INT NULL,
+      
   `Cliente_idCliente` INT NOT NULL,
   `Estilo_idEstilo1` INT NOT NULL,
   PRIMARY KEY (`idFormulario`),
@@ -84,6 +102,9 @@ DROP TABLE IF EXISTS `wake`.`Roupa` ;
 
 CREATE TABLE IF NOT EXISTS `wake`.`Roupa` (
   `idRoupa` INT NOT NULL,
+  `URL` varchar(500) NULL,
+  `Genero` varchar(25) NULL,
+  -- Fazer Insert Roupas
   PRIMARY KEY (`idRoupa`),
   UNIQUE INDEX `idRoupa_UNIQUE` (`idRoupa` ASC) VISIBLE)
 ENGINE = InnoDB;
