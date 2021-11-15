@@ -122,7 +122,7 @@ def profile():
         cursor.execute('SELECT * FROM cliente WHERE Nome = %s', (session['Nome'],))
         cliente = cursor.fetchone()
         # User is loggedin show them the home page
-        return render_template('profile.html', cliente=cliente)
+        return render_template('profile_test.html', cliente=cliente)
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
 
