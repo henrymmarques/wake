@@ -106,11 +106,11 @@ def register():
 def about_us():
     return render_template("aboutUs.html")
 
-@app.route("/chart")
-def chart():
+@app.route("/cart")
+def cart():
     if 'loggedin' in session:
         # User is loggedin show them the home page
-        return render_template('chart.html', Nome=session['Nome'])
+        return render_template('cart.html', Nome=session['Nome'])
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
 
