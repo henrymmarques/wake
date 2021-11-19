@@ -2,45 +2,140 @@
 {% block title %}{% endblock %}
 {% block content %}
 <style>
-  
   #header-waves {
-  width: 65%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-}
-/* Container needed to position the button. Adjust the width as needed */
-.container {
-  position: relative;
-  width: 50%;
-}
+    width: 65%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+  }
 
-/* Make the image responsive */
-.container img {
-  width: 100%;
-  height: auto;
-}
+  /* Container needed to position the button. Adjust the width as needed */
+  .container {
+    position: relative;
+    width: 50%;
+  }
 
-/* Style the button and place it in the middle of the container/image */
-.container .btn {
-  position: absolute;
-  top: 70%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  background-color: #555;
-  color: white;
-  font-size: 16px;
-  padding: 12px 24px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-}
+  /* Make the image responsive */
+  .container img {
+    width: 100%;
+    height: auto;
+  }
 
-.container .btn:hover {
-  background-color: black;
+  /* Style the button and place it in the middle of the container/image */
+  .container .btn {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 20px;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #11384b;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 40px 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
 
-}
+  .container .btn:hover {
+    background-color: #56baed;
+
+  }
+
+
+
+
+
+
+  .form {
+    background-color: #15172b;
+    border-radius: 20px;
+    box-sizing: border-box;
+    height: 500px;
+    padding: 20px;
+    width: 320px;
+  }
+
+  .title {
+    color: #eee;
+    font-family: "Poppins", sans-serif;
+    font-size: 36px;
+    font-weight: 600;
+    margin-top: 30px;
+  }
+
+  .subtitle {
+    color: #eee;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    margin-top: 10px;
+  }
+
+  .input-container {
+    height: 50px;
+    position: relative;
+    width: 100%;
+  }
+
+  .ic1 {
+    margin-top: 40px;
+  }
+
+  .ic2 {
+    margin-top: 30px;
+  }
+
+  .input {
+    background-color: #303245;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    font-size: 18px;
+    font-family: "Poppins", sans-serif;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 100%;
+  }
+
+
+
+
+  .submit {
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: #eee;
+    cursor: pointer;
+    font-size: 18px;
+    height: 50px;
+    margin-top: 38px;
+    font-family: "Poppins", sans-serif;
+    // outline: 0;
+    text-align: center;
+    width: 100%;
+  }
+
+  .submit:active {
+    background-color: #06b;
+  }
 </style>
 
 <body>
@@ -49,7 +144,7 @@
   <div>
 
     <!-- Login Form -->
-    <form method="post">
+    <!--form method="post">
       <div>
         <label>
           Género
@@ -66,15 +161,35 @@
       <br>
       <input type="submit" class="fadeIn fourth" value="Next">
     </form>
-  </div>
-  {% else %}
-  <div class ="container" id="header-waves">
-    <img class="bg" src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/femea_forms.jpg" />
-    <input class="btn" type="button" onclick="location.href='login';" value="FAZ LOGIN PARA PREENCHERES O TEU FORMULÁRIO...">
+  </div-->
+
+    <div class="form">
+      <div class="title">Bem-vindo</div>
+      <div class="subtitle">Apenas precisamos destas informações</div>
+      <div class="input-container ic2">
+        <select id='genero' class="input" name='genero' placeholder="Selecione o género" required>
+          <option value="">Escolha o género</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+      </div>
+      <div class="input-container ic1">
+        <input type="number" id="altura" class="input" name="altura" placeholder="Altura em cm" required>
+      </div>
+      <div class="input-container ic2">
+        <input type="number" id="peso" class="input" name="peso" placeholder="Peso em kg" required>
+      </div>
+      <input type="submit" class="submit" value="NEXT">
+    </div>
+    {% else %}
+    <div class="container" id="header-waves">
+      <img class="bg" src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/femea_forms.jpg" />
+      <input class="btn" type="button" onclick="location.href='login';"
+        value="FAZ LOGIN PARA PREENCHERES O TEU FORMULÁRIO...">
     </div>
 
 
-  {% endif %}
+    {% endif %}
 </body>
 
 {% endblock %}
