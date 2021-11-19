@@ -18,19 +18,41 @@
     }
 
     /* Three image containers (use 25% for four, and 50% for two, etc) */
-    .column {
+
+    .column1 {
         float: left;
         width: 17.5%;
         margin-left: auto;
         margin-right: auto;
         padding: 15px;
+
     }
+
 
     /* Clear floats after image containers */
     .row::after {
         content: "";
         clear: both;
         display: table;
+    }
+
+    .column1 .img-top {
+        display: none;
+        float: left;
+        width: 17.5%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 15px;
+
+    }
+
+    .column1:hover .img-back {
+        display: none;
+
+    }
+
+    .column1:hover .img-top {
+        display: inline;
     }
 </style>
 
@@ -51,29 +73,29 @@
         alt="profile" width="500" height="500">
     <h1 style="text-align:center"><br><br>A Nossa Equipa<br></h1>
     <div class="row">
-        <div class="column">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/eu.png" alt="henrique"
-                style="width:100%"
-                onmouseover=this.src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/eu_func.png"
-                onmouseout=this.src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/eu.png">
+        <div class="column1">
+            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/eu.png" class="img-back"
+                alt="henrique" style="width:100%">
+            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/eu_func.png" class="img-top"
+                alt="henrique" style="width:110%">
         </div>
-        <div class="column">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/vasco.png" alt="vasco"
-                style="width:100%"
-                onmouseover=this.src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/vasco_func.png"
-                onmouseout=this.src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/vasco.png">
+        <div class="column1">
+            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/vasco.png" class="img-back"
+                alt="vasco" style="width:100%">
+            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/vasco_func.png" class="img-top"
+                alt="vasco" style="width:110%">
         </div>
-        <div class="column">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/nazif.png" alt="nazif"
-                style="width:100%"
-                onmouseover=this.src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/nazif_func.png"
-                onmouseout=this.src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/nazif.png">
+        <div class="column1">
+            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/nazif.png" class="img-back"
+                alt="nazif" style="width:100%">
+            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/nazif_func.png" class="img-top"
+                alt="nazif" style="width:110%">
         </div>
-        <div class="column">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pina.png" alt="pina"
-                style="width:100%"
-                onmouseover=this.src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pina_func.png"
-                onmouseout=this.src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pina.png">
+        <div class="column1">
+            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pina.png" class="img-back"
+                alt="pina" style="width:100%">
+            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pina_func.png" class="img-top"
+                alt="pina" style="width:110%">
         </div>
     </div>
 </div>
