@@ -56,18 +56,16 @@
 
   }
 
-
-
-
-
-
   .form {
     background-color: #15172b;
     border-radius: 20px;
     box-sizing: border-box;
-    height: 500px;
+    height: 525px;
     padding: 20px;
     width: 320px;
+    text-align: center;
+    position: relative;
+    margin: auto;
   }
 
   .title {
@@ -128,7 +126,6 @@
     height: 50px;
     margin-top: 38px;
     font-family: "Poppins", sans-serif;
-    // outline: 0;
     text-align: center;
     width: 100%;
   }
@@ -136,15 +133,18 @@
   .submit:active {
     background-color: #06b;
   }
+
+  .back{
+    background-image: url('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pexels_roupa.jpeg');
+  }
 </style>
 
-<body>
+<body class="back">
 
   {% if session['loggedin'] %}
-  <div>
 
-    <!-- Login Form -->
-    <!--form method="post">
+  <!-- Login Form -->
+  <!--form method="post">
       <div>
         <label>
           Género
@@ -163,23 +163,27 @@
     </form>
   </div-->
 
+  <div class="bacdk">
+    
     <div class="form">
-      <div class="title">Bem-vindo</div>
-      <div class="subtitle">Apenas precisamos destas informações</div>
-      <div class="input-container ic2">
-        <select id='genero' class="input" name='genero' placeholder="Selecione o género" required>
-          <option value="">Escolha o género</option>
-          <option value="Male">Male</option>
-          <option value="Female">Female</option>
-        </select>
-      </div>
-      <div class="input-container ic1">
-        <input type="number" id="altura" class="input" name="altura" placeholder="Altura em cm" required>
-      </div>
-      <div class="input-container ic2">
-        <input type="number" id="peso" class="input" name="peso" placeholder="Peso em kg" required>
-      </div>
-      <input type="submit" class="submit" value="NEXT">
+      <form method="post">
+        <div class="title">Bem-vindo</div>
+        <div class="subtitle">Por agora precisamos destas informações</div>
+        <div class="input-container ic2">
+          <select id='genero' class="input" name='genero' placeholder="Selecione o género" required>
+            <option value="">Escolha o género</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+          </select>
+        </div>
+        <div class="input-container ic1">
+          <input type="number" id="altura" class="input" name="altura" placeholder="Altura em cm" required>
+        </div>
+        <div class="input-container ic2">
+          <input type="number" id="peso" class="input" name="peso" placeholder="Peso em kg" required>
+        </div>
+        <input type="submit" class="submit" value="NEXT">
+      </form>
     </div>
     {% else %}
     <div class="container" id="header-waves">
@@ -187,9 +191,10 @@
       <input class="btn" type="button" onclick="location.href='login';"
         value="FAZ LOGIN PARA PREENCHERES O TEU FORMULÁRIO...">
     </div>
+  </div>
 
 
-    {% endif %}
+  {% endif %}
 </body>
 
 {% endblock %}
