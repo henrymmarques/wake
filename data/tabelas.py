@@ -1,3 +1,4 @@
+from operator import index
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -10,10 +11,12 @@ from sklearn.datasets import make_blobs
 from sklearn.cluster import AffinityPropagation
 from sklearn import metrics
 
+from itertools import cycle
+
 
 data = pd.read_csv("forms.csv")
 
-
+    
 data1=data.loc[data.Gender.isin([ 'Male', 'Masculino'])]
 data1=data1.dropna(axis = 1)
 data1=data1.replace('Não', 'No')
@@ -24,6 +27,7 @@ data1=data1.replace('Masculino', 'Male')
 data1=data1.drop(columns=['Carimbo de data/hora'])
 data1=data1.reset_index()
 data1=data1.drop(columns=['index'])  
+data1=data1.drop(columns=['Gender']) 
 data1.to_csv('formsmasculino.csv') 
 
 
@@ -36,24 +40,33 @@ data2=data2.replace('Yes', '1')
 data2=data2.replace('Feminino', 'Female')
 data2=data2.drop(columns=['Carimbo de data/hora'])
 data2=data2.reset_index()
-data2=data2.drop(columns=['index'])  
+data2=data2.drop(columns=['index']) 
+data2=data2.drop(columns=['Gender'])
 data2.to_csv('formsfeminino.csv') 
 
-data2=data2.replace('No', 0)
-data2=data2.replace('Yes',1)
-data2
 
 
-X, data2 = make_blobs(n_samples=250, cluster_std=0.5, random_state=0)
 
+X, data2 = make_blobs(n_samples=data2.__len__(), cluster_std=0.5, random_state=0)
 afprop = AffinityPropagation(max_iter=250)
-
 af = AffinityPropagation(preference=-50, random_state=0).fit(X)
-
 cluster_centers_indices = af.cluster_centers_indices_
 labels = af.labels_
-
 n_clusters_ = len(cluster_centers_indices)
+
+
+
+count=0
+for i in labels:
+    count= count+1
+    
+    
+print(labels)
+print(count)
+
+
+
+
 
 
 print("Estimated number of clusters: %d" % n_clusters_)
@@ -74,15 +87,14 @@ print(
 
 # #############################################################################
 # Plot result
-import matplotlib.pyplot as plt
-from itertools import cycle
+
 
 plt.close("all")
 plt.figure(1)
 plt.clf()
 
 
-colors = cycle("bgrcmykbgrcmykbgrcmykbgrcmyk")
+colors = cycle("bgrcmykbgrcmyk")
 for k, col in zip(range(n_clusters_), colors):
     class_members = labels == k
     cluster_center = X[cluster_centers_indices[k]]
