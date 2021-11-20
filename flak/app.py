@@ -10,7 +10,6 @@ app.secret_key = 'super secret key'
 app.config['SESSION_TYPE'] = 'filesystem'
 
 
-
 # Enter your database connection details below
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
@@ -21,9 +20,11 @@ app.config['MYSQL_DB'] = 'wake'
 # Intialize MySQL
 mysql = MySQL(app)
 
+
 @app.route("/")
 def home():
     return render_template("index.html", name="welcome to wake")
+
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -36,28 +37,28 @@ def login():
         password1 = request.form['password']
         # Check if account exists using MySQL
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM cliente WHERE Nome = %s', (Nome,)) 
+        cursor.execute('SELECT * FROM cliente WHERE Nome = %s', (Nome,))
         # Fetch one record and return result
         cliente = cursor.fetchone()
         print(cliente)
         # If account exists in accounts table in out database
         if cliente:
-            if check_password_hash(cliente['Password'],password1 ):
+            if check_password_hash(cliente['Password'], password1):
                 # Create session data, we can access this data in other routes
                 session['loggedin'] = True
                 session['Nome'] = cliente['Nome']
                 print(session['url'])
-                if session['url']=='shop':
+                if session['url'] == 'shop':
                     return redirect(url_for("shop"))
                 # Redirect to home page
                 return redirect(url_for("home"))
             else:
                 # Account doesnt exist or username/password incorrect
                 msg = 'Incorrect username/password!'
-                 #  Show the login form with message (if any)
-   
-    return render_template("login_test.html",msg=msg)
-    
+                #  Show the login form with message (if any)
+
+    return render_template("login_test.html", msg=msg)
+
 
 @app.route('/register', methods=['GET', 'POST'])
 def register():
@@ -69,7 +70,7 @@ def register():
         Nome = request.form['Nome']
         password = generate_password_hash(request.form['password'])
         Email = request.form['Email']
-                # Check if account exists using MySQL
+        # Check if account exists using MySQL
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor.execute('SELECT * FROM cliente WHERE Nome = %s', (Nome,))
         cliente = cursor.fetchall()
@@ -86,25 +87,31 @@ def register():
             # Account doesnt exists and the form data is valid, now insert new account into accounts table
             cursor2 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
            # clientess= cursor2.execute('SELECT * FROM cliente')
-            #print(clientess)
+            # print(clientess)
             #idCliente = cursor2.execute('SELECT MAX(idCliente) FROM cliente')
-            #print(idCliente)
-            #idCliente=clientess+1
-            cursor2.execute('INSERT INTO cliente VALUES (NULL, %s, %s, %s, NULL, NULL, NULL, NULL, NULL)', ( Email, Nome,password,))
+            # print(idCliente)
+            # idCliente=clientess+1
+            cursor2.execute(
+                'INSERT INTO cliente VALUES (NULL, %s, %s, %s, NULL, NULL, NULL, NULL, NULL)', (Email, Nome, password,))
             mysql.connection.commit()
             msg = 'You have successfully registered!'
-            
+
             return redirect(url_for('login'))
     elif request.method == 'POST':
         # Form is empty... (no POST data)
         msg = 'Please fill out the form!'
     # Show registration form with message (if any)
-    return render_template("Register_test.html",msg=msg)
+    return render_template("Register_test.html", msg=msg)
 
 
 @app.route("/aboutUs")
 def about_us():
     return render_template("aboutUs.html")
+
+@app.route("/contact")
+def contact():
+    return render_template("comingsoon.html")
+
 
 @app.route("/cart")
 def cart():
@@ -114,46 +121,50 @@ def cart():
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
 
+
 @app.route("/profile")
 def profile():
     if 'loggedin' in session:
         # We need all the account info for the user so we can display it on the profile page
         cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor.execute('SELECT * FROM cliente WHERE Nome = %s', (session['Nome'],))
+        cursor.execute('SELECT * FROM cliente WHERE Nome = %s',
+                       (session['Nome'],))
         cliente = cursor.fetchone()
         # User is loggedin show them the home page
         return render_template('profile_test.html', cliente=cliente)
     # User is not loggedin redirect to login page
     return redirect(url_for('login'))
 
-  
+
 @app.route('/logout')
 def logout():
     # Remove session data, this will log the user out
-   session.pop('loggedin', None)
-   session.pop('id', None)
-   session.pop('username', None)
-   # Redirect to login page
-   return redirect(url_for('login'))
+    session.pop('loggedin', None)
+    session.pop('id', None)
+    session.pop('username', None)
+    # Redirect to login page
+    return redirect(url_for('login'))
 
 
 @app.route('/shop', methods=['GET', 'POST'])
 def shop():
-     session['url']='shop'
-     if request.method == 'POST' and 'genero' in request.form and 'altura' in request.form and 'peso' in request.form:
+    session['url'] = 'shop'
+    if request.method == 'POST' and 'genero' in request.form and 'altura' in request.form and 'peso' in request.form:
         # Create variables for easy access
-        session['url']='false'
+        session['url'] = 'false'
         genero = request.form['genero']
         altura = request.form['altura']
         peso = request.form['peso']
         session['genero'] = genero
         return redirect(url_for('shop2'))
-     return render_template("FormPessoal.html")
+    return render_template("FormPessoal.html")
+
 
 @app.route('/shop2')
 def shop2():
-    #if session['genero']== 'Male':
-    return render_template("FormRoupa.html") 
+    # if session['genero']== 'Male':
+    return render_template("FormRoupa.html")
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=8000)
