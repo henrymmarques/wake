@@ -122,7 +122,7 @@ def cart():
     return redirect(url_for('login'))
 
 
-@app.route("/profile")
+@app.route("/profile", methods=['GET', 'POST'])
 def profile():
     if 'loggedin' in session:
         # We need all the account info for the user so we can display it on the profile page
@@ -131,9 +131,27 @@ def profile():
                        (session['Nome'],))
         cliente = cursor.fetchone()
         # User is loggedin show them the home page
-        return render_template('profile_test.html', cliente=cliente)
-    # User is not loggedin redirect to login page
-    return redirect(url_for('login'))
+       # return render_template('profile_test.html', cliente=cliente)
+        if 'Nome' in request.form and 'Email' in request.form and 'Morada' in request.form:
+            print('AQUIIIII')
+             # Create variables for easy access
+            Nome = request.form['Nome']
+            #password1 = request.form['password']
+            email = request.form['Email']
+            morada = request.form['Morada']
+            # Check if account exists using MySQL
+            cursor1 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor1.execute('UPDATE wake.cliente set Nome = %s, Email= %s, Morada= %s WHERE Nome= %s', (Nome, email, morada, session['Nome'],))
+            mysql.connection.commit()
+            session['Nome']=Nome
+            cursor2 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor2.execute('SELECT * FROM cliente WHERE Nome = %s',
+                       (session['Nome'],))
+            cliente = cursor2.fetchone()
+        # User is not loggedin redirect to login page
+    else:
+        return redirect(url_for('login'))
+    return render_template('profile_test.html', cliente=cliente)
 
 
 @app.route('/logout')

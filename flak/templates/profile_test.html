@@ -119,13 +119,23 @@
 
     input[type=button]:hover,
     input[type=submit]:hover,
-    input[type=reset]:hover {
+    input[type=reset]:hover
+     {
         background-color: #39ace7;
+    }
+
+    #second {
+        background-color: rgb(233, 32, 25);
+    }
+
+    #second:hover {
+        background-color: rgb(202, 30, 24);
     }
 
     input[type=button]:active,
     input[type=submit]:active,
-    input[type=reset]:active {
+    input[type=reset]:active
+    {
         -moz-transform: scale(0.95);
         -webkit-transform: scale(0.95);
         -o-transform: scale(0.95);
@@ -338,20 +348,24 @@
         <h2 class="dados_pessoais">Dados Pessoais</h2>
 
         <!-- Login Form -->
-        <form action="{{ url_for('login') }}" method="post">
+        <form action="{{ url_for('profile') }}" method="post">
             <div>
                 <h>Nome:</h>
-                <input type="text" id="Nome" class="fadeIn second" name="Nome" placeholder="Nome" required>
+                <input type="text" id="Nome" class="fadeIn second" name="Nome" value={{ cliente['Nome'] }}
+                    required>
             </div>
             <div>
                 <h>Email:</h>
-                <input type="text" id="Email" class="fadeIn second" name="Email" placeholder="Email" required>
+                <input type="text" id="Email" class="fadeIn second" name="Email" value={{ cliente['Email'] }}
+                    required>
             </div>
             <h>Password:</h>
-            <input type="password" id="password" class="fadeIn second" name="password" placeholder="Password" required>
+            <input type="password" id="password" class="fadeIn second" name="password" value={{
+                cliente['password'] }} >
             <h>Morada:</h>
-            <input type="text" id="Morada" class="fadeIn second" name="Morada" placeholder="Morada" required>
-            <input type="submit" class="fadeIn fourth" value="Confirmar">
+            <input type="text" id="Morada" class="fadeIn second" name="Morada" value={{ cliente['Morada']}} required>
+            <input type="submit" class="fadeIn fourth" value="Confirmar Alterações">
+            <input type="reset" id="second" onclick="window.location.replace('http://127.0.0.1:8000/')" class="fadeIn fourth" value="Cancelar">
         </form>
     </div>
 </div>
