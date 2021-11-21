@@ -95,7 +95,7 @@
         input[type=button],
         input[type=submit],
         input[type=reset] {
-            background-color: #56baed;
+            background-color: #0d3346;
             border: none;
             color: white;
             padding: 15px 80px;
@@ -103,7 +103,7 @@
             text-decoration: none;
             display: inline-block;
             text-transform: uppercase;
-            font-size: 13px;
+            font-size: 18px;
             -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
             box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
             -webkit-border-radius: 5px 5px 5px 5px;
@@ -187,276 +187,289 @@
         }
 
         .myGallery {
-            
+
             font-size: 1rem;
-            background: rgb(139, 107, 13);
+            /* background: rgb(139, 107, 13);
             background: linear-gradient(90deg, rgba(139, 107, 13, 1) 0%, rgba(249, 236, 114, 1) 35%, rgba(0, 212, 255, 0.41780462184873945) 100%);
+            background-image: url('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pexels-johannes-plenio-1103970.jpg');
+            */
         }
-        .img{
+
+        .body {
+            background-image: url('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pexels-johannes-plenio-1103970.jpg');
+
+        }
+
+        .img {
             border-style: solid;
         }
     </style>
 </head>
 
-<body>
-    <h1>Das seguinte imagens seleciona os estilos nos quais mais te identificas</h1>
+<body class="body">
+    <h1>Das seguinte imagens seleciona os estilos que mais te identificas</h1>
     <p>Basta clicar no botão de cada imagem✌😏</p>
     {% if session['genero']=='Male' %}
-    <div class="myGallery">
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/alterno1.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="alterno1" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/streetwear2.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="streetwear2" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/desportivo3.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="desportivo3" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/alterno3.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="alterno3" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
+    <form method="post">
+        <div class="myGallery">
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/alterno1.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="alterno1" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/streetwear2.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="streetwear2" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/desportivo3.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="desportivo3" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/alterno3.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="alterno3" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
 
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/classic2.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="classic2" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/classic3.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="classic3" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/desportivo1.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="desportivo1" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/desportivo2.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="desportivo2" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/classic2.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="classic2" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/classic3.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="classic3" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/desportivo1.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="desportivo1" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/desportivo2.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="desportivo2" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
 
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/flannel1.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="flannel1" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/flannel2.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="flannel2" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/flannel3.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="flannel3" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/classic1.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="classic1" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/streetwear1.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="streetwear1" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/flannel1.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="flannel1" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/flannel2.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="flannel2" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/flannel3.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="flannel3" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/classic1.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="classic1" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/streetwear1.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="streetwear1" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
 
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/alterno2.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="alterno2" value="yes">
-                <span class="slider round"></span>
-            </label>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/alterno2.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="alterno2" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/streetwear3.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="streetwear3" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <input type="submit" class="submit" value="NEXT">
         </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/streetwear3.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="streetwear3" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-    </div>
+    </form>
     <!--p><em><small>When you need something more fancy, just check out <a href="https://gridzy.gallery/" target="_blank">Gridzy.Gallery</a></small></em></p-->
 
     {% else %}
-    <div class="myGallery">
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/boho1.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="boho1" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/streetwear3.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="streetwear3_f" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/classic2.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="classic2_f" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/classic3.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="classic3_f" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
+    <form method="post">
+        <div class="myGallery">
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/boho1.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="boho1" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/streetwear3.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="streetwear3_f" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/classic2.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="classic2_f" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/classic3.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="classic3_f" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
 
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/classic1.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="classic1_f" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/casual3.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="casual3" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/casual1.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="casual1" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/casual2.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="casual2" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/classic1.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="classic1_f" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/casual3.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="casual3" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/casual1.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="casual1" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/casual2.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="casual2" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
 
 
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/comfy1.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="comfy1" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/comfy2.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="comfy2" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/comfy3.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="comfy3" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/indie1.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="indie1" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/streetwear1.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="streetwear1_f" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/comfy1.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="comfy1" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/comfy2.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="comfy2" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/comfy3.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="comfy3" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/indie1.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="indie1" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/streetwear1.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="streetwear1_f" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
 
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/streetwear2.png" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="streetwear2_f" value="yes">
-                <span class="slider round"></span>
-            </label>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/streetwear2.png" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="streetwear2_f" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <div class="img">
+                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/boho2.jpg" />
+                <!-- Rounded switch -->
+                <label class="switch">
+                    <input type="checkbox" name="boho2" value="yes">
+                    <span class="slider round"></span>
+                </label>
+            </div>
+            <input type="submit" class="submit" value="NEXT">
         </div>
-        <div class="img">
-            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/boho2.jpg" />
-            <!-- Rounded switch -->
-            <label class="switch">
-                <input type="checkbox" name="boho2" value="yes">
-                <span class="slider round"></span>
-            </label>
-        </div>
-
-    </div>
+    </form>
 
 
     {% endif %}
