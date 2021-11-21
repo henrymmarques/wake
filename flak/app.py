@@ -116,6 +116,10 @@ def contact():
 def forgotPassword():
     return render_template("comingsoon.html")
 
+@app.route("/package")
+def package():
+    return render_template("package.html")
+
 
 @app.route("/cart")
 def cart():
@@ -217,6 +221,7 @@ def shop2():
                        alterno2, alterno3, classic1, classic2, classic3, desportivo1, desportivo2, desportivo3, flannel1, flannel2, flannel3, streetwear1,\
                             streetwear2, streetwear3, idCliente,))
         mysql.connection.commit()
+        return redirect(url_for('package'))
     elif request.method == 'POST' and session['genero']=='Female':
         boho1 = checkboxImage("boho1")
         boho2 = checkboxImage("boho2")
@@ -240,7 +245,8 @@ def shop2():
                        boho2, casual1, casual2, casual3, classic1_f, classic2_f, classic3_f, comfy1, comfy2, comfy3, indie1, streetwear1_f,\
                             streetwear2_f, streetwear3_f, idCliente,))
         mysql.connection.commit()
-    return render_template("FormRoupa.html")
+        return redirect(url_for('package'))
+    return render_template('FormRoupa.html')
 
 
 if __name__ == '__main__':
