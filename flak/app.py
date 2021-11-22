@@ -145,16 +145,16 @@ def profile():
              # Create variables for easy access
             Nome = request.form['Nome']
             #password1 = request.form['password']
+            password1 = generate_password_hash(request.form['password'])
             email = request.form['Email']
             morada = request.form['Morada']
             # Check if account exists using MySQL
             cursor1 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor1.execute('UPDATE wake.cliente set Nome = %s, Email= %s, Morada= %s WHERE Nome= %s', (Nome, email, morada, session['Nome'],))
+            cursor1.execute('UPDATE wake.cliente set Nome = %s, Email= %s, Password=%s, Morada= %s WHERE Nome= %s', (Nome, email, password1, morada, session['Nome'],))
             mysql.connection.commit()
             session['Nome']=Nome
             cursor2 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor2.execute('SELECT * FROM cliente WHERE Nome = %s',
-                       (session['Nome'],))
+            cursor2.execute('SELECT * FROM cliente WHERE Nome = %s', (session['Nome'],))
             cliente = cursor2.fetchone()
         # User is not loggedin redirect to login page
     else:
