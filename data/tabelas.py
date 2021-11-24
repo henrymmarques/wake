@@ -2,7 +2,6 @@ from operator import index
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from kneed import KneeLocator
 from sklearn.datasets import make_blobs
 from sklearn.cluster import KMeans
 from sklearn.metrics import silhouette_score
@@ -10,6 +9,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.datasets import make_blobs
 from sklearn.cluster import AffinityPropagation
 from sklearn import metrics
+from kmodes.kmodes import KModes
 
 from itertools import cycle
 
@@ -46,16 +46,26 @@ data2.to_csv('formsfeminino.csv')
 
 
 
-
-X, data2 = make_blobs(n_samples=data2.__len__(), cluster_std=0.5, random_state=0)
+"""
+X, data2 = make_blobs(n_samples=data2.__len__(), cluster_std=0.9, random_state=0)
 afprop = AffinityPropagation(max_iter=250)
 af = AffinityPropagation(preference=-50, random_state=0).fit(X)
 cluster_centers_indices = af.cluster_centers_indices_
 labels = af.labels_
 n_clusters_ = len(cluster_centers_indices)
+"""
 
 
 
+km = KModes(n_clusters=4, init='Huang', n_init=5, verbose=1)
+
+clusters = km.fit_predict(data2)
+
+# Print the cluster centroids
+print(km.cluster_centroids_)
+print(clusters)
+
+"""
 count=0
 for i in labels:
     count= count+1
@@ -112,3 +122,5 @@ for k, col in zip(range(n_clusters_), colors):
 
 plt.title("Estimated number of clusters: %d" % n_clusters_)
 plt.show()
+
+"""

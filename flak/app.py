@@ -215,8 +215,11 @@ def shop2():
         streetwear1 = checkboxImage("streetwear1")
         streetwear2 = checkboxImage("streetwear2")
         streetwear3 = checkboxImage("streetwear3")
-        print(roupascluster.cluster(alterno1,  alterno2, alterno3, classic1, classic2, classic3, desportivo1, desportivo2, desportivo3, flannel1, flannel2, flannel3, streetwear1,streetwear2, streetwear3, idCliente,))
         cursor1 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        print(roupascluster.cluster_masculino(alterno1,\
+                       alterno2, alterno3, classic1, classic2, classic3, desportivo1, desportivo2, desportivo3, flannel1, flannel2, flannel3, streetwear1,\
+                            streetwear2, streetwear3))
+       
         cursor1.execute('INSERT INTO `wake`.`formulario` (`Resposta 1`, `Resposta 2`, `Resposta 3`, `Resposta 4`, `Resposta 5`, `Resposta 6`, \
              `Resposta 7`, `Resposta 8`, `Resposta 9`, `Resposta 10`, `Resposta 11`, `Resposta 12`, `Resposta 13`, `Resposta 14`, `Resposta 15`,\
                   `Cliente_idCliente`, `Estilo_idEstilo1`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 1)', (alterno1,\
@@ -240,6 +243,8 @@ def shop2():
         streetwear1_f = checkboxImage("streetwear1_f")
         streetwear2_f = checkboxImage("streetwear2_f")
         streetwear3_f = checkboxImage("streetwear3_f")
+        print(roupascluster.cluster_feminino(boho1, boho2, casual1, casual2, casual3, classic1_f, classic2_f, classic3_f, comfy1, comfy2, comfy3, indie1, streetwear1_f, streetwear2_f, streetwear3_f))
+       
         cursor1 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor1.execute('INSERT INTO `wake`.`formulario` (`Resposta 1`, `Resposta 2`, `Resposta 3`, `Resposta 4`, `Resposta 5`, `Resposta 6`, \
              `Resposta 7`, `Resposta 8`, `Resposta 9`, `Resposta 10`, `Resposta 11`, `Resposta 12`, `Resposta 13`, `Resposta 14`, `Resposta 15`,\
