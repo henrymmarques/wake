@@ -62,7 +62,7 @@ def cluster_feminino(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15):
 
   ##  plt.show()
     # INSTANTIATING a k-Means object 
-    survey_k_pca = KMeans(n_clusters   = 4,
+    survey_k_pca = KMeans(n_clusters   = 2,
                         random_state = 219)
 
     # fitting the object to the data
@@ -93,6 +93,16 @@ def cluster_feminino(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15):
     # checking results (clusters = rows, pc = columns)
     centroids_pca_df.round(2)
     clst_pca_df = pd.concat([survey_kmeans_pca, data2], axis = 1)
+
+    cluster_names = {0 : centroids_pca_df.idxmax(axis=1).loc[0],
+                 1 : centroids_pca_df.idxmax(axis=1).loc[1],
+               #  2 : centroids_pca_df.idxmax(axis=1).loc[2]}
+    }
+    clst_pca_df['Cluster'].replace(cluster_names, inplace = True)
+
+
+    print(centroids_pca_df)
+    print(centroids_pca_df.idxmax(axis=1))
 
     clst_pca_df
     last_row = clst_pca_df.iloc[-1].tolist()
@@ -153,15 +163,13 @@ def cluster_masculino(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15):
 
   ##  plt.show()
     # INSTANTIATING a k-Means object 
-    survey_k_pca = KMeans(n_clusters   = 4,
-                        random_state = 219)
+    survey_k_pca = KMeans(n_clusters   = 2, random_state = 219)
 
 
     # fitting the object to the data
     survey_k_pca.fit(datascaled)
 
-    ##another_img_df = create_color_clusters(another_img_df, 2, cluster_maker)
-    
+
     # converting the clusters to a DataFrame
     survey_kmeans_pca = pd.DataFrame({'Cluster': survey_k_pca.labels_})
     print(survey_kmeans_pca)
@@ -188,6 +196,16 @@ def cluster_masculino(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15):
     centroids_pca_df.round(2)
     clst_pca_df = pd.concat([survey_kmeans_pca, data1], axis = 1)
 
+
+    cluster_names = {0 : centroids_pca_df.idxmax(axis=1).loc[0],
+                 1 : centroids_pca_df.idxmax(axis=1).loc[1],
+               #  2 : centroids_pca_df.idxmax(axis=1).loc[2]}
+    }
+    clst_pca_df['Cluster'].replace(cluster_names, inplace = True)
+
     clst_pca_df
+
+    print(centroids_pca_df)
+    print(centroids_pca_df.idxmax(axis=1))
     last_row = clst_pca_df.iloc[-1].tolist()
     return last_row
