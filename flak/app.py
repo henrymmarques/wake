@@ -4,6 +4,7 @@ from flask_mysqldb import MySQL
 from werkzeug.security import generate_password_hash, check_password_hash
 import MySQLdb.cursors
 import re
+import roupascluster
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
@@ -214,6 +215,7 @@ def shop2():
         streetwear1 = checkboxImage("streetwear1")
         streetwear2 = checkboxImage("streetwear2")
         streetwear3 = checkboxImage("streetwear3")
+        print(roupascluster.cluster(alterno1,  alterno2, alterno3, classic1, classic2, classic3, desportivo1, desportivo2, desportivo3, flannel1, flannel2, flannel3, streetwear1,streetwear2, streetwear3, idCliente,))
         cursor1 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor1.execute('INSERT INTO `wake`.`formulario` (`Resposta 1`, `Resposta 2`, `Resposta 3`, `Resposta 4`, `Resposta 5`, `Resposta 6`, \
              `Resposta 7`, `Resposta 8`, `Resposta 9`, `Resposta 10`, `Resposta 11`, `Resposta 12`, `Resposta 13`, `Resposta 14`, `Resposta 15`,\
