@@ -62,7 +62,7 @@ def cluster_feminino(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15):
 
   ##  plt.show()
     # INSTANTIATING a k-Means object 
-    survey_k_pca = KMeans(n_clusters   = 2,
+    survey_k_pca = KMeans(n_clusters   = 3,
                         random_state = 219)
 
     # fitting the object to the data
@@ -96,8 +96,8 @@ def cluster_feminino(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15):
 
     cluster_names = {0 : centroids_pca_df.idxmax(axis=1).loc[0],
                  1 : centroids_pca_df.idxmax(axis=1).loc[1],
-               #  2 : centroids_pca_df.idxmax(axis=1).loc[2]}
-    }
+                 2 : centroids_pca_df.idxmax(axis=1).loc[2]}
+    #}
     clst_pca_df['Cluster'].replace(cluster_names, inplace = True)
 
 
@@ -163,7 +163,7 @@ def cluster_masculino(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15):
 
   ##  plt.show()
     # INSTANTIATING a k-Means object 
-    survey_k_pca = KMeans(n_clusters   = 2, random_state = 219)
+    survey_k_pca = KMeans(n_clusters   = 3, random_state = 219)
 
 
     # fitting the object to the data
@@ -199,8 +199,8 @@ def cluster_masculino(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15):
 
     cluster_names = {0 : centroids_pca_df.idxmax(axis=1).loc[0],
                  1 : centroids_pca_df.idxmax(axis=1).loc[1],
-               #  2 : centroids_pca_df.idxmax(axis=1).loc[2]}
-    }
+                 2 : centroids_pca_df.idxmax(axis=1).loc[2]}
+   # }
     clst_pca_df['Cluster'].replace(cluster_names, inplace = True)
 
     clst_pca_df

@@ -5,6 +5,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import MySQLdb.cursors
 import re
 import roupascluster
+import random
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
@@ -219,6 +220,7 @@ def shop2():
         nomeEstilo=roupascluster.cluster_masculino(alterno1,\
                        alterno2, alterno3, classic1, classic2, classic3, desportivo1, desportivo2, desportivo3, flannel1, flannel2, flannel3, streetwear1,\
                             streetwear2, streetwear3)[0]
+        session['nomeEstilo']=nomeEstilo
 
     #select idEstilo according to Nome_estilo from clusters
         cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -251,7 +253,10 @@ def shop2():
         streetwear3_f = checkboxImage("streetwear3_f")
         print(roupascluster.cluster_feminino(boho1, boho2, casual1, casual2, casual3, classic1_f, classic2_f, classic3_f, comfy1, comfy2, comfy3, indie1, streetwear1_f, streetwear2_f, streetwear3_f))
         nomeEstilo = roupascluster.cluster_feminino(boho1, boho2, casual1, casual2, casual3, classic1_f, classic2_f, classic3_f, comfy1, comfy2, comfy3, indie1, streetwear1_f, streetwear2_f, streetwear3_f)[0]
-
+    
+    #guardar o estilo para ser usado no select do sql do pacote
+        session['nomeEstilo']=nomeEstilo
+    
     #select idEstilo according to Nome_estilo from clusters
         cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor_estilo.execute('SELECT idEstilo FROM estilo WHERE Nome_estilo = %s', (nomeEstilo,))
@@ -270,7 +275,24 @@ def shop2():
 
 @app.route("/package")
 def package():
-    return render_template("package.html")
+    #select url aleatorio que contem o estilo da sessão
+    cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+    #cursor_estilo.execute('SELECT URL FROM roupa WHERE url like ´%/%s%´ order by rand() limit 1', (session['nomeEstilo'],))
+    cursor_estilo.execute('SELECT url FROM roupa WHERE genero=%s', (session['genero'],))
+    
+    print('AQUIIIIIIII')
+    #urlEstilo = cursor_estilo.fetchone()['url']
+    urlEstilo = cursor_estilo.fetchall()
+   # print(urlEstilo)
+    print(session['nomeEstilo'])
+    for i in range(len(urlEstilo)):
+        style=random.choice(urlEstilo)['url']
+        if session['nomeEstilo'] in style:
+            session['urlEstilo']=style
+            print(session['urlEstilo'])
+            return render_template("package.html")
+        else:
+            continue
 
 
 
