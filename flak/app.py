@@ -117,9 +117,6 @@ def contact():
 def forgotPassword():
     return render_template("comingsoon.html")
 
-@app.route("/package")
-def package():
-    return render_template("package.html")
 
 
 @app.route("/cart")
@@ -219,12 +216,21 @@ def shop2():
         print(roupascluster.cluster_masculino(alterno1,\
                        alterno2, alterno3, classic1, classic2, classic3, desportivo1, desportivo2, desportivo3, flannel1, flannel2, flannel3, streetwear1,\
                             streetwear2, streetwear3))
+        nomeEstilo=roupascluster.cluster_masculino(alterno1,\
+                       alterno2, alterno3, classic1, classic2, classic3, desportivo1, desportivo2, desportivo3, flannel1, flannel2, flannel3, streetwear1,\
+                            streetwear2, streetwear3)[0]
+
+    #select idEstilo according to Nome_estilo from clusters
+        cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor_estilo.execute('SELECT idEstilo FROM estilo WHERE Nome_estilo = %s', (nomeEstilo,))
+        idEstilo = cursor_estilo.fetchone()['idEstilo']
+
        
         cursor1.execute('INSERT INTO `wake`.`formulario` (`Resposta 1`, `Resposta 2`, `Resposta 3`, `Resposta 4`, `Resposta 5`, `Resposta 6`, \
              `Resposta 7`, `Resposta 8`, `Resposta 9`, `Resposta 10`, `Resposta 11`, `Resposta 12`, `Resposta 13`, `Resposta 14`, `Resposta 15`,\
-                  `Cliente_idCliente`, `Estilo_idEstilo1`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 1)', (alterno1,\
+                  `Cliente_idCliente`, `Estilo_idEstilo1`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)', (alterno1,\
                        alterno2, alterno3, classic1, classic2, classic3, desportivo1, desportivo2, desportivo3, flannel1, flannel2, flannel3, streetwear1,\
-                            streetwear2, streetwear3, idCliente,))
+                            streetwear2, streetwear3, idCliente, idEstilo))
         mysql.connection.commit()
         return redirect(url_for('package'))
     elif request.method == 'POST' and session['genero']=='Female':
@@ -244,16 +250,28 @@ def shop2():
         streetwear2_f = checkboxImage("streetwear2_f")
         streetwear3_f = checkboxImage("streetwear3_f")
         print(roupascluster.cluster_feminino(boho1, boho2, casual1, casual2, casual3, classic1_f, classic2_f, classic3_f, comfy1, comfy2, comfy3, indie1, streetwear1_f, streetwear2_f, streetwear3_f))
-       
+        nomeEstilo = roupascluster.cluster_feminino(boho1, boho2, casual1, casual2, casual3, classic1_f, classic2_f, classic3_f, comfy1, comfy2, comfy3, indie1, streetwear1_f, streetwear2_f, streetwear3_f)[0]
+
+    #select idEstilo according to Nome_estilo from clusters
+        cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor_estilo.execute('SELECT idEstilo FROM estilo WHERE Nome_estilo = %s', (nomeEstilo,))
+        idEstilo = cursor_estilo.fetchone()['idEstilo']
+
+    #insert into table formulario - answers and idEstilo
         cursor1 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         cursor1.execute('INSERT INTO `wake`.`formulario` (`Resposta 1`, `Resposta 2`, `Resposta 3`, `Resposta 4`, `Resposta 5`, `Resposta 6`, \
              `Resposta 7`, `Resposta 8`, `Resposta 9`, `Resposta 10`, `Resposta 11`, `Resposta 12`, `Resposta 13`, `Resposta 14`, `Resposta 15`,\
-                  `Cliente_idCliente`, `Estilo_idEstilo1`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, 2)', (boho1,\
+                  `Cliente_idCliente`, `Estilo_idEstilo1`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)', (boho1,\
                        boho2, casual1, casual2, casual3, classic1_f, classic2_f, classic3_f, comfy1, comfy2, comfy3, indie1, streetwear1_f,\
-                            streetwear2_f, streetwear3_f, idCliente,))
+                            streetwear2_f, streetwear3_f, idCliente, idEstilo,))
         mysql.connection.commit()
         return redirect(url_for('package'))
     return render_template('FormRoupa.html')
+
+@app.route("/package")
+def package():
+    return render_template("package.html")
+
 
 
 if __name__ == '__main__':

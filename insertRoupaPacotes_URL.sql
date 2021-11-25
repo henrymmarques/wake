@@ -1,0 +1,29 @@
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/homem_pacote/alterno_estrang.png', 'male');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/homem_pacote/alterno_estrang2.jpeg', 'male');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/homem_pacote/classico_malhas.png', 'male');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/homem_pacote/classico_malhas2.png', 'male');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/homem_pacote/classico_malhas3.png', 'male');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/homem_pacote/desportivo_estrang.png', 'male');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/homem_pacote/desportivo_estrang2.png', 'male');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/homem_pacote/desportivo_lefties.png', 'male');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/homem_pacote/flannel_estrang.jpg', 'male');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/homem_pacote/flannel_estrang2.jpg', 'male');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/homem_pacote/flannel_estrang3.jpg', 'male');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/homem_pacote/flannel__streetwear_estrang.jpg', 'male');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/homem_pacote/streetwear_estrang.jpg', 'male');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/homem_pacote/streetwear_estrang2.png', 'male');
+
+#inserir roupa mulher
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_estrang.jpg', 'female');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_stradivarius.jpg', 'female');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_stradivarius2.jpg', 'female');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_lemot.jpg', 'female');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_parfois.jpg', 'female');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classico_f_isto.jpg', 'female');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classico_f_malhas.png', 'female');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_conscious.png', 'female');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_conscious2.png', 'female');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_conscious3.jpg', 'female');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_estrang.png', 'female');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_f_estrang.jpg', 'female');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_f_estrang2.jpg', 'female');

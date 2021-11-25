@@ -36,11 +36,11 @@ def cluster_feminino(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15):
     columnCasual = data2["3"] + data2["4"]+ data2["5"]
     data3["casual"] = columnCasual
     columnClassico = data2["6"] + data2["7"]+ data2["8"]
-    data3["classico"] = columnClassico
+    data3["classico_f"] = columnClassico
     columnComfy = data2["9"] + data2["10"]+ data2["11"]
     data3["comfy"] = columnComfy
     columnstreetwear = data2["13"] + data2["14"]+ data2["15"]
-    data3["streetwear"] = columnstreetwear
+    data3["streetwear_f"] = columnstreetwear
 
     data3
     scaler = StandardScaler()
@@ -85,9 +85,9 @@ def cluster_feminino(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15):
     # renaming principal components
     centroids_pca_df.columns = ['boho',                 
                         'casual',      
-                        'classico',
+                        'classico_f',
                         'comfy',
-                        'streetwear']
+                        'streetwear_f']
 
 
     # checking results (clusters = rows, pc = columns)
@@ -208,4 +208,5 @@ def cluster_masculino(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15):
     print(centroids_pca_df)
     print(centroids_pca_df.idxmax(axis=1))
     last_row = clst_pca_df.iloc[-1].tolist()
+   
     return last_row

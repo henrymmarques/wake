@@ -101,7 +101,7 @@ ENGINE = InnoDB;
 DROP TABLE IF EXISTS `wake`.`Roupa` ;
 
 CREATE TABLE IF NOT EXISTS `wake`.`Roupa` (
-  `idRoupa` INT NOT NULL,
+  `idRoupa` INT NOT NULL AUTO_INCREMENT,
   `URL` varchar(500) NULL,
   `Genero` varchar(25) NULL,
   -- Fazer Insert Roupas
