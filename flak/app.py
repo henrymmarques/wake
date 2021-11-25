@@ -244,7 +244,7 @@ def shop2():
         classic1_f = checkboxImage("classic1_f")
         classic2_f = checkboxImage("classic2_f")
         classic3_f = checkboxImage("classic3_f")
-        comfy1 = checkboxImage("comfy3")
+        comfy1 = checkboxImage("comfy1")
         comfy2 = checkboxImage("comfy2")
         comfy3 = checkboxImage("comfy3")
         indie1 = checkboxImage("indie1")
