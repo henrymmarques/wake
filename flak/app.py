@@ -244,7 +244,7 @@ def shop2():
         classic1_f = checkboxImage("classic1_f")
         classic2_f = checkboxImage("classic2_f")
         classic3_f = checkboxImage("classic3_f")
-        comfy1 = checkboxImage("comfy3")
+        comfy1 = checkboxImage("comfy1")
         comfy2 = checkboxImage("comfy2")
         comfy3 = checkboxImage("comfy3")
         indie1 = checkboxImage("indie1")
@@ -278,21 +278,21 @@ def package():
     #select url aleatorio que contem o estilo da sessão
     cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     #cursor_estilo.execute('SELECT URL FROM roupa WHERE url like ´%/%s%´ order by rand() limit 1', (session['nomeEstilo'],))
-    cursor_estilo.execute('SELECT url FROM roupa WHERE genero=%s', (session['genero'],))
+    cursor_estilo.execute('SELECT url FROM estilo_roupa, roupa, estilo WHERE estilo_roupa.Roupa_idRoupa=roupa.idRoupa and estilo_roupa.Estilo_idEstilo=Estilo.idEstilo and roupa.genero=%s and  estilo.Nome_Estilo=%s;', (session['genero'],session['nomeEstilo'],))
     
     print('AQUIIIIIIII')
     #urlEstilo = cursor_estilo.fetchone()['url']
     urlEstilo = cursor_estilo.fetchall()
    # print(urlEstilo)
     print(session['nomeEstilo'])
-    for i in range(len(urlEstilo)):
-        style=random.choice(urlEstilo)['url']
-        if session['nomeEstilo'] in style:
-            session['urlEstilo']=style
-            print(session['urlEstilo'])
-            return render_template("package.html")
-        else:
-            continue
+
+    style=random.choice(urlEstilo)['url']
+    
+    session['urlEstilo']=style
+    print(session['urlEstilo'])
+    return render_template("package.html")
+    
+        
 
 
 
