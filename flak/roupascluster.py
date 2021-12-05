@@ -36,11 +36,11 @@ def cluster_feminino(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15):
     columnCasual = data2["3"] + data2["4"]+ data2["5"]
     data3["casual"] = columnCasual
     columnClassico = data2["6"] + data2["7"]+ data2["8"]
-    data3["classico_f"] = columnClassico
+    data3["classic"] = columnClassico
     columnComfy = data2["9"] + data2["10"]+ data2["11"]
     data3["comfy"] = columnComfy
     columnstreetwear = data2["13"] + data2["14"]+ data2["15"]
-    data3["streetwear_f"] = columnstreetwear
+    data3["streetwear"] = columnstreetwear
 
     data3
     scaler = StandardScaler()
@@ -85,9 +85,9 @@ def cluster_feminino(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15):
     # renaming principal components
     centroids_pca_df.columns = ['boho',                 
                         'casual',      
-                        'classico_f',
+                        'classic',
                         'comfy',
-                        'streetwear_f']
+                        'streetwear']
 
 
     # checking results (clusters = rows, pc = columns)
@@ -135,7 +135,7 @@ def cluster_masculino(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15):
     columnalterno = data1["1"] + data1["2"]+ data1["3"]
     data3["alterno"] = columnalterno
     columnclassico = data1["4"] + data1["5"]+ data1["6"]
-    data3["classico"] = columnclassico
+    data3["classic"] = columnclassico
     columndesportivo = data1["7"] + data1["8"]+ data1["9"]
     data3["desportivo"] = columndesportivo
     columnflannel = data1["10"] + data1["11"]+ data1["12"]
@@ -186,7 +186,7 @@ def cluster_masculino(r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15):
 
     # renaming principal components
     centroids_pca_df.columns = ['alterno',                 
-                        'classico',      
+                        'classic',      
                         'desportivo',
                         'flannel',
                         'streetwear']
