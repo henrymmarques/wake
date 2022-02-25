@@ -1,0 +1,109 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+<style>
+    .aboutUs {
+        color: rgb(194, 194, 174);
+        font-size: 22px;
+        font-family: "Bodoni MT";
+        background-image: url('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/dark-wood.png');
+
+    }
+
+    .center_img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        width: 50%;
+        border-radius: 15px;
+    }
+
+    /* Three image containers (use 25% for four, and 50% for two, etc) */
+
+    .column1 {
+        float: left;
+        width: 17.5%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 15px;
+
+    }
+
+
+    /* Clear floats after image containers */
+    .row::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .column1 .img-top {
+        display: none;
+        float: left;
+        width: 17.5%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 15px;
+
+    }
+
+    .column1:hover .img-back {
+        display: none;
+
+    }
+
+    .column1:hover .img-top {
+        display: inline;
+    }
+</style>
+
+
+<div class="aboutUs">
+    <h1 style="text-align:center">Sobre Nós</h1>
+    <p style="text-align:center">A WAKE é um projeto único em portugal com a ambição de juntar o melhor que a tecnologia
+        pode oferecer à<br>
+        necessidade de dar notoriedade às marcas de roupa portuguesas.
+    </p>
+    <p style="text-align:center">Somos uma equipa de 4 estudantes da licenciatura de Informática e Gestão de Empresas do
+        ISCTE-IUL que fomos<br>
+        desafiados
+        a criar algo inovador e com potencial de negócio e vemos na WAKE esse potencial.
+    </p>
+    <img class="center_img"
+        src="https://images.unsplash.com/photo-1604176354204-9268737828e4?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=580&q=80"
+        alt="profile" width="500" height="500">
+        <p style="text-align:center"><br>A WAKE é a tua plataforma de compra de roupa portuguesa sem perderes tempo a escolher roupa <br>
+            Nós assumimos essa responsabilidade por ti!<br>
+            Através do nosso algoritmo de inteligência artificial, a roupa que recebes em casa vai de encontro ao teu perfil de moda.<br>
+            Experimenta!
+        </p>
+    <h1 style="text-align:center"><br><br>A Nossa Equipa<br></h1>
+    <div class="row">
+        <div class="column1">
+            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/eu.png" class="img-back"
+                alt="henrique" style="width:100%">
+            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/eu_func.png" class="img-top"
+                alt="henrique" style="width:110%">
+        </div>
+        <div class="column1">
+            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/vasco.png" class="img-back"
+                alt="vasco" style="width:100%">
+            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/vasco_func.png" class="img-top"
+                alt="vasco" style="width:110%">
+        </div>
+        <div class="column1">
+            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/nazif.png" class="img-back"
+                alt="nazif" style="width:100%">
+            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/nazif_func.png" class="img-top"
+                alt="nazif" style="width:110%">
+        </div>
+        <div class="column1">
+            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pina.png" class="img-back"
+                alt="pina" style="width:100%">
+            <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pina_func.png" class="img-top"
+                alt="pina" style="width:110%">
+        </div>
+    </div>
+</div>
+
+{% endblock %}
