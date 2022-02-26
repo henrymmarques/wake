@@ -8,13 +8,7 @@ import roupascluster
 import random
 
 
-import numpy as np
-import pickle
-import json
-import nltk
-from keras.models import load_model
-from nltk.stem import WordNetLemmatizer
-lemmatizer = WordNetLemmatizer()
+
 
 app = Flask(__name__)
 app.secret_key = 'super secret key'
@@ -121,7 +115,7 @@ def about_us():
 
 @app.route("/contact")
 def contact():
-    return render_template("comingsoon.html")
+    return render_template("chatbot.html")
 
 @app.route("/forgotPassword")
 def forgotPassword():
@@ -300,9 +294,21 @@ def package():
     session['urlEstilo']=style
     print(session['urlEstilo'])
     return render_template("package.html")
-    
 
+
+
+    
+"""
     ###############################################################
+
+    import numpy as np
+import pickle
+import json
+import nltk
+from keras.models import load_model
+from nltk.stem import WordNetLemmatizer
+lemmatizer = WordNetLemmatizer()
+
 # chat initialization
 model = load_model("chatbot_model.h5")
 intents = json.loads(open("intents.json").read())
@@ -311,7 +317,7 @@ classes = pickle.load(open("classes.pkl", "rb"))
 
 
 
-@app.route("/get", methods=["POST"])
+@app.route("/contact/get", methods=["POST"])
 def chatbot_response():
     msg = request.form["msg"]
     if msg.startswith('my name is'):
@@ -375,9 +381,7 @@ def getResponse(ints, intents_json):
             result = random.choice(i["responses"])
             break
     return 
-        
-
-
+     """   
 
 if __name__ == '__main__':
-    app.run(debug=True, port=8000)
+    app.run(debug=True, port=5000)
