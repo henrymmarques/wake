@@ -187,6 +187,12 @@ def shop():
         return redirect(url_for('shop2'))
     return render_template("FormPessoal.html")
 
+@app.route('/filtro', methods=['GET', 'POST'])
+def filtro():
+    if request.method == 'POST' and session['genero']=='Male':
+        return redirect(url_for('package'))
+    return render_template("filtros_homem.html")
+
 #recebe o nome de cada imagem do formulario e verifica a checkbox. Para nao se fazer uma carrada de ifs
 def checkboxImage(str):
     if request.form.get(str):
@@ -237,7 +243,7 @@ def shop2():
                        alterno2, alterno3, classic1, classic2, classic3, desportivo1, desportivo2, desportivo3, flannel1, flannel2, flannel3, streetwear1,\
                             streetwear2, streetwear3, idCliente, idEstilo))
         mysql.connection.commit()
-        return redirect(url_for('package'))
+        return redirect(url_for('filtro'))
     elif request.method == 'POST' and session['genero']=='Female':
         boho1 = checkboxImage("boho1")
         boho2 = checkboxImage("boho2")
@@ -381,7 +387,7 @@ def getResponse(ints, intents_json):
             result = random.choice(i["responses"])
             break
     return 
-     """   
+"""   
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
