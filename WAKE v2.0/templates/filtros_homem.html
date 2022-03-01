@@ -64,7 +64,7 @@
     background-color: #15172b;
     border-radius: 20px;
     box-sizing: border-box;
-    height: 725px;
+    height: auto;
     padding: 20px;
     width: 1020px;
     text-align: center;
@@ -116,11 +116,6 @@
     width: 100%;
   }
 
-  .ic1 {
-    margin-top: 40px;
-    margin-bottom: 30px;
-  }
-
   .ic2 {
     margin-top: 30px;
   }
@@ -132,21 +127,83 @@
   margin-bottom: 10px;
 }
 
-.btntest {
+.clothes_btn {
   position: relative; 
-  height: 50px;
+  height: 75px;
   line-height: 50px;
   right: 0;
   top: 0;
   margin: 0;
   padding: 0;
-  background: orange;
+  background: rgb(29, 29, 28);
   color: white;
   border: none;
-  width: 70%;
+  width: 30%;
   font-weight: bold;
   margin-bottom: 10px;
+ 
+  background-size: cover;
+  
 }
+
+
+input[type=checkbox] {
+    -webkit-appearance: none;
+    outline: 0;
+     position: relative; 
+  height: 75px;
+  line-height: 50px;
+  right: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  background: rgb(29, 29, 28);
+  color: white;
+  border: none;
+  width: 30%;
+  font-weight: bold;
+  margin-bottom: 10px;
+  background-size: cover;
+  display:inside;
+}
+
+input[type=checkbox]:hover {
+  transform: scale(1.02);
+  filter: brightness(105%);
+}
+
+input[type=checkbox]:checked {
+  filter: brightness(60%);
+}
+
+#calcas{
+  background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/btns/btn_calcas.png");
+}
+
+#camisola{
+  background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/btns/btn_camisola_homem.png");
+}
+
+#tshirt{
+  background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/btns/btn_tshirt_homem.png");
+}
+
+#sweat{
+  background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/btns/btn_sweatshirt.png");
+}
+
+#casaco{
+  background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/btns/btn_casaco_homem.png");
+}
+
+#calcoes{
+  background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/btns/btn_calcoes_homem.png");
+}
+
+#camisa{
+  background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/btns/btn_camisa.png");
+}
+
 
   .input {
     background-color: #303245;
@@ -203,6 +260,8 @@
   }
 </style>
 
+
+
 <body class="back">
 
   {% if session['loggedin'] %}
@@ -231,28 +290,27 @@
           <div class="quantidade">Quantidade</div>
         </div>
         <div class="input-container ic12">
-          <button name="btntest" class="btntest" type="submit" value="Save" onclick="myFunction()">Save</button>
-              
-          <input type="number" id="peso" class="qnt" name="peso" placeholder="Quantidade" required>
-          <button name="btntest" class="btntest" type="submit" value="Save" onclick="myFunction()">Save</button>
-              
-          <input type="number" id="peso" class="qnt" name="peso" placeholder="Quantidade" required>
 
-          <button name="btntest" class="btntest" type="submit" value="Save" onclick="myFunction()">Save</button>
-              
-          <input type="number" id="peso" class="qnt" name="peso" placeholder="Quantidade" required>
-          <button name="btntest" class="btntest" type="submit" value="Save" onclick="myFunction()">Save</button>
-              
-          <input type="number" id="peso" class="qnt" name="peso" placeholder="Quantidade" required>
-          <button name="btntest" class="btntest" type="submit" value="Save" onclick="myFunction()">Save</button>
-              
-          <input type="number" id="peso" class="qnt" name="peso" placeholder="Quantidade" required>
-          <button name="btntest" class="btntest" type="submit" value="Save" onclick="myFunction()">Save</button>
-              
-          <input type="number" id="peso" class="qnt" name="peso" placeholder="Quantidade" required>
-          <button name="btntest" class="btntest" type="submit" value="Save" onclick="myFunction()">Save</button>
-              
-          <input type="number" id="peso" class="qnt" name="peso" placeholder="Quantidade" required>
+          <input type="checkbox" class="clothes_box" id="calcas" value="yes">
+          <input type="number" id="qnt_calcas" class="qnt" name="peso" placeholder="Qtd" min="0" required>
+
+          <input type="checkbox" class="clothes_box" id="camisola" value="yes">
+          <input type="number" id="qnt_camisola" class="qnt" name="peso" placeholder="Qtd" min="0" required>
+
+          <input type="checkbox" class="clothes_box" id="tshirt" value="yes">
+          <input type="number" id="qnt_tshirt" class="qnt" name="peso" placeholder="Qtd" min="0" required>
+
+          <input type="checkbox" class="clothes_box" id="sweat" value="yes">
+          <input type="number" id="qnt_sweat" class="qnt" name="peso" placeholder="Qtd" min="0" required>
+
+          <input type="checkbox" class="clothes_box" id="casaco" value="yes">
+          <input type="number" id="qnt_casaco" class="qnt" name="peso" placeholder="Qtd" min="0" required>
+
+          <input type="checkbox" class="clothes_box" id="calcoes" value="yes"> 
+          <input type="number" id="qnt_calcoes" class="qnt" name="peso" placeholder="Qtd" min="0" required>
+
+          <input type="checkbox" class="clothes_box" id="camisa" value="yes">
+          <input type="number" id="qnt_camisa" class="qnt" name="peso" placeholder="Qtd" min="0" required>
           
                 
         </div>
