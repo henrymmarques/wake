@@ -189,9 +189,12 @@ def shop():
 
 @app.route('/filtro', methods=['GET', 'POST'])
 def filtro():
-    if request.method == 'POST' and session['genero']=='Male':
+    if request.method == 'POST' :
         return redirect(url_for('package'))
-    return render_template("filtros_homem.html")
+    if session['genero']=='Female':  
+        return render_template("filtros_mulher.html")
+    else:
+        return render_template("filtros_homem.html")
 
 #recebe o nome de cada imagem do formulario e verifica a checkbox. Para nao se fazer uma carrada de ifs
 def checkboxImage(str):
@@ -279,7 +282,7 @@ def shop2():
                        boho2, casual1, casual2, casual3, classic1_f, classic2_f, classic3_f, comfy1, comfy2, comfy3, indie1, streetwear1_f,\
                             streetwear2_f, streetwear3_f, idCliente, idEstilo,))
         mysql.connection.commit()
-        return redirect(url_for('package'))
+        return redirect(url_for('filtro'))
     return render_template('FormRoupa.html')
 
 @app.route("/package")
