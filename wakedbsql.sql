@@ -193,6 +193,8 @@ CREATE TABLE IF NOT EXISTS `wake`.`Roupa` (
   `idRoupa` INT NOT NULL AUTO_INCREMENT,
   `URL` varchar(500) NULL,
   `Genero` varchar(25) NULL,
+  `Tipo` varchar(25) NULL,
+  `Preco` INT NULL,
   -- Fazer Insert Roupas
   PRIMARY KEY (`idRoupa`),
   UNIQUE INDEX `idRoupa_UNIQUE` (`idRoupa` ASC) VISIBLE)
