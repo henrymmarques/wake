@@ -1,0 +1,511 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+<style>
+  .wrapper {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+
+  .slideshow {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    transform: translateX(-50%);
+  }
+
+  .slideshow--hero {
+    z-index: 3;
+    left: 0;
+    top: 50%;
+    height: 85%;
+    transform: translateY(-50%) skewY(-10deg);
+    transform-origin: center;
+    overflow: hidden;
+    box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+  }
+
+  .slideshow--hero .slides {
+    position: absolute;
+    left: 0;
+    top: -10%;
+    width: 100vw;
+    height: 100vh;
+    animation: 11s slideshow-hero-mobile -3s infinite;
+  }
+
+  .slideshow--hero .slide1 {
+    background-image: url(https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/home_img_2.jpg);
+    animation: 20s slides-set-1 -0.1s infinite;
+  }
+
+  .slideshow--hero .slide2 {
+    background-image: url(https://images.pexels.com/photos/3771080/pexels-photo-3771080.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    animation: 20s slides-set-2 -0.1s infinite;
+  }
+
+  .slideshow--hero .slide3 {
+    background-image: url(https://images.pexels.com/photos/8387838/pexels-photo-8387838.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 );
+    animation: 20s slides-set-3 -0.1s infinite;
+  }
+
+  @media (min-width: 600px) {
+    .slideshow--hero {
+      left: 50%;
+      top: 0;
+      width: 67%;
+      height: 100%;
+      transform: translateX(-50%) skewX(-10deg);
+    }
+
+    .slideshow--hero .slides {
+      top: 0;
+      left: -25%;
+      height: 100%;
+      animation: 11s slideshow-hero -3s infinite;
+    }
+  }
+
+  .slideshow--contrast {
+    z-index: 1;
+    width: 100%;
+    height: 50%;
+    transform: none;
+  }
+
+  .slideshow--contrast--before {
+    left: 0;
+  }
+
+  .slideshow--contrast--before .slides {
+    width: 100vw;
+  }
+
+  .slideshow--contrast--after {
+    z-index: 2;
+    left: auto;
+    right: 0;
+  }
+
+  .slideshow--contrast--after .slides {
+    width: 100vw;
+    left: auto;
+    right: 0;
+  }
+
+  .slideshow--contrast .slides {
+    animation: 14s slideshow-contrast -5s infinite;
+  }
+
+  .slideshow--contrast .slide1 {
+    background-image: linear-gradient(to bottom, rgba(200, 200, 75, 0.25) 0, rgba(200, 75, 75, 0.5) 100%), url(https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/home_img_2.jpg);
+    animation: 20s slides-set-1 -0.2s infinite;
+  }
+
+  .slideshow--contrast .slide2 {
+    background-image: linear-gradient(to bottom, rgba(200, 200, 75, 0.25) 0, rgba(200, 75, 75, 0.5) 100%), url(https://images.pexels.com/photos/3771080/pexels-photo-3771080.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    animation: 20s slides-set-2 -0.2s infinite;
+  }
+
+  .slideshow--contrast .slide3 {
+    background-image: linear-gradient(to bottom, rgba(200, 200, 75, 0.25) 0, rgba(200, 75, 75, 0.5) 100%), url(https://images.pexels.com/photos/8387838/pexels-photo-8387838.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940 );
+    animation: 20s slides-set-3 -0.2s infinite;
+  }
+
+  .slideshow--contrast--after {
+    top: auto;
+    bottom: 0;
+  }
+
+  .slideshow--contrast--after .slides {
+    animation: 13s slideshow-contrast -13s infinite;
+  }
+
+  .slideshow--contrast--after .slide {
+    background-position: right;
+  }
+
+  .slideshow--contrast--after .slide1 {
+    animation: 20s slides-set-1 infinite;
+  }
+
+  .slideshow--contrast--after .slide2 {
+    animation: 20s slides-set-2 infinite;
+  }
+
+  .slideshow--contrast--after .slide3 {
+    animation: 20s slides-set-3 infinite;
+  }
+
+  @media (min-width: 600px) {
+    .slideshow--contrast {
+      width: 50%;
+      height: 100%;
+    }
+
+    .slideshow--contrast--after {
+      top: 0;
+      bottom: auto;
+    }
+
+    .slideshow--contrast--after .slides {
+      width: 50vw;
+    }
+  }
+
+  .slides,
+  .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+
+  @keyframes slideshow-hero-mobile {
+    0% {
+      transform: scale(1) skewY(10deg);
+    }
+
+    50% {
+      transform: scale(1.05) skewY(10deg);
+    }
+
+    100% {
+      transform: scale(1) skewY(10deg);
+    }
+  }
+
+  @keyframes slideshow-hero {
+    0% {
+      transform: scale(1) skewX(10deg);
+    }
+
+    50% {
+      transform: scale(1.05) skewX(10deg);
+    }
+
+    100% {
+      transform: scale(1) skewX(10deg);
+    }
+  }
+
+  @keyframes slideshow-contrast {
+    0% {
+      transform: scale(1.05);
+    }
+
+    50% {
+      transform: scale(1);
+    }
+
+    100% {
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes slides-set-1 {
+    0% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    31% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    34% {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+
+    97% {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes slides-set-2 {
+    0% {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+
+    31% {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+
+    34% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    64% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    67% {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+
+    100% {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+  }
+
+  @keyframes slides-set-3 {
+    0% {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+
+    64% {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+
+    67% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    97% {
+      opacity: 1;
+      transform: scale(1);
+    }
+
+    100% {
+      opacity: 0;
+      transform: scale(1.05);
+    }
+  }
+
+  /* Style the button and place it in the middle of the container/image */
+  .slide1 .btn {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    background-color: #555;
+    color: white;
+    font-size: 16px;
+    padding: 12px 24px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  /*#############################FOOTER STYLE########################################################################*/
+  .footer-clean {
+  padding:30px 0;
+  background-image: url('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pexels-johannes-plenio-1103970.jpg');
+  color:#090a0a;
+}
+
+.footer-clean h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:18px;
+  font-family: "Poppins""sans-serif";
+}
+
+.footer-clean ul {
+  padding:0;
+  list-style:none;
+  line-height:1.6;
+  font-size:16px;
+  margin-bottom:0;
+  font-family: "Poppins""sans-serif";
+}
+
+.footer-clean ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-clean ul a:hover {
+  opacity:1;
+}
+
+.footer-clean .item.social {
+  text-align:right;
+}
+
+@media (max-width:767px) {
+  .footer-clean .item {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-clean .item.social {
+    text-align:center;
+  }
+}
+
+.footer-clean .item.social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid rgb(255, 253, 253);
+  margin-left:10px;
+  margin-top:22px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.footer-clean .item.social > a:hover {
+  opacity:0.9;
+}
+
+@media (max-width:991px) {
+  .footer-clean .item.social > a {
+    margin-top:40px;
+  }
+}
+
+@media (max-width:767px) {
+  .footer-clean .item.social > a {
+    margin-top:10px;
+  }
+}
+
+.footer-clean .copyright {
+  margin-top:14px;
+  margin-bottom:0;
+  font-size:13px;
+  opacity:0.6;
+}
+
+/*##############################################TEXT STYLE SLIDES################################################*/
+/* Centered text */
+.centered {
+  position: absolute;
+  top: 25%;
+  left: 35%;
+  transform: translate(-50%, -50%);
+  font-size: 40px;
+}
+/* Centered text */
+.centered1 {
+  position: absolute;
+  top: 35%;
+  left: 37%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+}
+/* Centered text */
+.centered2 {
+  position: absolute;
+  top: 20%;
+  left: 39%;
+  transform: translate(-50%, -50%);
+  font-size: 25px;
+}
+</style>
+
+<!-- Slideshow -->
+<!-- FONT: https://codepen.io/lgrqvst/pen/YdVLrE -->
+<div class="wrapper">
+  <div class="slideshows">
+    <div class="slideshow slideshow--hero">
+      <div class="slides">
+        <div class="slide slide1">
+          <div class="centered">WAKING UP FASHION</div>
+          <div class="centered1">Roupa 100% Portuguesa<br>Totalmente de acordo com o teu perfil</div>
+        </div>
+        <div class="slide slide2">
+          <div class="centered2">Faz parte da revolução no mundo da moda</div>
+        </div>
+        <div class="slide slide3"></div>
+      </div>
+    </div>
+    <div class="slideshow slideshow--contrast slideshow--contrast--before">
+      <div class="slides">
+        <div class="slide slide1"></div>
+        <div class="slide slide2"></div>
+        <div class="slide slide3"></div>
+      </div>
+    </div>
+    <div class="slideshow slideshow--contrast slideshow--contrast--after">
+      <div class="slides">
+        <div class="slide slide1"></div>
+        <div class="slide slide2"></div>
+        <div class="slide slide3"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Site footer -->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Untitled</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+  <!--link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css"-->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+
+</head>
+<div class="footer-clean">
+  <footer>
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-sm-4 col-md-3 item">
+                  <h3>Services</h3>
+                  <ul>
+                      <li><a href="shop">Shop</a></li>
+                  </ul>
+              </div>
+              <div class="col-sm-4 col-md-3 item">
+                  <h3>About</h3>
+                  <ul>
+                      <li><a href="aboutUs">Company</a></li>
+                      <li><a href="forgotPassword">Process</a></li>
+                      <li><a href="forgotPassword">Shipping</a></li>
+                      <li><a href="forgotPassword">Artificial Intelligence</a></li>
+                  </ul>
+              </div>
+              <div class="col-sm-4 col-md-3 item">
+                <h3>Newsletter</h3>
+                <input type="text" id="fname" name="fname" placeholder="Email Address">
+                <ul>
+                    <li><a href="#">Confirmar</a></li>
+                </ul>
+            </div>
+              <div class="col-lg-3 item social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a href="https://www.instagram.com/wake_pt/" target="_blank"><i class="fa fa-instagram"></i></a>
+                <p class="copyright">WAKE © 2021</p>
+              </div>
+          </div>
+      </div>
+  </footer>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+</body>
+{% endblock %}
