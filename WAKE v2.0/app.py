@@ -231,20 +231,31 @@ def shop2():
                             streetwear2, streetwear3))
         nomeEstilo=roupascluster.cluster_masculino(alterno1,\
                        alterno2, alterno3, classic1, classic2, classic3, desportivo1, desportivo2, desportivo3, flannel1, flannel2, flannel3, streetwear1,\
-                            streetwear2, streetwear3)[0]
-        session['nomeEstilo']=nomeEstilo
+                            streetwear2, streetwear3)
+        print("*******************************************")
+        print(nomeEstilo)
+        session['nomeEstilo']=nomeEstilo[1]
+        session['nomeEstilo2']=nomeEstilo[2]
+        session['nomeEstilo3']=nomeEstilo[3]
+        print(nomeEstilo[0] ,nomeEstilo[1], nomeEstilo[2])
 
     #select idEstilo according to Nome_estilo from clusters
         cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor_estilo.execute('SELECT idEstilo FROM estilo WHERE Nome_estilo = %s', (nomeEstilo,))
+        cursor_estilo.execute('SELECT idEstilo FROM estilo WHERE Nome_estilo = %s', (nomeEstilo[0],))
         idEstilo = cursor_estilo.fetchone()['idEstilo']
+        cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor_estilo.execute('SELECT idEstilo FROM estilo WHERE Nome_estilo = %s', (nomeEstilo[1],))
+        idEstilo2 = cursor_estilo.fetchone()['idEstilo']
+        cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor_estilo.execute('SELECT idEstilo FROM estilo WHERE Nome_estilo = %s', (nomeEstilo[2],))
+        idEstilo3 = cursor_estilo.fetchone()['idEstilo']
 
        
         cursor1.execute('INSERT INTO `wake`.`formulario` (`Resposta 1`, `Resposta 2`, `Resposta 3`, `Resposta 4`, `Resposta 5`, `Resposta 6`, \
              `Resposta 7`, `Resposta 8`, `Resposta 9`, `Resposta 10`, `Resposta 11`, `Resposta 12`, `Resposta 13`, `Resposta 14`, `Resposta 15`,\
-                  `Cliente_idCliente`, `Estilo_idEstilo1`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)', (alterno1,\
+                  `Cliente_idCliente`, `Estilo_idEstilo1`,`Estilo_idEstilo2`,`Estilo_idEstilo3`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)', (alterno1,\
                        alterno2, alterno3, classic1, classic2, classic3, desportivo1, desportivo2, desportivo3, flannel1, flannel2, flannel3, streetwear1,\
-                            streetwear2, streetwear3, idCliente, idEstilo))
+                            streetwear2, streetwear3, idCliente, idEstilo, idEstilo2,idEstilo3 ))
         mysql.connection.commit()
         return redirect(url_for('filtro'))
     elif request.method == 'POST' and session['genero']=='Female':
