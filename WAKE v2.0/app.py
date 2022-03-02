@@ -307,10 +307,10 @@ def package():
 
 
     
-"""
-    ###############################################################
 
-    import numpy as np
+    ###############################################################
+"""
+import numpy as np
 import pickle
 import json
 import nltk
@@ -390,7 +390,7 @@ def getResponse(ints, intents_json):
             result = random.choice(i["responses"])
             break
     return 
-"""   
+  """
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)

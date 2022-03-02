@@ -1,6 +1,7 @@
 # libraries
 import random
-from tensorflow.keras.optimizers import SGD
+import tensorflow as tf
+from tensorflow import keras
 from keras.layers import Dense, Dropout
 from keras.models import load_model
 from keras.models import Sequential
@@ -9,6 +10,7 @@ import pickle
 import json
 import nltk
 from nltk.stem import WordNetLemmatizer
+from tensorflow.keras.optimizers import SGD
 lemmatizer = WordNetLemmatizer()
 nltk.download('omw-1.4')
 nltk.download("punkt")
