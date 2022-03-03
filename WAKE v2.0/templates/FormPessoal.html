@@ -21,7 +21,7 @@
     height: auto;
   }
 
-  .bg{
+  .bg {
     border-radius: 15px;
   }
 
@@ -135,7 +135,7 @@
     background-color: #06b;
   }
 
-  .back{
+  .back {
     background-image: url('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pexels_roupa.jpeg');
   }
 </style>
@@ -160,10 +160,11 @@
           </select>
         </div>
         <div class="input-container ic1">
-          <input type="number" id="altura" class="input" name="altura" placeholder="Altura em cm" required>
+          <input type="number" id="altura" class="input" name="altura" placeholder="Altura em cm" min="100" max="250"
+            required>
         </div>
         <div class="input-container ic2">
-          <input type="number" id="peso" class="input" name="peso" placeholder="Peso em kg" required>
+          <input type="number" id="peso" class="input" name="peso" placeholder="Peso em kg" min="35" max="250" required>
         </div>
         <input type="submit" class="submit" value="SEGUINTE">
       </form>

@@ -78,8 +78,6 @@ CREATE TABLE IF NOT EXISTS `wake`.`Formulario` (
       
   `Cliente_idCliente` INT NOT NULL,
   `Estilo_idEstilo1` INT NOT NULL,
-  `Estilo_idEstilo2` INT NOT NULL,
-  `Estilo_idEstilo3` INT NOT NULL,
   PRIMARY KEY (`idFormulario`),
   UNIQUE INDEX `idFormulário_UNIQUE` (`idFormulario` ASC) VISIBLE,
   INDEX `fk_Formulário_Cliente1_idx` (`Cliente_idCliente` ASC) VISIBLE,

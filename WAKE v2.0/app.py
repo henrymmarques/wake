@@ -173,6 +173,9 @@ def logout():
     # Redirect to login page
     return redirect(url_for('login'))
 
+@app.route('/formteste', methods=['GET', 'POST'])
+def shop1():
+    return render_template("FormTamanhos.html")
 
 @app.route('/shop', methods=['GET', 'POST'])
 def shop():
@@ -184,8 +187,10 @@ def shop():
         altura = request.form['altura']
         peso = request.form['peso']
         session['genero'] = genero
-        return redirect(url_for('shop2'))
+        return redirect(url_for('formteste'))
     return render_template("FormPessoal.html")
+
+
 
 @app.route('/filtro', methods=['GET', 'POST'])
 def filtro():
@@ -195,6 +200,9 @@ def filtro():
         return render_template("filtros_mulher.html")
     else:
         return render_template("filtros_homem.html")
+
+
+
 
 #recebe o nome de cada imagem do formulario e verifica a checkbox. Para nao se fazer uma carrada de ifs
 def checkboxImage(str):
@@ -231,31 +239,21 @@ def shop2():
                             streetwear2, streetwear3))
         nomeEstilo=roupascluster.cluster_masculino(alterno1,\
                        alterno2, alterno3, classic1, classic2, classic3, desportivo1, desportivo2, desportivo3, flannel1, flannel2, flannel3, streetwear1,\
-                            streetwear2, streetwear3)
-        print("*******************************************")
-        print(nomeEstilo)
-        session['nomeEstilo']=nomeEstilo[1]
-        session['nomeEstilo2']=nomeEstilo[2]
-        session['nomeEstilo3']=nomeEstilo[3]
-        print(nomeEstilo[0] ,nomeEstilo[1], nomeEstilo[2])
-
+                            streetwear2, streetwear3)[0]
+        session['nomeEstilo']=nomeEstilo
+        
     #select idEstilo according to Nome_estilo from clusters
         cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor_estilo.execute('SELECT idEstilo FROM estilo WHERE Nome_estilo = %s', (nomeEstilo[0],))
+        cursor_estilo.execute('SELECT idEstilo FROM estilo WHERE Nome_estilo = %s', (nomeEstilo,))
         idEstilo = cursor_estilo.fetchone()['idEstilo']
-        cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor_estilo.execute('SELECT idEstilo FROM estilo WHERE Nome_estilo = %s', (nomeEstilo[1],))
-        idEstilo2 = cursor_estilo.fetchone()['idEstilo']
-        cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor_estilo.execute('SELECT idEstilo FROM estilo WHERE Nome_estilo = %s', (nomeEstilo[2],))
-        idEstilo3 = cursor_estilo.fetchone()['idEstilo']
+        
 
        
         cursor1.execute('INSERT INTO `wake`.`formulario` (`Resposta 1`, `Resposta 2`, `Resposta 3`, `Resposta 4`, `Resposta 5`, `Resposta 6`, \
              `Resposta 7`, `Resposta 8`, `Resposta 9`, `Resposta 10`, `Resposta 11`, `Resposta 12`, `Resposta 13`, `Resposta 14`, `Resposta 15`,\
-                  `Cliente_idCliente`, `Estilo_idEstilo1`,`Estilo_idEstilo2`,`Estilo_idEstilo3`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)', (alterno1,\
+                  `Cliente_idCliente`, `Estilo_idEstilo1`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)', (alterno1,\
                        alterno2, alterno3, classic1, classic2, classic3, desportivo1, desportivo2, desportivo3, flannel1, flannel2, flannel3, streetwear1,\
-                            streetwear2, streetwear3, idCliente, idEstilo, idEstilo2,idEstilo3 ))
+                            streetwear2, streetwear3, idCliente, idEstilo))
         mysql.connection.commit()
         return redirect(url_for('filtro'))
     elif request.method == 'POST' and session['genero']=='Female':
