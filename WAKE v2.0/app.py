@@ -187,8 +187,8 @@ def shop():
         altura = request.form['altura']
         peso = request.form['peso']
         session['genero'] = genero
-        return redirect(url_for('formteste'))
-    return render_template("FormPessoal.html")
+        return redirect(url_for('shop2'))
+    return render_template("FormTamanhos.html")
 
 
 

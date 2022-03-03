@@ -149,6 +149,41 @@
         border-color: #06b;
 
     }
+
+     /* Style the button and place it in the middle of the container/image */
+  .container .btn {
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    font-size: 20px;
+    padding: 12px 24px;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #11384b;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+    box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+    -webkit-border-radius: 5px 5px 5px 5px;
+    border-radius: 5px 5px 5px 5px;
+    margin: 5px 20px 40px 20px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+  }
+
+  .container .btn:hover {
+    background-color: #56baed;
+
+  }
 </style>
 
 
@@ -256,6 +291,10 @@
 </head>
 
 <body>
+
+    {% if session['loggedin'] %}
+
+  <!--FONTE: https://codepen.io/ainalem/pen/GRqPwoz-->
 
     <div id="svg_wrap"></div>
     <form method="post">
@@ -368,6 +407,17 @@
 
         <input type="submit" id="submit" class="button" value="CONFIRMAR">
     </form>
+
+    {% else %}
+    <div class="container" id="header-waves">
+      <img class="bg" src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/femea_forms.jpg" />
+      <input class="btn" type="button" onclick="location.href='login';"
+        value="FAZ LOGIN PARA PREENCHERES O TEU FORMULÁRIO...">
+    </div>
+  
+
+
+  {% endif %}
 </body>
 
 {% endblock %}
