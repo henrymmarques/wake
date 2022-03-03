@@ -150,139 +150,136 @@
 
     }
 
-     /* Style the button and place it in the middle of the container/image */
-  .container .btn {
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    font-size: 20px;
-    padding: 12px 24px;
-    cursor: pointer;
-    border-radius: 5px;
-    background-color: #11384b;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    text-transform: uppercase;
-    -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
-    box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
-    -webkit-border-radius: 5px 5px 5px 5px;
-    border-radius: 5px 5px 5px 5px;
-    margin: 5px 20px 40px 20px;
-    -webkit-transition: all 0.3s ease-in-out;
-    -moz-transition: all 0.3s ease-in-out;
-    -ms-transition: all 0.3s ease-in-out;
-    -o-transition: all 0.3s ease-in-out;
-    transition: all 0.3s ease-in-out;
-  }
+    /* Style the button and place it in the middle of the container/image */
+    .container .btn {
+        position: absolute;
+        top: 70%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        -ms-transform: translate(-50%, -50%);
+        font-size: 20px;
+        padding: 12px 24px;
+        cursor: pointer;
+        border-radius: 5px;
+        background-color: #11384b;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        text-transform: uppercase;
+        -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+        box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
+        -webkit-border-radius: 5px 5px 5px 5px;
+        border-radius: 5px 5px 5px 5px;
+        margin: 5px 20px 40px 20px;
+        -webkit-transition: all 0.3s ease-in-out;
+        -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+        -o-transition: all 0.3s ease-in-out;
+        transition: all 0.3s ease-in-out;
+    }
 
-  .container .btn:hover {
-    background-color: #56baed;
+    .container .btn:hover {
+        background-color: #56baed;
 
-  }
-
-
+    }
 
 
 
-  /* Modal Window sTyles */
-
-.wrapper a {
-  display: inline-block;
-  text-decoration: none;
-  padding: 15px;
-  background-color: rgba(255, 255, 255, 0);
-  border-radius: 3px;
-  color: #e3fc00;
-  font-family: 'Roboto', sans-serif;
-}
-
-.modal {
-  visibility: hidden;
-  opacity: 0;
-  position: absolute;
-  ;
-  
-  
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(236, 33, 33, 0);
-  transition: all .4s;
-  width: 500px;
-  height: 600px;
-  top: 0;
-  right: 0;
-  margin: -10px;
-  right: 10%
-  
-}
-
-.modal:target {
-  visibility: visible;
-  opacity: 1;
-}
-
-.modal__content {
-  border-radius: 10px;
-  position: relative;
-  width: 500px;
-  max-width: 100%;
-  height: auto;
-  background: rgb(27, 26, 26);
-  padding-left: 5px;
-  padding-top: 20px;
-}
-
-.modal__content p{
-    font-size: 15px;
-    color: #eaf17b;
-    padding: 10px;
-}
-
-.modal__footer p{
-    font-size: 15px;
-    text-align: right;
-    padding-right: 10px;
-}
 
 
-.modal__close {
-  position: relative;
-  top: -620px;
-  right: -230px;
-  color: #fd0404;
-  text-decoration: none;
-}
+    /* Modal Window sTyles */
 
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
+    .wrapper a {
+        display: inline-block;
+        text-decoration: none;
+        padding: 15px;
+        background-color: rgba(255, 255, 255, 0);
+        border-radius: 3px;
+        color: #e3fc00;
+        font-family: 'Roboto', sans-serif;
+    }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1;
-}
+    .modal {
+        visibility: hidden;
+        opacity: 0;
+        position: absolute;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(236, 33, 33, 0);
+        transition: all .4s;
+        width: 500px;
+        height: 630px;
+        top: 0;
+        right: 0;
+        margin: -80px;
+        border-radius: 20px;
+        padding: 0px;
+    }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888;
-}
+    .modal:target {
+        visibility: visible;
+        opacity: 1;
+    }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555;
-}
+    .modal__content {
+        border-radius: 10px;
+        position: relative;
+        width: 500px;
+        max-width: 100%;
+        height: auto;
+        background: rgb(27, 26, 26);
+        padding-left: 5px;
+        padding-top: 20px;
+    }
+
+    .modal__content p {
+        font-size: 15px;
+        color: #eaf17b;
+        padding: 10px;
+    }
+
+    .modal__footer p {
+        font-size: 15px;
+        text-align: right;
+        padding-right: 10px;
+    }
+
+
+    .modal__close {
+        position: relative;
+        top: -620px;
+        right: -230px;
+        color: #fd0404;
+        text-decoration: none;
+    }
+
+    /* width */
+    ::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    /* Track */
+    ::-webkit-scrollbar-track {
+        background: #f1f1f1;
+    }
+
+    /* Handle */
+    ::-webkit-scrollbar-thumb {
+        background: #888;
+    }
+
+    /* Handle on hover */
+    ::-webkit-scrollbar-thumb:hover {
+        background: #555;
+    }
 </style>
 
 
 <head>
-    
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
     <script>
         $(document).ready(function () {
@@ -383,15 +380,15 @@
 
         });
     </script>
-    
-    
+
+
 </head>
 
 <body>
 
     {% if session['loggedin'] %}
 
-  <!--FONTE: https://codepen.io/ainalem/pen/GRqPwoz-->
+    <!--FONTE: https://codepen.io/ainalem/pen/GRqPwoz-->
 
     <div id="svg_wrap"></div>
     <form method="post">
@@ -399,39 +396,45 @@
         <section>
             Primeiro vamos necessitar de algumas informações tuas<br><br>
             Depois responderás a um questionário de estilos de roupa...<br><br>
-            Por último vais indicar os tipos de roupa que queres comprar e se queres visualizar as escolhas do nosso algoritmo ou se queres ser surpeendido quando as roupas chegarem a tua casa
-        
-	
+            Por último vais indicar os tipos de roupa que queres comprar e se queres visualizar as escolhas do nosso
+            algoritmo ou se queres ser surpeendido quando as roupas chegarem a tua casa
+
+
             <div class="wrapper">
                 <a href="#demo-modal"><u>Sabe mais aqui</u></a>
             </div>
-            
+
             <div id="demo-modal" class="modal">
                 <div class="modal__content">
                     <h1>Funcionamento WAKE</h1>
-            
+
                     <p>
-                        &#8226; WAKE utiliza avançados algoritmos de inteligência artificial para te proporcionar o melhor serviço.
+                        &#8226; A WAKE utiliza avançados algoritmos de inteligência artificial para te proporcionar o
+                        melhor serviço.
                     </p>
-                    <p>&#8226; Para que a roupa tenha o tamanho perfeito para ti, precisamos que respondas às perguntas que se seguem acerca de tamanhos.</p>
+                    <p>&#8226; Para que a roupa tenha o tamanho perfeito para ti, precisamos que respondas às perguntas
+                        que se seguem acerca de tamanhos.</p>
                     <p>
-                        &#8226; Para que o algoritmo perceba o teu estilo de roupa precisas de escolher um conjunto de outfits que te sentirías confortável a utilizar.  
+                        &#8226; Para que os algoritmos percebam o teu estilo de roupa precisas de escolher um conjunto de
+                        outfits que te sentirías confortável a utilizar.
                     </p>
                     <p>
-                        &#8226; Finalmente pedimos-te que indiques o tipo de peças que precisas de comprar (calças, tshirt, ...) e o dinheiro que está dispost@ a gastar.
+                        &#8226; Finalmente pedimos-te que indiques o tipo de peças que precisas de comprar (calças,
+                        tshirt, ...) e o dinheiro que estás dispost@ a gastar.
                     </p>
                     <p>
-                        &#8226; Ainda te damos a oportunidade de visualizar as roupas escolhidas pelos nossos algoritmos. Mas também podes optar por ser surpreendido quando a encomenda chegar a tua casa. 
+                        &#8226; Ainda te damos a oportunidade de visualizar as roupas escolhidas pelos nossos
+                        algoritmos. Mas também podes optar por ser surpreendido quando a encomenda chegar a tua casa.
                     </p>
-            
+
                     <div class="modal__footer">
-                        <p>A tua equipa WAKE</p> 
+                        <p>A tua equipa WAKE</p>
                     </div>
-            
+
                     <a href="#" class="modal__close">&times;</a>
                 </div>
             </div>
-  
+
         </section>
 
 
@@ -546,14 +549,14 @@
 
     {% else %}
     <div class="container" id="header-waves">
-      <img class="bg" src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/femea_forms.jpg" />
-      <input class="btn" type="button" onclick="location.href='login';"
-        value="FAZ LOGIN PARA PREENCHERES O TEU FORMULÁRIO...">
+        <img class="bg" src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/femea_forms.jpg" />
+        <input class="btn" type="button" onclick="location.href='login';"
+            value="FAZ LOGIN PARA PREENCHERES O TEU FORMULÁRIO...">
     </div>
-  
 
 
-  {% endif %}
+
+    {% endif %}
 </body>
 
 {% endblock %}
