@@ -6,6 +6,7 @@ import MySQLdb.cursors
 import re
 import roupascluster
 import random
+from flask_mail import Mail, Message
 
 
 
@@ -24,6 +25,16 @@ app.config['MYSQL_DB'] = 'wake'
 
 # Intialize MySQL
 mysql = MySQL(app)
+
+#Flask.Mail
+mail= Mail(app)
+app.config['MAIL_SERVER']='smtp.gmail.com'
+app.config['MAIL_PORT'] = 465
+app.config['MAIL_USERNAME'] = 'contact.wake.pt@gmail.com'
+app.config['MAIL_PASSWORD'] = 'Wake4ever'
+app.config['MAIL_USE_TLS'] = False
+app.config['MAIL_USE_SSL'] = True
+mail = Mail(app)
 
 
 @app.route("/")
@@ -113,9 +124,29 @@ def register():
 def about_us():
     return render_template("aboutUs.html")
 
-@app.route("/contact")
+@app.route("/contact", methods=['GET', 'POST'])
 def contact():
-    return render_template("chatbot.html")
+    print("*****________*****")
+    feedback=' '
+    if request.method == 'POST' and 'firstname' in request.form and 'lastname' in request.form and 'email' in request.form and 'message' in request.form:
+        fname = request.form['firstname']
+        lname = request.form['lastname']
+        email = request.form['email']
+        message = request.form['message']
+        
+        print(fname + ' ' + lname)
+    
+        msg = Message('Mensagens Site', sender = 'contact.wake.pt@gmail.com', recipients = ['contact.wake.pt@gmail.com'])
+        msg.body = fname + ' ' + lname + ' com o email: ' + email + ' enviou a seguinte mensagem:\n\n' + message
+        mail.send(msg)
+        feedback='E-mail enviado com sucesso!'
+
+        msg_cliente = Message('WAKE.pt - Review de Contacto', sender = 'contact.wake.pt@gmail.com', recipients = [email])
+        msg_cliente.body = 'Registámos o teu pedido de contacto com a seguinte mensagem:\n\n"' + message + '"\n\nIremos ser breves na resposta.\n\nObrigado por escolheres a WAKE'   
+        mail.send(msg_cliente)
+    return render_template("contactUs.html", feedback=feedback)
+
+
 
 @app.route("/forgotPassword")
 def forgotPassword():

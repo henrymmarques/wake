@@ -1,0 +1,215 @@
+{% extends "base.html" %}
+{% block title %}{% endblock %}
+{% block content %}
+
+<style>
+    body {
+        font-family: "Poppins", sans-serif;
+        height: 100vh;
+        background-image: url('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pexels-johannes-plenio-1103970.jpg');
+
+    }
+
+    /* Style inputs with type="text", select elements and textareas */
+    input[type=text],
+    select,
+    textarea {
+        width: 100%;
+        /* Full width */
+        padding: 12px;
+        /* Some padding */
+        border: 1px solid #ccc;
+        /* Gray border */
+        border-radius: 4px;
+        /* Rounded borders */
+        box-sizing: border-box;
+        /* Make sure that padding and width stays in place */
+        margin-top: 6px;
+        /* Add a top margin */
+        margin-bottom: 16px;
+        /* Bottom margin */
+        resize: vertical
+            /* Allow the user to vertically resize the textarea (not horizontally) */
+    }
+
+    /* Style the submit button with a specific background color etc */
+    input[type=submit] {
+        background-color: #56baed;
+        color: white;
+        padding: 12px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    /* When moving the mouse over the submit button, add a darker green color */
+    input[type=submit]:hover {
+        background-color: #39ace7;
+    }
+
+    /* Add a background color and some padding around the form */
+    .container {
+        border-radius: 5px;
+        background-color: #ffffff;
+        padding: 20px;
+
+    }
+
+
+/*#############################FOOTER STYLE########################################################################*/
+.footer-clean {
+  padding:30px 90px;
+  background-image: url('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pexels-johannes-plenio-1103970.jpg');
+  color:#090a0a;
+}
+
+.footer-clean h3 {
+  margin-top:0;
+  margin-bottom:12px;
+  font-weight:bold;
+  font-size:18px;
+  font-family: "Poppins""sans-serif";
+}
+
+.footer-clean ul {
+  padding:0;
+  list-style:none;
+  line-height:1.6;
+  font-size:16px;
+  margin-bottom:0;
+  font-family: "Poppins""sans-serif";
+}
+
+.footer-clean ul a {
+  color:inherit;
+  text-decoration:none;
+  opacity:0.8;
+}
+
+.footer-clean ul a:hover {
+  opacity:1;
+}
+
+.footer-clean .item.social {
+  text-align:right;
+}
+
+@media (max-width:767px) {
+  .footer-clean .item {
+    text-align:center;
+    padding-bottom:20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer-clean .item.social {
+    text-align:center;
+  }
+}
+
+.footer-clean .item.social > a {
+  font-size:24px;
+  width:40px;
+  height:40px;
+  line-height:40px;
+  display:inline-block;
+  text-align:center;
+  border-radius:50%;
+  border:1px solid rgb(255, 253, 253);
+  margin-left:10px;
+  margin-top:22px;
+  color:inherit;
+  opacity:0.75;
+}
+
+.footer-clean .item.social > a:hover {
+  opacity:0.9;
+}
+
+@media (max-width:991px) {
+  .footer-clean .item.social > a {
+    margin-top:40px;
+  }
+}
+
+@media (max-width:767px) {
+  .footer-clean .item.social > a {
+    margin-top:10px;
+  }
+}
+
+.footer-clean .copyright {
+  margin-top:14px;
+  margin-bottom:0;
+  font-size:13px;
+  opacity:0.6;
+}
+</style>
+
+
+
+<div class="container">
+    <form action="{{ url_for('contact') }}" method="post">
+        <label for="firstname">Nome</label>
+        <input type="text" id="firstname" name="firstname" placeholder="O teu nome..">
+        <label for="lastname">Apelido</label>
+        <input type="text" id="lastname" name="lastname" placeholder="O teu apelido..">
+        <label for="email">E-Mail</label>
+        <input type="text" id="email" name="email" placeholder="O teu e-mail..">
+        <label for="message">Mensagem</label>
+        <textarea id="message" name="message" placeholder="A tua mensagem.." style="height:150px"></textarea>
+
+
+        <input type="submit" value="Submit">
+        <br>
+        <div class="msg">{{ feedback }}</div>
+    </form>
+</div>
+
+<!-- Site footer -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled</title> 
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+    <div class="footer-clean">
+        <footer>
+            <div class="container2">
+                <div class="row justify-content-center">
+                    <div class="col-sm-4 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="shop">Shop</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="aboutUs">Company</a></li>
+                            <li><a href="forgotPassword">Process</a></li>
+                            <li><a href="forgotPassword">Shipping</a></li>
+                            <li><a href="forgotPassword">Artificial Intelligence</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-4 col-md-3 item">
+                        <h3>Newsletter</h3>
+                        <input type="text" id="fname" name="fname" placeholder="Email Address">
+                        <ul>
+                            <li><a href="#">Confirmar</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 item social"><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i
+                                class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-linkedin"></i></a><a
+                            href="https://www.instagram.com/wake_pt/" target="_blank"><i
+                                class="fa fa-instagram"></i></a>
+                        <p class="copyright">WAKE © 2021</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+
+
+{% endblock %}
