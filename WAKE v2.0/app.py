@@ -204,9 +204,7 @@ def logout():
     # Redirect to login page
     return redirect(url_for('login'))
 
-@app.route('/formteste', methods=['GET', 'POST'])
-def shop1():
-    return render_template("FormTamanhos.html")
+
 
 @app.route('/shop', methods=['GET', 'POST'])
 def shop():
@@ -226,7 +224,11 @@ def shop():
 @app.route('/filtro', methods=['GET', 'POST'])
 def filtro():
     if request.method == 'POST' :
-        return redirect(url_for('package'))
+        
+        if 'seePackage' in request.form:
+            return redirect(url_for('package'))
+        else:
+            return redirect(url_for('cart'))    
     if session['genero']=='Female':  
         return render_template("filtros_mulher.html")
     else:

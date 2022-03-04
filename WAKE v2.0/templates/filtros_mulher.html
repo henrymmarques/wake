@@ -150,31 +150,32 @@
 input[type=checkbox] {
     -webkit-appearance: none;
     outline: 0;
-     position: relative; 
-  height: 75px;
-  line-height: 50px;
-  right: 0;
-  top: 0;
-  margin: 0;
-  padding: 0;
-  background: rgb(29, 29, 28);
-  color: white;
-  border: none;
-  width: 30%;
-  font-weight: bold;
-  margin-bottom: 10px;
-  background-size: cover;
-  display:inside;
-}
+    position: relative;
+    height: 75px;
+    line-height: 50px;
+    right: 0;
+    top: 0;
+    margin: 0;
+    padding: 0;
+    background: rgb(29, 29, 28);
+    color: white;
+    border: none;
+    width: 30%;
+    font-weight: bold;
+    margin-bottom: 10px;
+    background-size: cover;
+    display: inside;
+    filter: brightness(60%);
+  }
 
-input[type=checkbox]:hover {
-  transform: scale(1.02);
-  filter: brightness(105%);
-}
+  input[type=checkbox]:hover {
+    transform: scale(1.02);
+    filter: brightness(105%);
+  }
 
-input[type=checkbox]:checked {
-  filter: brightness(60%);
-}
+  input[type=checkbox]:checked {
+    filter: brightness(100%);
+  }
 
 #calcas{
   background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/btns/btn_calcas.png");
@@ -268,6 +269,37 @@ input[type=checkbox]:checked {
   .back{
     background-image: url('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pexels_roupa.jpeg');
   }
+
+  
+  .seePackage input[type=checkbox] {
+    background-color: #303245;
+    border-radius: 12px;
+    border: solid 2px;
+    border-color: #eee;
+    box-sizing: border-box;
+    color: #eee;
+    height: 100%;
+    outline: 0;
+    padding: 4px 20px 0;
+    width: 50%;
+    display: inline;
+    filter: brightness(110%)
+  }
+
+  .seePackage input[type=checkbox]:hover {
+    transform: scale(1.02);
+    filter: brightness(120%);
+  }
+
+  .seePackage input[type=checkbox]:checked {
+    background-color: #08d;
+  }
+
+  .labelPackage{
+    color: rgb(255, 255, 255);
+    font-family: "Poppins", sans-serif;
+    margin-left: 10px;
+  }
 </style>
 
 
@@ -326,10 +358,15 @@ input[type=checkbox]:checked {
           <input type="number" id="qnt_saia" class="qnt" name="peso" placeholder="Qtd" min="0" >
 
           <input type="checkbox" class="clothes_box" id="vestido" value="yes">
-          <input type="number" id="qnt_vestido" class="qnt" name="peso" placeholder="Qtd" min="0" >
-          
+          <input type="number" id="qnt_vestido" class="qnt" name="peso" placeholder="Qtd" min="0" >      
                 
         </div>
+
+        <div class="seePackage">
+          <input type="checkbox" class="" id="seePackage" value="yes">
+          <label for="seePackage" class="labelPackage">Prentedo visualizar o pacote antes de pagar.</label>
+        </div>
+        
         <input type="submit" class="submit" value="SEGUINTE">
       </form>
     </div>
