@@ -2,483 +2,613 @@
 {% block title %}{% endblock %}
 {% block content %}
 
-<html>
+<style>
+    html {
+        height: 100%;
+        min-height: 800px;
+    }
+
+    body {
+        background: url('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pexels_roupa.jpeg');
+        background-size: cover;
+        background-repeat: repeat;
+        text-align: center;
+        color: #eee;
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    h1 {
+        color: #eee;
+        font-family: "Poppins", sans-serif;
+        font-size: 36px;
+        font-weight: 600;
+        margin-top: 30px;
+    }
+
+    #svg_form_time {
+        height: 15px;
+        max-width: 80%;
+        margin: 40px auto 20px;
+        display: block;
+    }
+
+    #svg_form_time circle,
+    #svg_form_time rect {
+        fill: white;
+    }
+
+    .button {
+        background: #06b;
+        border-radius: 5px;
+        padding: 15px 25px;
+        display: inline-block;
+        margin: 10px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.5);
+    }
+
+    .button:hover {
+        filter: brightness(90%);
+    }
+
+    .disabled {
+        display: none;
+    }
+
+    section {
+        background-color: #15172b;
+        border-radius: 20px;
+        box-sizing: border-box;
+        height: auto;
+        padding: 20px;
+        padding-bottom: 30px;
+        width: auto;
+        text-align: center;
+        position: relative;
+        margin: auto;
+    }
+
+    p {
+        text-align: center;
+        margin-top: 0;
+        font-size: 18px;
+
+    }
+
+
+    .input-container {
+        height: 50px;
+        position: relative;
+        width: 100%;
+    }
+
+    .ic1 {
+        margin-top: 40px;
+    }
+
+    .ic2 {
+        margin-top: 30px;
+    }
+
+    .input {
+        background-color: #303245;
+        border-radius: 12px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        font-size: 18px;
+        font-family: "Poppins", sans-serif;
+        height: 100%;
+        outline: 0;
+        padding: 4px 20px 0;
+        width: 100%;
+    }
+
+    .form {
+        background-color: #15172b;
+        border-radius: 20px;
+        box-sizing: border-box;
+        height: 525px;
+        padding: 20px;
+        width: 320px;
+        text-align: center;
+        position: relative;
+        margin: auto;
+    }
+
+    label {
+        background-color: #303245;
+        border-radius: 12px;
+        border: 4px;
+        border-style: solid;
+        border-color: #303245;
+        box-sizing: border-box;
+        color: #eee;
+        font-size: 18px;
+        font-family: "Poppins", sans-serif;
+        height: auto;
+        outline: 0;
+        padding: 4px 20px 0;
+        width: 80%;
+        font-display: auto;
+    }
+
+    input[type="radio"] {
+        display: none;
+    }
+
+    input[type="radio"]:checked+label {
+        border-color: #06b;
+
+    }
+
+    input[type="submit"] {
+        font-size: larger;
+        background-color: rgb(9, 129, 226);
+    }
+
+
+    /************************/
+
+    .myGallery {
+        display: flex;
+
+        grid-gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .img {
+        flex: 33.33%;
+        padding: 5px;
+        float: left;
+        width: 100%;
+    }
+
+    .img img {
+        width: 400px;
+        height: 400px;
+
+        /*Scale down will take the necessary specified space that is 100px x 100px without stretching the image*/
+        object-fit: scale-down;
+    }
+
+    /*******--*******/
+
+    input[type=checkbox] {
+        -webkit-appearance: none;
+        outline: 0;
+        position: relative;
+        border-radius: 12px;
+        background-size: cover;
+        display: inside;
+        width: 400px;
+        height: 400px;
+        /*Scale down will take the necessary specified space that is 100px x 100px without stretching the image*/
+        object-fit: scale-down;
+    }
+
+    input[type=checkbox]:hover {
+        transform: scale(1.02);
+        filter: brightness(105%);
+    }
+
+    input[type=checkbox]:checked {
+        filter: brightness(120%);
+    }
+
+    input[type=checkbox]:checked {
+        border-radius: 12px;
+        border: solid 7px;
+        border-color: #06b;
+
+    }
+
+    /**HOMEM**/
+    #alterno1 {
+
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/alterno1.jpg");
+    }
+
+    #streetwear2 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/streetwear2.jpg");
+    }
+
+    #desportivo3 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/desportivo3.jpg");
+    }
+
+    #alterno3 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/alterno3.jpg");
+    }
+
+    #classic2 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/classic2.jpg");
+    }
+
+    #classic3 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/classic3.jpg");
+    }
+
+    #desportivo1 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/desportivo1.jpg");
+    }
+
+    #desportivo2 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/desportivo2.jpg");
+    }
+
+    #flannel1 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/flannel1.jpg");
+    }
+
+    #flannel2 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/flannel2.jpg");
+    }
+
+    #flannel3 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/flannel3.jpg");
+    }
+
+    #classic1 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/classic1.jpg");
+    }
+
+    #streetwear1 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/streetwear1.jpg");
+    }
+
+    #alterno2 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/alterno2.jpg");
+    }
+
+    #streetwear3 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/streetwear3.jpg");
+    }
+
+    /**MULHER**/
+    #boho1 {
+
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/boho1.jpg");
+    }
+
+    #streetwear3_f {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/streetwear3.jpg");
+    }
+
+    #classic2_f {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/classic2.jpg");
+    }
+
+    #classic3_f {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/classic3.jpg");
+    }
+
+    #classic1_f {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/classic1.jpg");
+    }
+
+    #casual3 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/casual3.jpg");
+    }
+
+    #casual1 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/casual1.jpg");
+    }
+
+    #casual2 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/casual2.jpg");
+    }
+
+    #comfy1 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/comfy1.jpg");
+    }
+
+    #comfy2 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/comfy2.jpg");
+    }
+
+    #comfy3 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/comfy3.jpg");
+    }
+
+    #indie1 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/indie1.jpg");
+    }
+
+    #streetwear1_f {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/streetwear1.jpg");
+    }
+
+    #streetwear2_f {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/streetwear2.png");
+    }
+
+    #boho2 {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/boho2.jpg");
+    }
+</style>
+
 
 <head>
-    <style>
-        div.gallery {
-            margin: 5px;
-            border: 1px solid #ccc;
-            float: left;
-            width: 180px;
-        }
 
-        div.gallery:hover {
-            border: 1px solid #777;
-        }
-
-        div.gallery img {
-            width: 100%;
-            height: 100%;
-        }
-
-        div.desc {
-            padding: 15px;
-            text-align: center;
-        }
-
-        /* The switch - the box around the slider */
-        .switch {
-            position: relative;
-            display: flex;
-            width: 60px;
-            height: 34px;
-            margin: auto;
-            align-items: center;
-        }
-
-        /* Hide default HTML checkbox */
-        .switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        /* The slider */
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: rgb(10, 9, 9);
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-        .slider:before {
-            position: absolute;
-            content: "";
-            height: 26px;
-            width: 26px;
-            left: 4px;
-            bottom: 4px;
-            background-color: white;
-            -webkit-transition: .4s;
-            transition: .4s;
-        }
-
-        input:checked+.slider {
-            background-color: #2196F3;
-        }
-
-        input:focus+.slider {
-            box-shadow: 0 0 1px #2196F3;
-        }
-
-        input:checked+.slider:before {
-            -webkit-transform: translateX(26px);
-            -ms-transform: translateX(26px);
-            transform: translateX(26px);
-        }
-
-        /* Rounded sliders */
-        .slider.round {
-            border-radius: 34px;
-        }
-
-        .slider.round:before {
-            border-radius: 50%;
-        }
-
-        input[type=button],
-        input[type=submit],
-        input[type=reset] {
-            background-color: #0d3346;
-            border: none;
-            color: white;
-            padding: 15px 80px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            text-transform: uppercase;
-            font-size: 18px;
-            -webkit-box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
-            box-shadow: 0 10px 30px 0 rgba(95, 186, 233, 0.4);
-            -webkit-border-radius: 5px 5px 5px 5px;
-            border-radius: 5px 5px 5px 5px;
-            margin: 5px 20px 40px 20px;
-            -webkit-transition: all 0.3s ease-in-out;
-            -moz-transition: all 0.3s ease-in-out;
-            -ms-transition: all 0.3s ease-in-out;
-            -o-transition: all 0.3s ease-in-out;
-            transition: all 0.3s ease-in-out;
-        }
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            var base_color = "rgb(230,230,230)";
+            var active_color = "#06b";
 
 
 
+            var child = 1;
+            var length = $("section").length - 1;
+            $("#prev").addClass("disabled");
+            $("#submit").addClass("disabled");
+
+            $("section").not("section:nth-of-type(1)").hide();
+            $("section").not("section:nth-of-type(1)").css('transform', 'translateX(100px)');
+
+            var svgWidth = length * 200 + 24;
+            $("#svg_wrap").html(
+                '<svg version="1.1" id="svg_form_time" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 ' +
+                svgWidth +
+                ' 24" xml:space="preserve"></svg>'
+            );
+
+            function makeSVG(tag, attrs) {
+                var el = document.createElementNS("http://www.w3.org/2000/svg", tag);
+                for (var k in attrs) el.setAttribute(k, attrs[k]);
+                return el;
+            }
+
+            for (i = 0; i < length; i++) {
+                var positionX = 12 + i * 200;
+                var rect = makeSVG("rect", { x: positionX, y: 9, width: 200, height: 6 });
+                document.getElementById("svg_form_time").appendChild(rect);
+                // <g><rect x="12" y="9" width="200" height="6"></rect></g>'
+                var circle = makeSVG("circle", {
+                    cx: positionX,
+                    cy: 12,
+                    r: 12,
+                    width: positionX,
+                    height: 6
+                });
+                document.getElementById("svg_form_time").appendChild(circle);
+            }
+
+            var circle = makeSVG("circle", {
+                cx: positionX + 200,
+                cy: 12,
+                r: 12,
+                width: positionX,
+                height: 6
+            });
+            document.getElementById("svg_form_time").appendChild(circle);
+
+            $('#svg_form_time rect').css('fill', base_color);
+            $('#svg_form_time circle').css('fill', base_color);
+            $("circle:nth-of-type(1)").css("fill", active_color);
 
 
+            $(".button").click(function () {
+                $("#svg_form_time rect").css("fill", active_color);
+                $("#svg_form_time circle").css("fill", active_color);
+                var id = $(this).attr("id");
+                if (id == "next") {
+                    $("#prev").removeClass("disabled");
+                    if (child >= length) {
+                        $(this).addClass("disabled");
+                        $('#submit').removeClass("disabled");
+                    }
+                    if (child <= length) {
+                        child++;
+                    }
+                } else if (id == "prev") {
+                    $("#next").removeClass("disabled");
+                    $('#submit').addClass("disabled");
+                    if (child <= 2) {
+                        $(this).addClass("disabled");
+                    }
+                    if (child > 1) {
+                        child--;
+                    }
+                }
+                var circle_child = child + 1;
+                $("#svg_form_time rect:nth-of-type(n + " + child + ")").css(
+                    "fill",
+                    base_color
+                );
+                $("#svg_form_time circle:nth-of-type(n + " + circle_child + ")").css(
+                    "fill",
+                    base_color
+                );
+                var currentSection = $("section:nth-of-type(" + child + ")");
+                currentSection.fadeIn();
+                currentSection.css('transform', 'translateX(0)');
+                currentSection.prevAll('section').css('transform', 'translateX(-100px)');
+                currentSection.nextAll('section').css('transform', 'translateX(100px)');
+                $('section').not(currentSection).hide();
+            });
+
+        });
+    </script>
 
 
-        /*
-  The grid itself needs only 4 CSS declarations:
-*/
-
-        .myGallery {
-            display: grid;
-            grid-gap: 10px;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        }
-
-        .myGallery img {
-            width: 100%;
-        }
-
-        /*
-  And here are some declarations for the image caption.
-  Just hover over one of the last 5 images to see it.
-*/
-
-        .myGallery .item {
-            position: relative;
-            overflow: hidden;
-        }
-
-        .myGallery .item img {
-            vertical-align: middle;
-        }
-
-        .myGallery .caption {
-            margin: 0;
-            padding: 1em;
-            position: absolute;
-            z-index: 1;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            max-height: 100%;
-            overflow: auto;
-            box-sizing: border-box;
-            transition: transform 0.5s;
-            transform: translateY(100%);
-            background: rgba(0, 0, 0, 0.7);
-            color: rgb(255, 255, 255);
-        }
-
-        .myGallery .item:hover .caption {
-            transform: translateY(0%);
-        }
-
-        /*
-  The rest is only styling for this example page
-*/
-
-        @import url("https://fonts.googleapis.com/css2?family=Vollkorn:wght@400;900&display=swap");
-
-        body {
-            font-family: "Poppins""sans-serif";
-        }
-
-        h1,
-        p {
-            text-align: center;
-        }
-
-        .myGallery {
-
-            font-size: 1rem;
-            /* background: rgb(139, 107, 13);
-            background: linear-gradient(90deg, rgba(139, 107, 13, 1) 0%, rgba(249, 236, 114, 1) 35%, rgba(0, 212, 255, 0.41780462184873945) 100%);
-            background-image: url('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pexels-johannes-plenio-1103970.jpg');
-            */
-        }
-
-        .body {
-            background-image: url('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pexels-johannes-plenio-1103970.jpg');
-
-        }
-
-        .img {
-            border-style: solid;
-        }
-    </style>
 </head>
 
-<body class="body">
-    <h1>Das seguinte imagens seleciona os estilos que mais te identificas</h1>
-    <p>Basta clicar no botão de cada imagem</p>
-    {% if session['genero']=='Male' %}
+<body>
+
+
+
+    <!--FONTE: https://codepen.io/ainalem/pen/GRqPwoz-->
+    <!--FONTE: https://codepen.io/webbarks/full/QWjwWNV-->
+
+    <div id="svg_wrap"></div>
     <form method="post">
-        <div class="myGallery">
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/alterno1.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="alterno1" value="yes">
-                    <span class="slider round"></span>
-                </label>
+        {% if session['genero']=='Male' %}
+        <h1>Das seguinte imagens seleciona os estilos que mais te identificas</h1>
+        <section>
+            <div class="myGallery">
+                <div class="img">
+                    <input type="checkbox" name="alterno1" id="alterno1" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="streetwear2" id="streetwear2" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="desportivo3" id="desportivo3" value="yes">
+                </div>
             </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/streetwear2.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="streetwear2" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/desportivo3.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="desportivo3" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/alterno3.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="alterno3" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
+        </section>
+        <section>
+            <div class="myGallery">
 
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/classic2.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="classic2" value="yes">
-                    <span class="slider round"></span>
-                </label>
+                <div class="img">
+                    <input type="checkbox" name="alterno3" id="alterno3" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="classic2" id="classic2" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="classic3" id="classic3" value="yes">
+                </div>
             </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/classic3.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="classic3" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/desportivo1.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="desportivo1" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/desportivo2.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="desportivo2" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
+        </section>
+        <section>
+            <div class="myGallery">
 
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/flannel1.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="flannel1" value="yes">
-                    <span class="slider round"></span>
-                </label>
+                <div class="img">
+                    <input type="checkbox" name="desportivo1" id="desportivo1" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="desportivo2" id="desportivo2" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="flannel1" id="flannel1" value="yes">
+                </div>
             </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/flannel2.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="flannel2" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/flannel3.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="flannel3" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/classic1.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="classic1" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/streetwear1.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="streetwear1" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
+        </section>
+        <section>
+            <div class="myGallery">
 
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/alterno2.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="alterno2" value="yes">
-                    <span class="slider round"></span>
-                </label>
+                <div class="img">
+                    <input type="checkbox" name="flannel2" id="flannel2" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="flannel3" id="flannel3" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="classic1" id="classic1" value="yes">
+                </div>
             </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_h/streetwear3.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="streetwear3" value="yes">
-                    <span class="slider round"></span>
-                </label>
+        </section>
+        <section>
+            <div class="myGallery">
+
+                <div class="img">
+                    <input type="checkbox" name="streetwear1" id="streetwear1" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="alterno2" id="alterno2" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="streetwear3" id="streetwear3" value="yes">
+                </div>
             </div>
-            <input type="submit" class="submit" value="NEXT">
-        </div>
+        </section>
+        {% else %}
+
+        <h1>Das seguinte imagens seleciona os estilos que mais te identificas</h1>
+        <section>
+            <div class="myGallery">
+                <div class="img">
+                    <input type="checkbox" name="boho1" id="boho1" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="streetwear3_f" id="streetwear3_f" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="classic2_f" id="classic2_f" value="yes">
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="myGallery">
+
+                <div class="img">
+                    <input type="checkbox" name="classic3_f" id="classic3_f" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="classic1_f" id="classic1_f" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="casual3" id="casual3" value="yes">
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="myGallery">
+
+                <div class="img">
+                    <input type="checkbox" name="casual1" id="casual1" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="casual2" id="casual2" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="comfy1" id="comfy1" value="yes">
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="myGallery">
+
+                <div class="img">
+                    <input type="checkbox" name="comfy2" id="comfy2" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="comfy3" id="comfy3" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="indie1" id="indie1" value="yes">
+                </div>
+            </div>
+        </section>
+        <section>
+            <div class="myGallery">
+
+                <div class="img">
+                    <input type="checkbox" name="streetwear1_f" id="streetwear1_f" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="streetwear2_f" id="streetwear2_f" value="yes">
+                </div>
+                <div class="img">
+                    <input type="checkbox" name="boho2" id="boho2" value="yes">
+                </div>
+            </div>
+        </section>
+
+        {% endif %}
+
+
+
+        <div class="button" id="prev">&larr; Anterior</div>
+        <div class="button" id="next">Próximo &rarr;</div>
+
+        <input type="submit" id="submit" class="button" value="CONFIRMAR">
     </form>
-    <!--p><em><small>When you need something more fancy, just check out <a href="https://gridzy.gallery/" target="_blank">Gridzy.Gallery</a></small></em></p-->
-
-    {% else %}
-    <form method="post">
-        <div class="myGallery">
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/boho1.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="boho1" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/streetwear3.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="streetwear3_f" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/classic2.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="classic2_f" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/classic3.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="classic3_f" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/classic1.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="classic1_f" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/casual3.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="casual3" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/casual1.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="casual1" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/casual2.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="casual2" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-
-
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/comfy1.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="comfy1" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/comfy2.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="comfy2" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/comfy3.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="comfy3" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/indie1.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="indie1" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/streetwear1.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="streetwear1_f" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/streetwear2.png" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="streetwear2_f" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <div class="img">
-                <img src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/Form_m/boho2.jpg" />
-                <!-- Rounded switch -->
-                <label class="switch">
-                    <input type="checkbox" name="boho2" value="yes">
-                    <span class="slider round"></span>
-                </label>
-            </div>
-            <input type="submit" class="submit" value="NEXT">
-        </div>
-    </form>
-
-
-    {% endif %}
 
 
 </body>
-
-</html>
-
-
 
 {% endblock %}
