@@ -1,7 +1,6 @@
 # libraries
 import random
-import tensorflow as tf
-from tensorflow import keras
+from tensorflow.keras.optimizers import SGD
 from keras.layers import Dense, Dropout
 from keras.models import load_model
 from keras.models import Sequential
@@ -10,7 +9,6 @@ import pickle
 import json
 import nltk
 from nltk.stem import WordNetLemmatizer
-from tensorflow.keras.optimizers import SGD
 lemmatizer = WordNetLemmatizer()
 nltk.download('omw-1.4')
 nltk.download("punkt")
@@ -110,3 +108,4 @@ model.compile(loss="categorical_crossentropy", optimizer=sgd, metrics=["accuracy
 hist = model.fit(np.array(train_x), np.array(train_y), epochs=200, batch_size=5, verbose=1)
 model.save("chatbot_model.h5", hist)
 print("model created")
+

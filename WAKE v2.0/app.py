@@ -350,25 +350,32 @@ def package():
 
     
 
-    ###############################################################
-"""
+    ##############################CHATBOT#################################
+# libraries
+import random
 import numpy as np
 import pickle
 import json
+from flask import Flask, render_template, request
 import nltk
 from keras.models import load_model
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
+
 
 # chat initialization
 model = load_model("chatbot_model.h5")
 intents = json.loads(open("intents.json").read())
 words = pickle.load(open("words.pkl", "rb"))
 classes = pickle.load(open("classes.pkl", "rb"))
+ 
+
+@app.route("/chatbot")
+def chat():
+    return render_template("chatbot.html")
 
 
-
-@app.route("/contact/get", methods=["POST"])
+@app.route("/get", methods=["POST"])
 def chatbot_response():
     msg = request.form["msg"]
     if msg.startswith('my name is'):
@@ -431,8 +438,10 @@ def getResponse(ints, intents_json):
         if i["tag"] == tag:
             result = random.choice(i["responses"])
             break
-    return 
-  """
+    return result
+
+    ###############################################################
+
 
 if __name__ == '__main__':
     app.run(debug=True, port=5000)
