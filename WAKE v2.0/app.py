@@ -292,6 +292,7 @@ def shop2():
                   `Cliente_idCliente`, `Estilo_idEstilo1`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)', (alterno1,\
                        alterno2, alterno3, classic1, classic2, classic3, desportivo1, desportivo2, desportivo3, flannel1, flannel2, flannel3, streetwear1,\
                             streetwear2, streetwear3, idCliente, idEstilo))
+        cursor1.execute('REPLACE INTO `wake`.`Cliente` (`idCliente`,`Estilo_idEstilo1` )  VALUES(%s,%s)',(idCliente, idEstilo))
         mysql.connection.commit()
         return redirect(url_for('filtro'))
     elif request.method == 'POST' and session['genero']=='Female':
