@@ -216,6 +216,11 @@ def shop():
         altura = request.form['altura']
         peso = request.form['peso']
         session['genero'] = genero
+
+        cursor1 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        cursor1.execute('UPDATE wake.cliente set Genero= %s, Peso= %s, Altura= %s WHERE Nome= %s', (genero, peso, altura, session['Nome'],))
+        mysql.connection.commit()
+
         return redirect(url_for('shop2'))
     return render_template("FormTamanhos.html")
 
