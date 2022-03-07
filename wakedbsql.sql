@@ -33,6 +33,9 @@ CREATE TABLE IF NOT EXISTS `wake`.`Cliente` (
   `Peso` INT NULL,
   `Altura` INT NULL,
   `Genero` VARCHAR(45) NULL,
+   `Estilo_idEstilo1` INT NULL,
+    FOREIGN KEY (`Estilo_idEstilo1`)
+    REFERENCES `wake`.`Estilo` (`idEstilo`),
   UNIQUE INDEX `Email_Cliente_UNIQUE` (`idCliente` ASC) VISIBLE,
   PRIMARY KEY (`idCliente`),
   UNIQUE INDEX `Email_UNIQUE` (`Email` ASC) VISIBLE)
