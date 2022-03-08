@@ -65,6 +65,11 @@ def login():
                 session['Nome'] = cliente['Nome']
                 print(session['url'])
                 if session['url'] == 'shop':
+                    cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                    cursor.execute('SELECT Estilo_idEstilo1 FROM cliente WHERE Nome = %s', (session['Nome'],))
+            # Fetch one record and return result
+                    estilo = cursor.fetchone()
+                    session['estilo']=estilo
                     return redirect(url_for("shop"))
                 # Redirect to home page
                 return redirect(url_for("home"))
@@ -209,9 +214,11 @@ def logout():
 @app.route('/shop', methods=['GET', 'POST'])
 def shop():
     session['url'] = 'shop'
+    
     if request.method == 'POST' and 'genero' in request.form and 'altura' in request.form and 'peso' in request.form:
         # Create variables for easy access
         session['url'] = 'false'
+        
         genero = request.form['genero']
         altura = request.form['altura']
         peso = request.form['peso']
@@ -222,6 +229,7 @@ def shop():
         mysql.connection.commit()
 
         return redirect(url_for('shop2'))
+    
     return render_template("FormTamanhos.html")
 
 
@@ -357,7 +365,7 @@ def package():
 
 
 
-    
+    """
 
     ##############################CHATBOT#################################
 # libraries
@@ -448,7 +456,7 @@ def getResponse(ints, intents_json):
             result = random.choice(i["responses"])
             break
     return result
-
+"""
     ###############################################################
 
 
