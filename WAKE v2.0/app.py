@@ -73,7 +73,7 @@ def login():
                         session['estilo']='False'
 
                     else:
-                        session['estilo']='True'
+                        return redirect(url_for("filtro"))
                     return redirect(url_for("shop"))
                 # Redirect to home page
                 return redirect(url_for("home"))
