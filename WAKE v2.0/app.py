@@ -108,7 +108,7 @@ def register():
             # print(idCliente)
             # idCliente=clientess+1
             cursor2.execute(
-                'INSERT INTO cliente VALUES (NULL, %s, %s, %s, NULL, NULL, NULL, NULL, NULL)', (Email, Nome, password,))
+                'INSERT INTO cliente VALUES (NULL, %s, %s, %s, NULL, NULL, NULL, NULL, NULL, NULL)', (Email, Nome, password,))
             mysql.connection.commit()
             msg = 'You have successfully registered!'
 
