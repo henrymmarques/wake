@@ -35,7 +35,7 @@ app.config['MAIL_PASSWORD'] = 'Wake4ever'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
-
+tem_estilo=0
 
 @app.route("/")
 def home():
@@ -69,12 +69,12 @@ def login():
                     cursor.execute('SELECT Estilo_idEstilo1 FROM cliente WHERE Nome = %s', (session['Nome'],))
             # Fetch one record and return result
                     estilo = cursor.fetchone()['Estilo_idEstilo1']
-                    if estilo is None:
-                        session['estilo']='False'
-
-                    else:
+                    if estilo!=None:
                         session['estilo']='True'
-                        return redirect(url_for("filtro"))
+                        tem_estilo=1
+                        print(tem_estilo)
+                    else:
+                        session['estilo']='False'
                     return redirect(url_for("shop"))
                 # Redirect to home page
                 return redirect(url_for("home"))
@@ -219,21 +219,23 @@ def logout():
 @app.route('/shop', methods=['GET', 'POST'])
 def shop():
     session['url'] = 'shop'
-    
-    if request.method == 'POST' and 'genero' in request.form and 'altura' in request.form and 'peso' in request.form:
-        # Create variables for easy access
-        session['url'] = 'false'
-        
-        genero = request.form['genero']
-        altura = request.form['altura']
-        peso = request.form['peso']
-        session['genero'] = genero
+    print(session['estilo'])
+    if session['estilo']=='True':
+        return redirect(url_for("filtro"))
+    else:
+        if request.method == 'POST' and 'genero' in request.form and 'altura' in request.form and 'peso' in request.form:
+            # Create variables for easy access
+            session['url'] = 'false'
+            
+            genero = request.form['genero']
+            altura = request.form['altura']
+            peso = request.form['peso']
+            session['genero'] = genero
 
-        cursor1 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor1.execute('UPDATE wake.cliente set Genero= %s, Peso= %s, Altura= %s WHERE Nome= %s', (genero, peso, altura, session['Nome'],))
-        mysql.connection.commit()
-
-        return redirect(url_for('shop2'))
+            cursor1 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor1.execute('UPDATE wake.cliente set Genero= %s, Peso= %s, Altura= %s WHERE Nome= %s', (genero, peso, altura, session['Nome'],))
+            mysql.connection.commit()
+            return redirect(url_for('shop2'))
     
     return render_template("FormTamanhos.html")
 
@@ -292,6 +294,7 @@ def shop2():
                        alterno2, alterno3, classic1, classic2, classic3, desportivo1, desportivo2, desportivo3, flannel1, flannel2, flannel3, streetwear1,\
                             streetwear2, streetwear3)[0]
         session['nomeEstilo']=nomeEstilo
+        session['estilo']='True'
         
     #select idEstilo according to Nome_estilo from clusters
         cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -329,7 +332,7 @@ def shop2():
         streetwear3_f = checkboxImage("streetwear3_f")
         print(roupascluster.cluster_feminino(boho1, boho2, casual1, casual2, casual3, classic1_f, classic2_f, classic3_f, comfy1, comfy2, comfy3, indie1, streetwear1_f, streetwear2_f, streetwear3_f))
         nomeEstilo = roupascluster.cluster_feminino(boho1, boho2, casual1, casual2, casual3, classic1_f, classic2_f, classic3_f, comfy1, comfy2, comfy3, indie1, streetwear1_f, streetwear2_f, streetwear3_f)[0]
-    
+        session['estilo']='True'
     #guardar o estilo para ser usado no select do sql do pacote
         session['nomeEstilo']=nomeEstilo
     
