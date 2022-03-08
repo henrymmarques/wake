@@ -68,8 +68,12 @@ def login():
                     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
                     cursor.execute('SELECT Estilo_idEstilo1 FROM cliente WHERE Nome = %s', (session['Nome'],))
             # Fetch one record and return result
-                    estilo = cursor.fetchone()
-                    session['estilo']=estilo
+                    estilo = cursor.fetchone()['Estilo_idEstilo1']
+                    if estilo is None:
+                        session['estilo']='False'
+
+                    else:
+                        session['estilo']='True'
                     return redirect(url_for("shop"))
                 # Redirect to home page
                 return redirect(url_for("home"))
