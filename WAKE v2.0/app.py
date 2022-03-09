@@ -244,11 +244,14 @@ def shop():
 @app.route('/filtro', methods=['GET', 'POST'])
 def filtro():
     if request.method == 'POST' :
-        
-        if 'seePackage' in request.form:
-            return redirect(url_for('package'))
+        if 'formulario' in request.form:
+            session['estilo'] = "False"
+            return redirect(url_for('shop'))
         else:
-            return redirect(url_for('cart'))    
+            if 'seePackage' in request.form:
+                return redirect(url_for('package'))
+            else:
+                return redirect(url_for('cart'))    
     if session['genero']=='Female':  
         return render_template("filtros_mulher.html")
     else:
@@ -373,7 +376,7 @@ def package():
 
 
 
-    """
+    
 
     ##############################CHATBOT#################################
 # libraries
@@ -464,7 +467,7 @@ def getResponse(ints, intents_json):
             result = random.choice(i["responses"])
             break
     return result
-"""
+
     ###############################################################
 
 

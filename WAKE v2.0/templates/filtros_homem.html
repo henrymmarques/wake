@@ -253,6 +253,28 @@
     width: 100%;
   }
 
+  .novo-formulario{
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: underline;
+    height: 50px;
+    margin-top: 1px;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    width: 80%;
+  }
+
+  .novo-formulario:hover{
+    filter:brightness(150%);
+    
+  }
+
   .submit:active {
     background-color: #06b;
   }
@@ -285,10 +307,15 @@
     background-color: #08d;
   }
 
-  .labelPackage{
+  .labelPackage {
     color: rgb(255, 255, 255);
     font-family: "Poppins", sans-serif;
     margin-left: 10px;
+  }
+
+  hr {
+    border: 3px solid white;
+    border-radius: 5px;
   }
 </style>
 
@@ -303,6 +330,10 @@
   <div class="bacdk">
     <br>
     <div class="form">
+      <form method="post">
+        <input type="submit" name="formulario" class="novo-formulario" value="Quero alterar o meu estilo / Quero responder a um novo formulário">
+        <hr>
+      </form>
       <form method="post">
         <div class="title">Loja WAKE</div>
         <div class="subtitle">Indique os tipos de roupa pretendidos e o valor que pretende gastar</div>
