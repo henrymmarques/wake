@@ -266,6 +266,29 @@ input[type=checkbox] {
     background-color: #06b;
   }
 
+  
+  .novo-formulario{
+    background-color: #08d;
+    border-radius: 12px;
+    border: 0;
+    box-sizing: border-box;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    font-size: 22px;
+    font-weight: bold;
+    text-decoration: underline;
+    height: 50px;
+    margin-top: 1px;
+    font-family: "Poppins", sans-serif;
+    text-align: center;
+    width: 80%;
+  }
+
+  .novo-formulario:hover{
+    filter:brightness(150%);
+    
+  }
+
   .back{
     background-image: url('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/pexels_roupa.jpeg');
   }
@@ -313,6 +336,10 @@ input[type=checkbox] {
   <div class="bacdk">
     <br>
     <div class="form">
+      <form method="post">
+        <input type="submit" name="formulario" class="novo-formulario" value="Quero alterar o meu estilo / Quero responder a um novo formulário">
+        <hr>
+      </form>
       <form method="post">
         <div class="title">Loja WAKE</div>
         <div class="subtitle">Indique os tipos de roupa pretendidos e o valor que pretende gastar</div>
@@ -364,7 +391,7 @@ input[type=checkbox] {
 
         <div class="seePackage">
           <input type="checkbox" class="" name="seePackage" id="seePackage" value="yes">
-          <label for="seePackage" class="labelPackage">Prentedo visualizar o pacote antes de pagar.</label>
+          <label for="seePackage" class="labelPackage">Pretendo visualizar o pacote antes de pagar.</label>
         </div>
         
         <input type="submit" class="submit" value="SEGUINTE">
