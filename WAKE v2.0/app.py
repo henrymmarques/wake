@@ -251,7 +251,7 @@ def shop():
 def filtro():
     if request.method == 'POST' :
         session['camisola']=""
-        session['calcas']=""
+        session['calça']=""
         session['tshirt']=""
         session['casaco']=""
         session['sweat']=""
@@ -264,8 +264,8 @@ def filtro():
         else:
             if 'qnt_camisola' in request.form and 'camisola' in request.form:
                 session['camisola'] = request.form['qnt_camisola']
-            if 'qnt_calcas' in request.form and 'calcas' in request.form:
-                session['calcas'] = request.form['qnt_calcas']
+            if 'qnt_calcas' in request.form and 'calça' in request.form:
+                session['calça'] = request.form['qnt_calcas']
             if 'qnt_tshirt' in request.form and 'tshirt' in request.form:
                 session['tshirt'] = request.form['qnt_tshirt']
             if 'qnt_casaco' in request.form and 'casaco' in request.form:
@@ -394,6 +394,28 @@ def shop2():
         return redirect(url_for('filtro'))
     return render_template('FormRoupa.html')
 
+
+def filtragem(tipo, vet):
+    if session[tipo]!="":
+        #select url aleatorio que contem o estilo da sessão
+        cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        #cursor_estilo.execute('SELECT URL FROM roupa WHERE url like ´%/%s%´ order by rand() limit 1', (session['nomeEstilo'],))
+        cursor_estilo.execute('SELECT url FROM estilo_roupa, roupa, estilo WHERE estilo_roupa.Roupa_idRoupa=roupa.idRoupa and estilo_roupa.Estilo_idEstilo=Estilo.idEstilo and roupa.Tipo=%s and roupa.genero=%s and  estilo.Nome_Estilo=%s;', (tipo, session['genero'],session['nomeEstilo'],))
+        #urlEstilo = cursor_estilo.fetchone()['url']
+        urlEstilo = cursor_estilo.fetchall()
+        print(urlEstilo)
+        mylist=list(urlEstilo)
+        #print(session['genero'])
+        
+        for x in range(int(session[tipo])):
+            #roupa=random.choice(urlEstilo)['url']
+            roupa=random.choice(mylist)
+            print(roupa)
+            vet.append(roupa['url'])
+            mylist.remove(roupa)
+
+
+
 @app.route("/package")
 def package():
 
@@ -401,27 +423,34 @@ def package():
     cursor1.execute('select Nome_Estilo from estilo, cliente where cliente.Estilo_idEstilo1 = estilo.idEstilo and cliente.Nome= %s', (session['Nome'],))
     nomeEstilo = cursor1.fetchone()['Nome_Estilo']
     session['nomeEstilo']=nomeEstilo
-    style=[]
-   
-    if session['camisola']!="":
-        #select url aleatorio que contem o estilo da sessão
-        cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        #cursor_estilo.execute('SELECT URL FROM roupa WHERE url like ´%/%s%´ order by rand() limit 1', (session['nomeEstilo'],))
-        cursor_estilo.execute('SELECT url FROM estilo_roupa, roupa, estilo WHERE estilo_roupa.Roupa_idRoupa=roupa.idRoupa and estilo_roupa.Estilo_idEstilo=Estilo.idEstilo and roupa.Tipo="camisola" and roupa.genero=%s and  estilo.Nome_Estilo=%s;', (session['genero'],session['nomeEstilo'],))
-        #urlEstilo = cursor_estilo.fetchone()['url']
-        urlEstilo = cursor_estilo.fetchall()
-        print(urlEstilo)
-        #print(session['genero'])
-        
-        for x in session['camisola']:
-            roupa=random.choice(urlEstilo)['url']
-            style.insert(roupa)
-            urlEstilo.pop(roupa)
-
-
     
-    session['urlEstilo']=style
+    vetCalca=[]
+    vetCamisola=[]
+    vetTshirt=[]
+    vetSweat=[]
+    vetCasaco=[]
+    vetCalcoes=[]
+    vetCamisa=[]
+    
+    filtragem('calça', vetCalca)
+    filtragem('camisola', vetCamisola)
+    filtragem('tshirt', vetTshirt)
+    filtragem('sweat', vetSweat)
+    filtragem('casaco', vetCasaco)
+    filtragem('calcoes', vetCalcoes)
+    filtragem('camisa', vetCamisa)
+
+
+
+    #falta limpar os sessions
+    #fazer for e criar variaveis session com concatenacao session0, session1...
+    session['urlEstilo']=vetCalca[0]
+
+    session['urlEstilo1']=vetCalca[1]
+
+    session['urlEstilo2']=vetCalca[1]
     print(session['urlEstilo'])
+
     return render_template("package.html")
 
 
