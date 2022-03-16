@@ -7,6 +7,7 @@ import re
 import roupascluster
 import random
 from flask_mail import Mail, Message
+import itertools
 
 
 
@@ -400,7 +401,7 @@ def package():
     cursor1.execute('select Nome_Estilo from estilo, cliente where cliente.Estilo_idEstilo1 = estilo.idEstilo and cliente.Nome= %s', (session['Nome'],))
     nomeEstilo = cursor1.fetchone()['Nome_Estilo']
     session['nomeEstilo']=nomeEstilo
-
+    style=[]
    
     if session['camisola']!="":
         #select url aleatorio que contem o estilo da sessão
@@ -409,11 +410,15 @@ def package():
         cursor_estilo.execute('SELECT url FROM estilo_roupa, roupa, estilo WHERE estilo_roupa.Roupa_idRoupa=roupa.idRoupa and estilo_roupa.Estilo_idEstilo=Estilo.idEstilo and roupa.Tipo="camisola" and roupa.genero=%s and  estilo.Nome_Estilo=%s;', (session['genero'],session['nomeEstilo'],))
         #urlEstilo = cursor_estilo.fetchone()['url']
         urlEstilo = cursor_estilo.fetchall()
-        # print(urlEstilo)
+        print(urlEstilo)
         #print(session['genero'])
-
+        
         for x in session['camisola']:
-            style[x]=random.choice(urlEstilo)['url']
+            roupa=random.choice(urlEstilo)['url']
+            style.insert(roupa)
+            urlEstilo.pop(roupa)
+
+
     
     session['urlEstilo']=style
     print(session['urlEstilo'])
