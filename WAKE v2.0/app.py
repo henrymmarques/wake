@@ -364,6 +364,8 @@ def shop2():
                   `Cliente_idCliente`, `Estilo_idEstilo1`) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)', (boho1,\
                        boho2, casual1, casual2, casual3, classic1_f, classic2_f, classic3_f, comfy1, comfy2, comfy3, indie1, streetwear1_f,\
                             streetwear2_f, streetwear3_f, idCliente, idEstilo,))
+
+        cursor1.execute('UPDATE wake.cliente set Estilo_idEstilo1= %s WHERE Nome= %s', (idEstilo, session['Nome'],))
         mysql.connection.commit()
         return redirect(url_for('filtro'))
     return render_template('FormRoupa.html')
