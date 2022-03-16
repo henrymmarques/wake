@@ -249,22 +249,45 @@ def shop():
 @app.route('/filtro', methods=['GET', 'POST'])
 def filtro():
     if request.method == 'POST' :
+        session['camisola']=""
+        session['calcas']=""
+        session['tshirt']=""
+        session['casaco']=""
+        session['sweat']=""
+        session['calcoes']=""
+        session['camisa']=""
+        
         if 'formulario' in request.form:
             session['estilo'] = "False"
             return redirect(url_for('shop'))
         else:
+            if 'qnt_camisola' in request.form and 'camisola' in request.form:
+                session['camisola'] = request.form['qnt_camisola']
+            if 'qnt_calcas' in request.form and 'calcas' in request.form:
+                session['calcas'] = request.form['qnt_calcas']
+            if 'qnt_tshirt' in request.form and 'tshirt' in request.form:
+                session['tshirt'] = request.form['qnt_tshirt']
+            if 'qnt_casaco' in request.form and 'casaco' in request.form:
+                session['casaco'] = request.form['qnt_casaco']
+            if 'qnt_sweat' in request.form and 'sweat' in request.form:
+                session['sweat'] = request.form['qnt_sweat']
+            if 'qnt_calcoes' in request.form and 'calcoes' in request.form:
+                session['calcoes'] = request.form['qnt_calcoes']
+            if 'qnt_camisa' in request.form and 'camisa' in request.form:
+                session['camisa'] = request.form['qnt_camisa']
+            
+
             if 'seePackage' in request.form:
                 return redirect(url_for('package'))
             else:
                 return redirect(url_for('cart'))  
+
+
     cursor2 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor2.execute('SELECT genero FROM cliente WHERE Nome = %s', (session['Nome'],))
     genero = cursor2.fetchone()['genero']
     session['genero']=genero
-    #cursor3 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    #cursor3.execute('SELECT Estilo_idEstilo1 FROM cliente WHERE Nome = %s', (session['Nome'],))
-    #estilo = cursor3.fetchone()
-    #session['estilo']=estilo
+    
     if session['genero']=='Female':  
         return render_template("filtros_mulher.html")
     else:
@@ -378,21 +401,19 @@ def package():
     nomeEstilo = cursor1.fetchone()['Nome_Estilo']
     session['nomeEstilo']=nomeEstilo
 
-    #select url aleatorio que contem o estilo da sessão
-    cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-    print(session['nomeEstilo'])
-    print('$$$$$$')
+   
+    if session['camisola']!="":
+        #select url aleatorio que contem o estilo da sessão
+        cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+        #cursor_estilo.execute('SELECT URL FROM roupa WHERE url like ´%/%s%´ order by rand() limit 1', (session['nomeEstilo'],))
+        cursor_estilo.execute('SELECT url FROM estilo_roupa, roupa, estilo WHERE estilo_roupa.Roupa_idRoupa=roupa.idRoupa and estilo_roupa.Estilo_idEstilo=Estilo.idEstilo and roupa.Tipo="camisola" and roupa.genero=%s and  estilo.Nome_Estilo=%s;', (session['genero'],session['nomeEstilo'],))
+        #urlEstilo = cursor_estilo.fetchone()['url']
+        urlEstilo = cursor_estilo.fetchall()
+        # print(urlEstilo)
+        #print(session['genero'])
 
-
-    #cursor_estilo.execute('SELECT URL FROM roupa WHERE url like ´%/%s%´ order by rand() limit 1', (session['nomeEstilo'],))
-    cursor_estilo.execute('SELECT url FROM estilo_roupa, roupa, estilo WHERE estilo_roupa.Roupa_idRoupa=roupa.idRoupa and estilo_roupa.Estilo_idEstilo=Estilo.idEstilo and roupa.genero=%s and  estilo.Nome_Estilo=%s;', (session['genero'],session['nomeEstilo'],))
-    
-    #urlEstilo = cursor_estilo.fetchone()['url']
-    urlEstilo = cursor_estilo.fetchall()
-   # print(urlEstilo)
-    print(session['genero'])
-
-    style=random.choice(urlEstilo)['url']
+        for x in session['camisola']:
+            style[x]=random.choice(urlEstilo)['url']
     
     session['urlEstilo']=style
     print(session['urlEstilo'])
