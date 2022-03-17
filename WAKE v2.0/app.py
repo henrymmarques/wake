@@ -73,8 +73,6 @@ def login():
                     estilo = cursor.fetchone()['Estilo_idEstilo1']
                     if estilo!=None:
                         session['estilo']='True'
-                        tem_estilo=1
-                        print(tem_estilo)
                     else:
                         session['estilo']='False'
                     return redirect(url_for("shop"))
@@ -221,27 +219,27 @@ def logout():
 @app.route('/shop', methods=['GET', 'POST'])
 def shop():
     session['url'] = 'shop'
-    print(session['estilo'])
-    if session['estilo']=='True':
-        """cursor2 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-        cursor2.execute('SELECT genero FROM cliente WHERE Nome = %s', (session['Nome'],))
-        genero = cursor2.fetchone()
-        session['genero']=genero"""
-        return redirect(url_for("filtro"))
-    else:
-        if request.method == 'POST' and 'genero' in request.form and 'altura' in request.form and 'peso' in request.form:
-            # Create variables for easy access
-            session['url'] = 'false'
+    if session.get('estilo'):
+        if session['estilo']=='True':
+            """cursor2 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+            cursor2.execute('SELECT genero FROM cliente WHERE Nome = %s', (session['Nome'],))
+            genero = cursor2.fetchone()
+            session['genero']=genero"""
+            return redirect(url_for("filtro"))
+        else:
+            if request.method == 'POST' and 'genero' in request.form and 'altura' in request.form and 'peso' in request.form:
+                # Create variables for easy access
+                session['url'] = 'false'
             
-            genero = request.form['genero']
-            altura = request.form['altura']
-            peso = request.form['peso']
-            session['genero'] = genero
+                genero = request.form['genero']
+                altura = request.form['altura']
+                peso = request.form['peso']
+                session['genero'] = genero
 
-            cursor1 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
-            cursor1.execute('UPDATE wake.cliente set Genero= %s, Peso= %s, Altura= %s WHERE Nome= %s', (genero, peso, altura, session['Nome'],))
-            mysql.connection.commit()
-            return redirect(url_for('shop2'))
+                cursor1 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
+                cursor1.execute('UPDATE wake.cliente set Genero= %s, Peso= %s, Altura= %s WHERE Nome= %s', (genero, peso, altura, session['Nome'],))
+                mysql.connection.commit()
+                return redirect(url_for('shop2'))
     
     return render_template("FormTamanhos.html")
 
@@ -249,6 +247,28 @@ def shop():
 
 @app.route('/filtro', methods=['GET', 'POST'])
 def filtro():
+    
+    session.pop('urlEstilo0', None)
+    session.pop('urlEstilo1', None)
+    session.pop('urlEstilo2', None)
+    session.pop('urlCamisola0', None)
+    session.pop('urlCamisola1', None)
+    session.pop('urlCamisola2', None)
+    session.pop('urlTshirt0', None)
+    session.pop('urlTshirt1', None)
+    session.pop('urlTshirt2', None)
+    session.pop('urlSweat0', None)
+    session.pop('urlSweat1', None)
+    session.pop('urlSweat2', None)
+    session.pop('urlCasaco0', None)
+    session.pop('urlCasaco1', None)
+    session.pop('urlCasaco2', None)
+    session.pop('urlCalcoes0', None)
+    session.pop('urlCalcoes1', None)
+    session.pop('urlCalcoes2', None)
+    session.pop('urlCamisa0', None)
+    session.pop('urlCamisa1', None)
+    session.pop('urlCamisa2', None)
     if request.method == 'POST' :
         session['camisola']=""
         session['calça']=""
@@ -444,12 +464,55 @@ def package():
 
     #falta limpar os sessions
     #fazer for e criar variaveis session com concatenacao session0, session1...
-    session['urlEstilo']=vetCalca[0]
-
-    session['urlEstilo1']=vetCalca[1]
-
-    session['urlEstilo2']=vetCalca[1]
-    print(session['urlEstilo'])
+    for x in range(len(vetCalca)):
+        nome ='urlEstilo'+str(x)
+        print(nome)
+        session[nome]=vetCalca[x]
+    for x in range(len(vetCamisola)):
+        nome ='urlCamisola'+str(x)
+        print(nome)
+        session[nome]=vetCamisola[x]
+    for x in range(len(vetTshirt)):
+        nome ='urlTshirt'+str(x)
+        print(nome)
+        session[nome]=vetTshirt[x]
+    for x in range(len(vetSweat)):
+        nome ='urlSweat'+str(x)
+        print(nome)
+        session[nome]=vetSweat[x]
+    for x in range(len(vetCasaco)):
+        nome ='urlCasaco'+str(x)
+        print(nome)
+        session[nome]=vetCasaco[x]
+    for x in range(len(vetCalcoes)):
+        nome ='urlCalcoes'+str(x)
+        print(nome)
+        session[nome]=vetCalcoes[x]
+    for x in range(len(vetCamisa)):
+        nome ='urlCamisa'+str(x)
+        print(nome)
+        session[nome]=vetCamisa[x]
+        
+    """ session['urlCamisola']=vetCamisola[0]
+    session['urlCamisola1']=vetCamisola[1]
+    session['urlCamisola2']=vetCamisola[2]
+    session['urlTshirt']=vetTshirt[0]
+    session['urlTshirt1']=vetTshirt[1]
+    session['urlTshirt2']=vetTshirt[2]
+    session['urlSweat']=vetSweat[0]
+    session['urlSweat1']=vetSweat[1]
+    session['urlSweat2']=vetSweat[2]
+    session['urlCasaco']=vetCasaco[0]
+    session['urlCasaco1']=vetCasaco[1]
+    session['urlCasaco2']=vetCasaco[2]
+    session['urlCalcoes']=vetCalcoes[0]
+    session['urlCalcoes1']=vetCalcoes[1]
+    session['urlCalcoes2']=vetCalcoes[2]
+    session['urlCamisa']=vetCamisa[0]
+    session['urlCamisa1']=vetCamisa[1]
+    session['urlCamisa2']=vetCamisa[2]
+    """
+  
 
     return render_template("package.html")
 
