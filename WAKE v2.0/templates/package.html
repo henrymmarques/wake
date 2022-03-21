@@ -115,9 +115,139 @@
         max-height: 100%;
         object-fit: contain;
     }
+
+    input[type=checkbox] {
+        -webkit-appearance: none;
+        outline: 0;
+        position: relative;
+        height: 75px;
+        line-height: 50px;
+        right: 0;
+        top: 0;
+        margin: 0;
+        padding: 0;
+        margin-top: 15px;
+        background: rgb(29, 29, 28);
+        color: white;
+        border: none;
+        max-width: 100%;
+        max-height: 100%;
+        font-weight: bold;
+        margin-bottom: 10px;
+        background-size: cover;
+        display: inside;
+        filter: brightness(60%);
+    }
+
+    input[type=checkbox]:hover {
+        transform: scale(1.02);
+        filter: brightness(105%);
+    }
+
+    input[type=checkbox]:checked {
+        filter: brightness(100%);
+    }
+
+    #camisa {
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/btns/btn_trocar1.png");
+    }
+
+    .clothes_box {
+        height: 65px;
+        width: 350px;
+    }
+
+
+    .column {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        overflow: hidden;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #column1 {
+        height: auto;
+    }
+
+    #column2 {
+        height: auto;
+    }
+
+    #column3 {
+        height: auto;
+    }
+
+
+    /* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+    @media screen and (max-width: 600px) {
+        .row {
+            display: flex;
+            flex-direction: column;
+            flex-basis: 100vw;
+            flex: 1;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    .submit,
+    .return {
+        background-color: #08d;
+        border-radius: 12px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 20px;
+        height: 50px;
+        margin-top: 10px;
+        font-family: "Poppins", sans-serif;
+        text-align: center;
+        width: 520px;
+        position: relative;
+
+    }
+
+    #trocas {
+        background-color: rgb(231, 149, 42);
+    }
+
+    #voltar {
+        background-color: rgb(233, 41, 7);
+    }
+
+
+    input[type=submit]:hover,
+    input[type=button]:hover {
+        filter: brightness(115%);
+        border-radius: 12px;
+        border: solid 3px;
+        border-color: rgb(253, 253, 253);
+    }
 </style>
 
+<head>
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+       
+         $(document).ready(function(){
+             
+        $("#camisa").click(function(){
+            if($(this).is(':checked')){
+                $('#trocas').css("visibility","visible");
+            }
+            else
+            {
+                $('#trocas').css("visibility","hidden");
+            }
+        });
+    });
+    </script>
 
 <body class="back">
 
@@ -129,70 +259,112 @@
         <div class="form">
 
             <div class="title">Este é o conjunto de roupa que mais se enquadra ao teu perfil</div>
-            {% if session['urlEstilo0'] %}
-            <img class="imagem" src={{session['urlEstilo0']}} />
-            {% endif %}
-            {% if session['urlEstilo1'] %}
-            <img class="imagem" src={{session['urlEstilo1']}} />
-            {% endif %}
-            {% if session['urlEstilo2'] %}
-            <img class="imagem" src={{session['urlEstilo2']}} />
-            {% endif %}
-            {% if session['urlCamisola0'] %}
-            <img class="imagem" src={{session['urlCamisola0']}} />
-            {% endif %}
-            {% if session['urlCamisola1'] %}
-            <img class="imagem" src={{session['urlCamisola1']}} />
-            {% endif %}
-            {% if session['urlCamisola2'] %}
-            <img class="imagem" src={{session['urlCamisola2']}} />
-            {% endif %}
-            {% if session['urlTshirt0'] %}
-            <img class="imagem" src={{session['urlTshirt0']}} />
-            {% endif %}
-            {% if session['urlTshirt1'] %}
-            <img class="imagem" src={{session['urlTshirt1']}} />
-            {% endif %}
-            {% if session['urlTshirt2'] %}
-            <img class="imagem" src={{session['urlTshirt2']}} />
-            {% endif %}
-            {% if session['urlSweat0'] %}
-            <img class="imagem" src={{session['urlSweat0']}} />
-            {% endif %}
-            {% if session['urlSweat1'] %}
-            <img class="imagem" src={{session['urlSweat1']}} />
-            {% endif %}
-            {% if session['urlSweat2'] %}
-            <img class="imagem" src={{session['urlSweat2']}} />
-            {% endif %}
-            {% if session['urlCasaco0'] %}
-            <img class="imagem" src={{session['urlCasaco0']}} />
-            {% endif %}
-            {% if session['urlCasaco1'] %}
-            <img class="imagem" src={{session['urlCasaco1']}} />
-            {% endif %}
-            {% if session['urlCasaco2'] %}
-            <img class="imagem" src={{session['urlCasaco2']}} />
-            {% endif %}
-            {% if session['urlCalcoes0'] %}
-            <img class="imagem" src={{session['urlCalcoes0']}} />
-            {% endif %}
-            {% if session['urlCalcoes1'] %}
-            <img class="imagem" src={{session['urlCalcoes1']}} />
-            {% endif %}
-            {% if session['urlCalcoes2'] %}
-            <img class="imagem" src={{session['urlCalcoes2']}} />
-            {% endif %}
-            {% if session['urlCamisa0'] %}
-            <img class="imagem" src={{session['urlCamisa0']}} />
-            {% endif %}
-            {% if session['urlCamisa1'] %}
-            <img class="imagem" src={{session['urlCamisa1']}} />
-            {% endif %}
-            {% if session['urlCamisa2'] %}
-            <img class="imagem" src={{session['urlCamisa2']}} />
-            {% endif %}
+            <form method="post">
+                {% if session['urlEstilo0'] %}
+                <img class="imagem" src={{session['urlEstilo0']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlEstilo0" value="no">
+                {% endif %}
+                {% if session['urlEstilo1'] %}
+                <img class="imagem" src={{session['urlEstilo1']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlEstilo1" value="no">
+                {% endif %}
+                {% if session['urlEstilo2'] %}
+                <img class="imagem" src={{session['urlEstilo2']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlEstilo2" value="no">
+                {% endif %}
+                {% if session['urlCamisola0'] %}
+                <img class="imagem" src={{session['urlCamisola0']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlCamisola0" value="no">
+                {% endif %}
+                {% if session['urlCamisola1'] %}
+                <img class="imagem" src={{session['urlCamisola1']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlCamisola1" value="no">
+                {% endif %}
+                {% if session['urlCamisola2'] %}
+                <img class="imagem" src={{session['urlCamisola2']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlCamisola2" value="no">
+                {% endif %}
+                {% if session['urlTshirt0'] %}
+                <img class="imagem" src={{session['urlTshirt0']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlTshirt0" value="no">
+                {% endif %}
+                {% if session['urlTshirt1'] %}
+                <img class="imagem" src={{session['urlTshirt1']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlTshirt1" value="no">
+                {% endif %}
+                {% if session['urlTshirt2'] %}
+                <img class="imagem" src={{session['urlTshirt2']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlTshirt2" value="no">
+                {% endif %}
+                {% if session['urlSweat0'] %}
+                <img class="imagem" src={{session['urlSweat0']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlSweat0" value="no">
+                {% endif %}
+                {% if session['urlSweat1'] %}
+                <img class="imagem" src={{session['urlSweat1']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlSweat1" value="no">
+                {% endif %}
+                {% if session['urlSweat2'] %}
+                <img class="imagem" src={{session['urlSweat2']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlSweat2" value="no">
+                {% endif %}
+                {% if session['urlCasaco0'] %}
+                <img class="imagem" src={{session['urlCasaco0']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlCasaco0" value="no">
+                {% endif %}
+                {% if session['urlCasaco1'] %}
+                <img class="imagem" src={{session['urlCasaco1']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlCasaco1" value="no">
+                {% endif %}
+                {% if session['urlCasaco2'] %}
+                <img class="imagem" src={{session['urlCasaco2']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlCasaco2" value="no">
+                {% endif %}
+                {% if session['urlCalcoes0'] %}
+                <img class="imagem" src={{session['urlCalcoes0']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlCalcoes0" value="no">
+                {% endif %}
+                {% if session['urlCalcoes1'] %}
+                <img class="imagem" src={{session['urlCalcoes1']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlCalcoes1" value="no">
+                {% endif %}
+                {% if session['urlCalcoes2'] %}
+                <img class="imagem" src={{session['urlCalcoes2']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlCalcoes2" value="no">
+                {% endif %}
+                {% if session['urlCamisa0'] %}
+                <img class="imagem" src={{session['urlCamisa0']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlCamisa0" value="no">
+                {% endif %}
+                {% if session['urlCamisa1'] %}
+                <img class="imagem" src={{session['urlCamisa1']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlCamisa1" value="no">
+                {% endif %}
+                {% if session['urlCamisa2'] %}
+                <img class="imagem" src={{session['urlCamisa2']}} />
+                <input type="checkbox" class="clothes_box" id="camisa" name="urlCamisa2" value="no">
+                {% endif %}
         </div>
+
+        <div class='column'>
+            <div id='column1'>
+                <input type="button" class="return" id="voltar" value="VOLTAR" onclick="history.go(-1)">
+            </div>
+        </div>
+
+        <div class='column'>
+            <div id='column2'>
+                <input type="submit" class="submit" id="trocas" value="AVANÇAR COM AS TROCAS DE PEÇAS">
+            </div>
+        </div>
+
+        <div class='column'>
+            <div id='column3'>
+                <input type="button" class="submit" id="chekcout" value="AVANÇAR PARA O CHECKOUT"
+                    onclick="location.href='cart';">
+            </div>
+        </div>
+        </form>
 
     </div>
 
