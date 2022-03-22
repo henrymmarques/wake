@@ -229,6 +229,18 @@
         border: solid 3px;
         border-color: rgb(253, 253, 253);
     }
+
+    .erro {
+        color: rgb(250, 250, 250);
+        font-size: 26px;
+        font-weight: 600;
+        background-color: rgb(247, 17, 17);
+        text-align: center;
+        display: inline-block;
+        border-radius: 12px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 </style>
 
 <head>
@@ -347,11 +359,15 @@
                 <img class="imagem" src={{session['urlCamisa2']}} />
                 <input type="checkbox" class="clothes_box" id="camisa" name="urlCamisa2" value="no">
                 {% endif %}
-        </div>
 
+        </div>
+        <br>
         <div class='column'>
+            <div class="erro">
+                {{erro}}
+            </div>
             <div id='column1'>
-                <input type="button" class="return" id="voltar" value="VOLTAR" onclick="history.go(-1)">
+                <input type="button" class="return" id="voltar" value="VOLTAR" onclick="location.href='filtro';">
             </div>
         </div>
 

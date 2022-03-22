@@ -473,7 +473,7 @@ def trocarRoupas(url, tipo):
 
 @app.route("/package",methods=['GET','POST'])
 def package():
-    
+    mensagem=''
     session['msg']=''
 
     cursor1 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -490,15 +490,17 @@ def package():
     vetCamisa=[]
     
     if request.method=='POST':
-        
-        trocarRoupas('urlEstilo', 'calça')
-        trocarRoupas('urlCamisola', 'camisola')
-        trocarRoupas('urlTshirt', 'tshirt')
-        trocarRoupas('urlSweat', 'sweat')
-        trocarRoupas('urlCasaco', 'casaco')
-        trocarRoupas('urlCalcoes', 'calcoes')
-        trocarRoupas('urlCamisa', 'camisa')
-
+        try:
+            trocarRoupas('urlEstilo', 'calça')
+            trocarRoupas('urlCamisola', 'camisola')
+            trocarRoupas('urlTshirt', 'tshirt')
+            trocarRoupas('urlSweat', 'sweat')
+            trocarRoupas('urlCasaco', 'casaco')
+            trocarRoupas('urlCalcoes', 'calcoes')
+            trocarRoupas('urlCamisa', 'camisa')
+        except:
+            mensagem="  Não existem mais trocas possíveis dentro do orçamento que selecionou. Por favor volte atrás e altere os valores.  "
+            return render_template("package.html", erro=mensagem)
         return redirect(url_for('package'))
 
     try:
