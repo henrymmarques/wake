@@ -446,37 +446,8 @@ def filtragem(tipo, vet):
             print(roupa)
             vet.append(roupa['url'])
             mylist.remove(roupa)
+            session['mylist']=mylist
 
-def checkSessions():
-    print('********')
-    print(session['urlEstilo0'])
-    if session.get('urlEstilo0'):
-        return False
-    else:
-        return True
-
-
-    session.pop('urlEstilo0', None)
-    session.pop('urlEstilo1', None)
-    session.pop('urlEstilo2', None)
-    session.pop('urlCamisola0', None)
-    session.pop('urlCamisola1', None)
-    session.pop('urlCamisola2', None)
-    session.pop('urlTshirt0', None)
-    session.pop('urlTshirt1', None)
-    session.pop('urlTshirt2', None)
-    session.pop('urlSweat0', None)
-    session.pop('urlSweat1', None)
-    session.pop('urlSweat2', None)
-    session.pop('urlCasaco0', None)
-    session.pop('urlCasaco1', None)
-    session.pop('urlCasaco2', None)
-    session.pop('urlCalcoes0', None)
-    session.pop('urlCalcoes1', None)
-    session.pop('urlCalcoes2', None)
-    session.pop('urlCamisa0', None)
-    session.pop('urlCamisa1', None)
-    session.pop('urlCamisa2', None)
 
 @app.route("/package")
 def package():
@@ -495,6 +466,9 @@ def package():
     vetCalcoes=[]
     vetCamisa=[]
     
+    
+        
+
     try:
         
         if not session.get('urlEstilo0') and not session.get('urlCamisola0') and not session.get('urlTshirt0') and not session.get('urlSweat0') and not session.get('urlCasaco0') and not session.get('urlCalcoes0') and not session.get('urlCamisa0'):
