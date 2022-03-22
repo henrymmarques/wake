@@ -446,11 +446,13 @@ def filtragem(tipo, vet):
             print(roupa)
             vet.append(roupa['url'])
             mylist.remove(roupa)
-            session['mylist']=mylist
+        nome='mylist'+tipo
+        session[nome]=mylist
 
 
-@app.route("/package")
+@app.route("/package",methods=['GET','POST'])
 def package():
+    
     session['msg']=''
 
     cursor1 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
@@ -466,8 +468,13 @@ def package():
     vetCalcoes=[]
     vetCamisa=[]
     
-    
-        
+    if request.method=='POST' and 'urlEstilo0' in request.form:
+        print('***************************************************************')
+        roupa=random.choice(session['mylistcalça'])
+        session['urlEstilo0']=roupa['url']
+        print(session['urlEstilo0'])
+        session['mylistcalça'].remove(roupa)
+        return redirect(url_for('package'))
 
     try:
         
