@@ -450,6 +450,27 @@ def filtragem(tipo, vet):
         session[nome]=mylist
 
 
+def trocarRoupas(url, tipo):
+    urlFinal0=url+'0'
+    tipoFinal0='mylist'+tipo
+    if urlFinal0 in request.form:
+        roupa=random.choice(session[tipoFinal0])
+        session[urlFinal0]=roupa['url']
+        session[tipoFinal0].remove(roupa)
+    urlFinal1=url+'1'
+    tipoFinal1='mylist'+tipo
+    if urlFinal1 in request.form:
+        roupa=random.choice(session[tipoFinal1])
+        session[urlFinal1]=roupa['url']
+        session[tipoFinal1].remove(roupa)
+    urlFinal2=url+'2'
+    tipoFinal2='mylist'+tipo
+    if urlFinal2 in request.form:
+        roupa=random.choice(session[tipoFinal2])
+        session[urlFinal2]=roupa['url']
+        session[tipoFinal2].remove(roupa)
+
+
 @app.route("/package",methods=['GET','POST'])
 def package():
     
@@ -468,12 +489,16 @@ def package():
     vetCalcoes=[]
     vetCamisa=[]
     
-    if request.method=='POST' and 'urlEstilo0' in request.form:
-        print('***************************************************************')
-        roupa=random.choice(session['mylistcalça'])
-        session['urlEstilo0']=roupa['url']
-        print(session['urlEstilo0'])
-        session['mylistcalça'].remove(roupa)
+    if request.method=='POST':
+        
+        trocarRoupas('urlEstilo', 'calça')
+        trocarRoupas('urlCamisola', 'camisola')
+        trocarRoupas('urlTshirt', 'tshirt')
+        trocarRoupas('urlSweat', 'sweat')
+        trocarRoupas('urlCasaco', 'casaco')
+        trocarRoupas('urlCalcoes', 'calcoes')
+        trocarRoupas('urlCamisa', 'camisa')
+
         return redirect(url_for('package'))
 
     try:
