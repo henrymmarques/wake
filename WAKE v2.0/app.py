@@ -1,6 +1,7 @@
 from flask import Flask, Blueprint, json, render_template, request, jsonify, redirect, url_for
 from flask import render_template, request, redirect, url_for, session
 from flask_mysqldb import MySQL
+from sqlalchemy import false
 from werkzeug.security import generate_password_hash, check_password_hash
 import MySQLdb.cursors
 import re
@@ -45,6 +46,7 @@ def home():
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+    session['msg']=''
     # Output message if something goes wrong...
     msg = ''
     # Check if "username" and "password" POST requests exist (user submitted form)
@@ -277,6 +279,7 @@ def filtro():
         session['sweat']=""
         session['calcoes']=""
         session['camisa']=""
+        session['total_roupas']=0
         
         if 'formulario' in request.form:
             session['estilo'] = "False"
@@ -284,19 +287,28 @@ def filtro():
         else:
             if 'qnt_camisola' in request.form and 'camisola' in request.form:
                 session['camisola'] = request.form['qnt_camisola']
+                session['total_roupas']=int(session['camisola'])
             if 'qnt_calcas' in request.form and 'calça' in request.form:
                 session['calça'] = request.form['qnt_calcas']
+                session['total_roupas']+=int(session['calça'])
             if 'qnt_tshirt' in request.form and 'tshirt' in request.form:
                 session['tshirt'] = request.form['qnt_tshirt']
+                session['total_roupas']+=int(session['tshirt'])
             if 'qnt_casaco' in request.form and 'casaco' in request.form:
                 session['casaco'] = request.form['qnt_casaco']
+                session['total_roupas']+=int(session['casaco'])
             if 'qnt_sweat' in request.form and 'sweat' in request.form:
                 session['sweat'] = request.form['qnt_sweat']
+                session['total_roupas']+=int(session['sweat'])
             if 'qnt_calcoes' in request.form and 'calcoes' in request.form:
                 session['calcoes'] = request.form['qnt_calcoes']
+                session['total_roupas']+=int(session['calcoes'])
             if 'qnt_camisa' in request.form and 'camisa' in request.form:
                 session['camisa'] = request.form['qnt_camisa']
-            
+                session['total_roupas']+=int(session['camisa'])
+            if 'orcamento' in request.form:
+                session['orcamento']=int(request.form['orcamento'])/session['total_roupas']
+                
 
             if 'seePackage' in request.form:
                 return redirect(url_for('package'))
@@ -310,9 +322,9 @@ def filtro():
     session['genero']=genero
     
     if session['genero']=='Female':  
-        return render_template("filtros_mulher.html")
+        return render_template("filtros_mulher.html", msg=session['msg'])
     else:
-        return render_template("filtros_homem.html")
+        return render_template("filtros_homem.html", msg=session['msg'])
 
 
 
@@ -420,12 +432,13 @@ def filtragem(tipo, vet):
         #select url aleatorio que contem o estilo da sessão
         cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         #cursor_estilo.execute('SELECT URL FROM roupa WHERE url like ´%/%s%´ order by rand() limit 1', (session['nomeEstilo'],))
-        cursor_estilo.execute('SELECT url FROM estilo_roupa, roupa, estilo WHERE estilo_roupa.Roupa_idRoupa=roupa.idRoupa and estilo_roupa.Estilo_idEstilo=Estilo.idEstilo and roupa.Tipo=%s and roupa.genero=%s and  estilo.Nome_Estilo=%s;', (tipo, session['genero'],session['nomeEstilo'],))
+        cursor_estilo.execute('SELECT url FROM estilo_roupa, roupa, estilo WHERE estilo_roupa.Roupa_idRoupa=roupa.idRoupa and estilo_roupa.Estilo_idEstilo=Estilo.idEstilo and roupa.Tipo=%s and roupa.genero=%s and  estilo.Nome_Estilo=%s and roupa.Preco<=%s;', (tipo, session['genero'],session['nomeEstilo'],int(session['orcamento'])))
         #urlEstilo = cursor_estilo.fetchone()['url']
         urlEstilo = cursor_estilo.fetchall()
         print(urlEstilo)
         mylist=list(urlEstilo)
         #print(session['genero'])
+        
         
         for x in range(int(session[tipo])):
             #roupa=random.choice(urlEstilo)['url']
@@ -434,10 +447,40 @@ def filtragem(tipo, vet):
             vet.append(roupa['url'])
             mylist.remove(roupa)
 
+def checkSessions():
+    print('********')
+    print(session['urlEstilo0'])
+    if session.get('urlEstilo0'):
+        return False
+    else:
+        return True
 
+
+    session.pop('urlEstilo0', None)
+    session.pop('urlEstilo1', None)
+    session.pop('urlEstilo2', None)
+    session.pop('urlCamisola0', None)
+    session.pop('urlCamisola1', None)
+    session.pop('urlCamisola2', None)
+    session.pop('urlTshirt0', None)
+    session.pop('urlTshirt1', None)
+    session.pop('urlTshirt2', None)
+    session.pop('urlSweat0', None)
+    session.pop('urlSweat1', None)
+    session.pop('urlSweat2', None)
+    session.pop('urlCasaco0', None)
+    session.pop('urlCasaco1', None)
+    session.pop('urlCasaco2', None)
+    session.pop('urlCalcoes0', None)
+    session.pop('urlCalcoes1', None)
+    session.pop('urlCalcoes2', None)
+    session.pop('urlCamisa0', None)
+    session.pop('urlCamisa1', None)
+    session.pop('urlCamisa2', None)
 
 @app.route("/package")
 def package():
+    session['msg']=''
 
     cursor1 = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
     cursor1.execute('select Nome_Estilo from estilo, cliente where cliente.Estilo_idEstilo1 = estilo.idEstilo and cliente.Nome= %s', (session['Nome'],))
@@ -452,47 +495,51 @@ def package():
     vetCalcoes=[]
     vetCamisa=[]
     
-    filtragem('calça', vetCalca)
-    filtragem('camisola', vetCamisola)
-    filtragem('tshirt', vetTshirt)
-    filtragem('sweat', vetSweat)
-    filtragem('casaco', vetCasaco)
-    filtragem('calcoes', vetCalcoes)
-    filtragem('camisa', vetCamisa)
-
-
-
-    #falta limpar os sessions
-    #fazer for e criar variaveis session com concatenacao session0, session1...
-    for x in range(len(vetCalca)):
-        nome ='urlEstilo'+str(x)
-        print(nome)
-        session[nome]=vetCalca[x]
-    for x in range(len(vetCamisola)):
-        nome ='urlCamisola'+str(x)
-        print(nome)
-        session[nome]=vetCamisola[x]
-    for x in range(len(vetTshirt)):
-        nome ='urlTshirt'+str(x)
-        print(nome)
-        session[nome]=vetTshirt[x]
-    for x in range(len(vetSweat)):
-        nome ='urlSweat'+str(x)
-        print(nome)
-        session[nome]=vetSweat[x]
-    for x in range(len(vetCasaco)):
-        nome ='urlCasaco'+str(x)
-        print(nome)
-        session[nome]=vetCasaco[x]
-    for x in range(len(vetCalcoes)):
-        nome ='urlCalcoes'+str(x)
-        print(nome)
-        session[nome]=vetCalcoes[x]
-    for x in range(len(vetCamisa)):
-        nome ='urlCamisa'+str(x)
-        print(nome)
-        session[nome]=vetCamisa[x]
+    try:
         
+        if not session.get('urlEstilo0') and not session.get('urlCamisola0') and not session.get('urlTshirt0') and not session.get('urlSweat0') and not session.get('urlCasaco0') and not session.get('urlCalcoes0') and not session.get('urlCamisa0'):
+            print("_________")
+            filtragem('calça', vetCalca)
+            filtragem('camisola', vetCamisola)
+            filtragem('tshirt', vetTshirt)
+            filtragem('sweat', vetSweat)
+            filtragem('casaco', vetCasaco)
+            filtragem('calcoes', vetCalcoes)
+            filtragem('camisa', vetCamisa)
+        
+            #falta limpar os sessions
+            #fazer for e criar variaveis session com concatenacao session0, session1...
+            for x in range(len(vetCalca)):
+                nome ='urlEstilo'+str(x)
+                print(nome)
+                session[nome]=vetCalca[x]
+            for x in range(len(vetCamisola)):
+                nome ='urlCamisola'+str(x)
+                print(nome)
+                session[nome]=vetCamisola[x]
+            for x in range(len(vetTshirt)):
+                nome ='urlTshirt'+str(x)
+                print(nome)
+                session[nome]=vetTshirt[x]
+            for x in range(len(vetSweat)):
+                nome ='urlSweat'+str(x)
+                print(nome)
+                session[nome]=vetSweat[x]
+            for x in range(len(vetCasaco)):
+                nome ='urlCasaco'+str(x)
+                print(nome)
+                session[nome]=vetCasaco[x]
+            for x in range(len(vetCalcoes)):
+                nome ='urlCalcoes'+str(x)
+                print(nome)
+                session[nome]=vetCalcoes[x]
+            for x in range(len(vetCamisa)):
+                nome ='urlCamisa'+str(x)
+                print(nome)
+                session[nome]=vetCamisa[x]
+    except:
+        session['msg']="O orçamento nao é compatível com a quantidade de roupa que deseja! Selecione um novo orçamento ou menos peças."
+        return(redirect(url_for('filtro')))
     """ session['urlCamisola']=vetCamisola[0]
     session['urlCamisola1']=vetCamisola[1]
     session['urlCamisola2']=vetCamisola[2]

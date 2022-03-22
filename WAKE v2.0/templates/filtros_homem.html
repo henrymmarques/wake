@@ -238,6 +238,12 @@
     display: inline;
   }
 
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
   .submit {
     background-color: #08d;
     border-radius: 12px;
@@ -317,6 +323,10 @@
     border: 3px solid white;
     border-radius: 5px;
   }
+  .mensagem{
+    color: #08d;
+    font-size: 22px;
+  }
 </style>
 
 <head>
@@ -332,9 +342,9 @@
           $("#qnt_calcas").attr("disabled", "disabled");
         }
       });
-      });
+    });
 
-      $(function () {
+    $(function () {
       $("#camisola").click(function () {
         if ($(this).is(':checked')) {
           $("#qnt_camisola").removeAttr("disabled");
@@ -343,9 +353,9 @@
           $("#qnt_camisola").attr("disabled", "disabled");
         }
       });
-      });
+    });
 
-      $(function () {
+    $(function () {
       $("#tshirt").click(function () {
         if ($(this).is(':checked')) {
           $("#qnt_tshirt").removeAttr("disabled");
@@ -354,9 +364,9 @@
           $("#qnt_tshirt").attr("disabled", "disabled");
         }
       });
-      });
+    });
 
-      $(function () {
+    $(function () {
       $("#sweat").click(function () {
         if ($(this).is(':checked')) {
           $("#qnt_sweat").removeAttr("disabled");
@@ -365,9 +375,9 @@
           $("#qnt_sweat").attr("disabled", "disabled");
         }
       });
-      });
+    });
 
-      $(function () {
+    $(function () {
       $("#casaco").click(function () {
         if ($(this).is(':checked')) {
           $("#qnt_casaco").removeAttr("disabled");
@@ -376,9 +386,9 @@
           $("#qnt_casaco").attr("disabled", "disabled");
         }
       });
-      });
+    });
 
-      $(function () {
+    $(function () {
       $("#calcoes").click(function () {
         if ($(this).is(':checked')) {
           $("#qnt_calcoes").removeAttr("disabled");
@@ -387,9 +397,9 @@
           $("#qnt_calcoes").attr("disabled", "disabled");
         }
       });
-      });
+    });
 
-      $(function () {
+    $(function () {
       $("#camisa").click(function () {
         if ($(this).is(':checked')) {
           $("#qnt_camisa").removeAttr("disabled");
@@ -398,7 +408,7 @@
           $("#qnt_camisa").attr("disabled", "disabled");
         }
       });
-      });
+    });
   </script>
 </head>
 
@@ -422,11 +432,11 @@
         <div class="input-container ic2">
           <select id='orcamento' class="input" name='orcamento' placeholder="Selecione o orcamento" required>
             <option value="">Orçamento</option>
-            <option value="20">Menor que 20€ </option>
-            <option value="40">20€ - 40€</option>
-            <option value="60">40€ - 60€ </option>
-            <option value="80">60€ - 80€</option>
-            <option value="+80">Maior que 80€</option>
+            <option value="40">Até 40€ </option>
+            <option value="60">Até 60€</option>
+            <option value="90">Até 90€ </option>
+            <option value="120">Até 120€</option>
+            <option value="600">Maior que 120€</option>
           </select>
         </div>
         <br>
@@ -437,32 +447,40 @@
         <div class="input-container ic12">
 
           <input type="checkbox" class="clothes_box" id="calça" name="calça" value="no">
-          <input type="number" id="qnt_calcas" class="qnt" name="qnt_calcas" placeholder="Qtd" min="0"
+          <input type="number" id="qnt_calcas" class="qnt" name="qnt_calcas" placeholder="Qtd" min="0" max="3"
             disabled="disabled">
 
           <input type="checkbox" class="clothes_box" id="camisola" name="camisola" value="no">
-          <input type="number" id="qnt_camisola" class="qnt" name="qnt_camisola" placeholder="Qtd" min="0" disabled="disabled">
+          <input type="number" id="qnt_camisola" class="qnt" name="qnt_camisola" placeholder="Qtd" min="0" max="3"
+            disabled="disabled">
 
           <input type="checkbox" class="clothes_box" id="tshirt" name="tshirt" value="no">
-          <input type="number" id="qnt_tshirt" class="qnt" name="qnt_tshirt" placeholder="Qtd" min="0" disabled="disabled">
+          <input type="number" id="qnt_tshirt" class="qnt" name="qnt_tshirt" placeholder="Qtd" min="0" max="3"
+            disabled="disabled">
 
           <input type="checkbox" class="clothes_box" id="sweat" name="sweat" value="no">
-          <input type="number" id="qnt_sweat" class="qnt" name="qnt_sweat" placeholder="Qtd" min="0" disabled="disabled">
+          <input type="number" id="qnt_sweat" class="qnt" name="qnt_sweat" placeholder="Qtd" min="0" max="3"
+            disabled="disabled">
 
           <input type="checkbox" class="clothes_box" id="casaco" name="casaco" value="no">
-          <input type="number" id="qnt_casaco" class="qnt" name="qnt_casaco" placeholder="Qtd" min="0" disabled="disabled">
+          <input type="number" id="qnt_casaco" class="qnt" name="qnt_casaco" placeholder="Qtd" min="0" max="3"
+            disabled="disabled">
 
           <input type="checkbox" class="clothes_box" id="calcoes" name="calcoes" value="no">
-          <input type="number" id="qnt_calcoes" class="qnt" name="qnt_calcoes" placeholder="Qtd" min="0" disabled="disabled">
+          <input type="number" id="qnt_calcoes" class="qnt" name="qnt_calcoes" placeholder="Qtd" min="0" max="3"
+            disabled="disabled">
 
           <input type="checkbox" class="clothes_box" id="camisa" name="camisa" value="no">
-          <input type="number" id="qnt_camisa" class="qnt" name="qnt_camisa" placeholder="Qtd" min="0" disabled="disabled">
+          <input type="number" id="qnt_camisa" class="qnt" name="qnt_camisa" placeholder="Qtd" min="0" max="3"
+            disabled="disabled">
 
         </div>
-
         <div class="seePackage">
           <input type="checkbox" class="" name="seePackage" id="seePackage" value="yes">
           <label for="seePackage" class="labelPackage">Pretendo visualizar o pacote antes de pagar.</label>
+        </div>
+        <div class="mensagem">
+          {{msg}}
         </div>
 
         <input type="submit" class="submit" value="SEGUINTE">
