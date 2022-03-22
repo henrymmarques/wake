@@ -214,6 +214,7 @@
 
     #trocas {
         background-color: rgb(231, 149, 42);
+        display: none;
     }
 
     #voltar {
@@ -234,19 +235,21 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
     <script type="text/javascript">
-       
-         $(document).ready(function(){
-             
-        $("#camisa").click(function(){
-            if($(this).is(':checked')){
-                $('#trocas').css("visibility","visible");
-            }
-            else
-            {
-                $('#trocas').css("visibility","hidden");
-            }
+
+        $(document).ready(function () {
+
+            $('input[type=checkbox]').click(function () {
+                // if($(this).is(':checked')){
+                if ($('input[type=checkbox]').is(":checked")) {
+                    $('#trocas').show();
+                    $('#checkout').hide();
+                }
+                else {
+                    $('#trocas').hide();
+                    $('#checkout').show();
+                }
+            });
         });
-    });
     </script>
 
 <body class="back">
@@ -259,7 +262,7 @@
         <div class="form">
 
             <div class="title">Este é o conjunto de roupa que mais se enquadra ao teu perfil</div>
-            <form method="post">
+            <form method="post" id="roupas">
                 {% if session['urlEstilo0'] %}
                 <img class="imagem" src={{session['urlEstilo0']}} />
                 <input type="checkbox" class="clothes_box" id="camisa" name="urlEstilo0" value="no">
@@ -354,15 +357,16 @@
 
         <div class='column'>
             <div id='column2'>
-                <input type="button" class="submit" id="chekcout" value="AVANÇAR PARA O CHECKOUT" onclick="location.href='cart';">
-                
+                <input type="button" class="submit" id="checkout" value="AVANÇAR PARA O CHECKOUT"
+                    onclick="location.href='cart';">
+
             </div>
         </div>
 
         <div class='column'>
             <div id='column3'>
                 <input type="submit" class="submit" id="trocas" value="AVANÇAR COM AS TROCAS DE PEÇAS">
-                   
+
             </div>
         </div>
         </form>
