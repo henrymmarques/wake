@@ -234,6 +234,9 @@ def logout():
     # Redirect to login page
     return redirect(url_for('login'))
 
+@app.route('/encomendaConfirmada')
+def encomendaConfirmada():
+    return render_template('orderConfirmation.html')
 
 
 @app.route('/shop', methods=['GET', 'POST'])

@@ -286,53 +286,73 @@
                         <div class="col-md-5">
                             <div class="card border-0">
                                 <div class="card-header pb-0">
-                                    <h2 class="card-title space ">Checkout</h2>
-                                    <p class="card-text text-muted mt-4 space">MORADA DE ENVIO</p>
+                                    <h2 class="card-title space ">CHECKOUT</h2>
+                                    <p class="card-text text-muted mt-4 space">DADOS DE ENVIO</p>
                                     <hr class="my-0">
                                 </div>
                                 <div class="card-body">
-                                    <div class="row justify-content-between">
-                                        <div class="col-auto mt-0">
-                                            <p><b>MORADA DO CLIENTE</b></p>
-                                        </div>
-                                        <div class="col-auto">
-                                            <p><b>EMAILCLIENTE@gmail.com</b> </p>
-                                        </div>
-                                    </div>
-                                    <div class="row mt-4">
-                                        <div class="col">
-                                            <p class="text-muted mb-2">DETALHES DE PAGAMENTO</p>
-                                            <hr class="mt-0">
-                                        </div>
-                                    </div>
-                                    <div class="form-group"> <label for="NAME" class="small text-muted mb-1">NAME ON
-                                            CARD</label> <input type="text" class="form-control form-control-sm"
-                                            name="NAME" id="NAME" aria-describedby="helpId"
-                                            placeholder="BBBootstrap Team"> </div>
-                                    <div class="form-group"> <label for="NAME" class="small text-muted mb-1">CARD
-                                            NUMBER</label> <input type="text" class="form-control form-control-sm"
-                                            name="NAME" id="NAME" aria-describedby="helpId"
-                                            placeholder="4534 5555 5555 5555"> </div>
                                     <div class="row no-gutters">
                                         <div class="col-sm-6 pr-sm-2">
-                                            <div class="form-group"> <label for="NAME"
-                                                    class="small text-muted mb-1">VALID
-                                                    THROUGH</label> <input type="text"
+                                            <div class="form-group"> <label for="CODIGOPOSTAL"
+                                                    class="small text-muted mb-1">NOME</label> <input type="text"
                                                     class="form-control form-control-sm" name="NAME" id="NAME"
-                                                    aria-describedby="helpId" placeholder="06/21">
+                                                    aria-describedby="helpId" placeholder="Nome">
                                             </div>
                                         </div>
                                         <div class="col-sm-6">
-                                            <div class="form-group"> <label for="NAME" class="small text-muted mb-1">CVC
-                                                    CODE</label> <input type="text" class="form-control form-control-sm"
-                                                    name="NAME" id="NAME" aria-describedby="helpId" placeholder="183">
+                                            <div class="form-group"> <label for="APELIDO"
+                                                    class="small text-muted mb-1">APELIDO
+                                                </label> <input type="text" class="form-control form-control-sm"
+                                                    name="APELIDO" id="APELIDO" aria-describedby="helpId"
+                                                    placeholder="Apelido">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group"> <label for="EMAIL"
+                                            class="small text-muted mb-1">E-MAIL</label> <input type="text"
+                                            class="form-control form-control-sm" name="EMAIL" id="EMAIL"
+                                            aria-describedby="helpId" placeholder="E-Mail"> </div>
+                                    
+                                    <div class="row no-gutters">
+                                        <div class="col-sm-6 pr-sm-2">
+                                            <div class="form-group"> <label for="CODIGOPOSTAL"
+                                                    class="small text-muted mb-1">TELEMÓVEL</label> <input
+                                                    type="text" class="form-control form-control-sm" name="TELEMOVEL"
+                                                    id="TELEMOVEL" aria-describedby="helpId" placeholder="XXXXXXXXX">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group"> <label for="NIF" class="small text-muted mb-1">NIF
+                                                </label> <input type="text" class="form-control form-control-sm"
+                                                    name="NIF" id="NIF" aria-describedby="helpId"
+                                                    placeholder="XXXXXXXXX">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group"> <label for="ENDERECO"
+                                        class="small text-muted mb-1">ENDEREÇO</label> <input type="text"
+                                        class="form-control form-control-sm" name="ENDERECO" id="ENDERECO"
+                                        aria-describedby="helpId" placeholder="Endereço"> </div>
+                                    <div class="row no-gutters">
+                                        <div class="col-sm-6 pr-sm-2">
+                                            <div class="form-group"> <label for="CODIGOPOSTAL"
+                                                    class="small text-muted mb-1">CODIGO POSTAL</label> <input
+                                                    type="text" class="form-control form-control-sm" name="CODIGOPOSTAL"
+                                                    id="CODIGOPOSTAL" aria-describedby="helpId" placeholder="XXXX-XXX">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6">
+                                            <div class="form-group"> <label for="LOCALIDADE" class="small text-muted mb-1">LOCALIDADE
+                                                </label> <input type="text" class="form-control form-control-sm"
+                                                    name="LOCALIDADE" id="LOCALIDADE" aria-describedby="helpId"
+                                                    placeholder="Localidade">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="row mb-md-5">
                                         <div class="col"> <button type="button" class="btn btn-primary launch"
                                                 data-toggle="modal" data-target="#staticBackdrop"> <i
-                                                    class="fa fa-rocket"></i> Pagar Agora {{session['precoFinal'] +
+                                                    class="fa fa-money"></i> Pagar Agora {{session['precoFinal'] +
                                                 5}},00€
                                             </button> </div>
                                         <!-- Modal-->
@@ -364,34 +384,37 @@
                                                                     role="tabpanel" aria-labelledby="visa-tab">
                                                                     <div class="mt-4 mx-4">
                                                                         <div class="text-center">
-                                                                            <h5>Credit card</h5>
+                                                                            <h5>INTRODUZA OS DADOS DO SEU CARTÃO</h5>
                                                                         </div>
                                                                         <div class="form mt-3">
                                                                             <div class="inputbox"> <input type="text"
                                                                                     name="name" class="form-control"
                                                                                     required="required">
-                                                                                <span>Cardholder Name</span> </div>
+                                                                                <span>Titular do Cartão</span>
+                                                                            </div>
                                                                             <div class="inputbox"> <input type="text"
                                                                                     name="name" min="1" max="999"
                                                                                     class="form-control"
-                                                                                    required="required"> <span>Card
-                                                                                    Number</span> <i
+                                                                                    required="required"> <span>Número do Cartão
+                                                                                    </span> <i
                                                                                     class="fa fa-eye"></i> </div>
                                                                             <div class="d-flex flex-row">
                                                                                 <div class="inputbox"> <input
                                                                                         type="text" name="name" min="1"
                                                                                         max="999" class="form-control"
                                                                                         required="required">
-                                                                                    <span>Expiration Date</span> </div>
+                                                                                    <span>Data de Validade MM/AA</span>
+                                                                                </div>
                                                                                 <div class="inputbox"> <input
                                                                                         type="text" name="name" min="1"
                                                                                         max="999" class="form-control"
                                                                                         required="required">
-                                                                                    <span>CVV</span> </div>
+                                                                                    <span>CVV2</span>
+                                                                                </div>
                                                                             </div>
                                                                             <div class="px-5 pay"> <button
-                                                                                    class="btn btn-success btn-block">Add
-                                                                                    card</button> </div>
+                                                                                    class="btn btn-success btn-block" onclick="location.href='encomendaConfirmada';">CONFIRMAR PAGAMENTO
+                                                                                    </button> </div>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -400,11 +423,12 @@
                                                                     <div class="px-5 mt-5">
                                                                         <div class="inputbox"> <input type="text"
                                                                                 name="name" class="form-control"
-                                                                                required="required"> <span>Paypal Email
-                                                                                Address</span> </div>
-                                                                        <div class="pay px-5"> <button
-                                                                                class="btn btn-primary btn-block">Add
-                                                                                paypal</button> </div>
+                                                                                required="required"> <span>Número de Telemóvel
+                                                                                </span> </div>
+                                                                                <div class="pay px-5"> <button
+                                                                                    class="btn btn-primary btn-block" onclick="location.href='encomendaConfirmada';">PAGAR
+                                                                                </button> </div>
+                                                                                Confirma o pagamento na tua APP.
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -413,7 +437,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                     </div>
                                 </div>
                             </div>
