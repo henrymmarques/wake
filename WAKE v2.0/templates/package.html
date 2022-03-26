@@ -241,6 +241,8 @@
         padding-left: 20px;
         padding-right: 20px;
     }
+
+    
 </style>
 
 <head>
@@ -262,6 +264,25 @@
                 }
             });
         });
+    </script>
+    <script type="text/javascript">
+        const showOnPx = 100;
+        const backToTopButton = document.querySelector(".back-to-top")
+
+        const scrollContainer = () => {
+            return document.documentElement || document.body;
+        };
+
+        document.addEventListener("scroll", () => {
+            if (scrollContainer().scrollTop > showOnPx) {
+                backToTopButton.classList.remove("hidden")
+            } else {
+                backToTopButton.classList.add("hidden")
+            }
+        })
+        const goToTop = () => {
+            document.body.scrollIntoView();
+        };
     </script>
 
 <body class="back">
@@ -387,7 +408,7 @@
         </form>
 
     </div>
-
+    
 
 </body>
 

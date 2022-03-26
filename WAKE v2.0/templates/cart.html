@@ -259,7 +259,7 @@
             <div class="card shadow-lg ">
                 <div class="row p-2 mt-3 justify-content-between mx-sm-2">
                     <div class="col">
-                        <p class="text-muted space mb-0 shop"> Shop No.1</p>
+                        <p class="text-muted space mb-0 shop">WAKE checkout</p>
                     </div>
                     <div class="col">
                         <div class="row justify-content-start ">
@@ -332,9 +332,9 @@
                                     <div class="row mb-md-5">
                                         <div class="col"> <button type="button" class="btn btn-primary launch"
                                                 data-toggle="modal" data-target="#staticBackdrop"> <i
-                                                    class="fa fa-rocket"></i> Pay Now
+                                                    class="fa fa-rocket"></i> Pagar Agora {{session['precoFinal'] + 5}},00€
                                             </button> </div>
-                                        <!-- Modal 
+                                        <!-- Modal--> 
                                         <div class="modal fade" id="staticBackdrop" data-backdrop="static"
                                             data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel"
                                             aria-hidden="true">
@@ -447,7 +447,7 @@
                                             <p class="boxed-1">1</p>
                                         </div>
                                         <div class=" pl-0 flex-sm-col col-auto my-auto ">
-                                            <p><b>50 EUR</b></p>
+                                            <p><b>{{session['precoFinal']}} EUR</b></p>
                                         </div>
                                     </div>
                                     <hr class="my-2">
@@ -460,7 +460,7 @@
                                                     <p class="mb-1"><b>Subtotal</b></p>
                                                 </div>
                                                 <div class="flex-sm-col col-auto">
-                                                    <p class="mb-1"><b>50 EUR</b></p>
+                                                    <p class="mb-1"><b>{{session['precoFinal']}} EUR</b></p>
                                                 </div>
                                             </div>
                                             <div class="row justify-content-between">
@@ -476,7 +476,7 @@
                                                     <p><b>Total</b></p>
                                                 </div>
                                                 <div class="flex-sm-col col-auto">
-                                                    <p class="mb-1"><b>55 EUR</b></p>
+                                                    <p class="mb-1"><b>{{session['precoFinal'] + 5}} EUR</b></p>
                                                 </div>
                                             </div>
                                             <hr class="my-0">

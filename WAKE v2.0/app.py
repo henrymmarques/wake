@@ -46,6 +46,7 @@ def home():
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
+    session.pop('precoFinal', None)
     session['msg']=''
     # Output message if something goes wrong...
     msg = ''
@@ -168,7 +169,24 @@ def forgotPassword():
 
 @app.route("/cart")
 def cart():
+    vetCalca=[]
+    vetCamisola=[]
+    vetTshirt=[]
+    vetSweat=[]
+    vetCasaco=[]
+    vetCalcoes=[]
+    vetCamisa=[]
     if 'loggedin' in session:
+        if not session.get('precoFinal'): 
+            session['precoFinal']=0
+            filtragem('calça', vetCalca)
+            filtragem('camisola', vetCamisola)
+            filtragem('tshirt', vetTshirt)
+            filtragem('sweat', vetSweat)
+            filtragem('casaco', vetCasaco)
+            filtragem('calcoes', vetCalcoes)
+            filtragem('camisa', vetCamisa)
+            print('Preco= ' + str(session['precoFinal']))
         # User is loggedin show them the home page
         return render_template('cart.html', Nome=session['Nome'])
     # User is not loggedin redirect to login page
@@ -249,7 +267,7 @@ def shop():
 
 @app.route('/filtro', methods=['GET', 'POST'])
 def filtro():
-    
+    session.pop('precoFinal', None)
     session.pop('urlEstilo0', None)
     session.pop('urlEstilo1', None)
     session.pop('urlEstilo2', None)
@@ -432,11 +450,12 @@ def filtragem(tipo, vet):
         #select url aleatorio que contem o estilo da sessão
         cursor_estilo = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
         #cursor_estilo.execute('SELECT URL FROM roupa WHERE url like ´%/%s%´ order by rand() limit 1', (session['nomeEstilo'],))
-        cursor_estilo.execute('SELECT url FROM estilo_roupa, roupa, estilo WHERE estilo_roupa.Roupa_idRoupa=roupa.idRoupa and estilo_roupa.Estilo_idEstilo=Estilo.idEstilo and roupa.Tipo=%s and roupa.genero=%s and  estilo.Nome_Estilo=%s and roupa.Preco<=%s;', (tipo, session['genero'],session['nomeEstilo'],int(session['orcamento'])))
+        cursor_estilo.execute('SELECT url, Preco FROM estilo_roupa, roupa, estilo WHERE estilo_roupa.Roupa_idRoupa=roupa.idRoupa and estilo_roupa.Estilo_idEstilo=Estilo.idEstilo and roupa.Tipo=%s and roupa.genero=%s and  estilo.Nome_Estilo=%s and roupa.Preco<=%s;', (tipo, session['genero'],session['nomeEstilo'],int(session['orcamento'])))
         #urlEstilo = cursor_estilo.fetchone()['url']
         urlEstilo = cursor_estilo.fetchall()
         print(urlEstilo)
         mylist=list(urlEstilo)
+        
         #print(session['genero'])
         
         
@@ -444,10 +463,12 @@ def filtragem(tipo, vet):
             #roupa=random.choice(urlEstilo)['url']
             roupa=random.choice(mylist)
             print(roupa)
+            session['precoFinal']+=int(roupa['Preco'])
             vet.append(roupa['url'])
             mylist.remove(roupa)
         nome='mylist'+tipo
         session[nome]=mylist
+        
 
 
 def trocarRoupas(url, tipo):
@@ -507,6 +528,8 @@ def package():
         
         if not session.get('urlEstilo0') and not session.get('urlCamisola0') and not session.get('urlTshirt0') and not session.get('urlSweat0') and not session.get('urlCasaco0') and not session.get('urlCalcoes0') and not session.get('urlCamisa0'):
             print("_________")
+            session.pop('precoFinal', None)
+            session['precoFinal']=0
             filtragem('calça', vetCalca)
             filtragem('camisola', vetCamisola)
             filtragem('tshirt', vetTshirt)
@@ -514,7 +537,7 @@ def package():
             filtragem('casaco', vetCasaco)
             filtragem('calcoes', vetCalcoes)
             filtragem('camisa', vetCamisa)
-        
+            print('Preco= ' + str(session['precoFinal']))
             #falta limpar os sessions
             #fazer for e criar variaveis session com concatenacao session0, session1...
             for x in range(len(vetCalca)):
