@@ -68,7 +68,7 @@ def login():
                 # Create session data, we can access this data in other routes
                 session['loggedin'] = True
                 session['Nome'] = cliente['Nome']
-               
+                session['Email'] = cliente['Email']
                 if session['url'] == 'shop':
                     cursor = mysql.connection.cursor(MySQLdb.cursors.DictCursor)
                     cursor.execute('SELECT Estilo_idEstilo1 FROM cliente WHERE Nome = %s', (session['Nome'],))
@@ -159,7 +159,12 @@ def contact():
         mail.send(msg_cliente)
     return render_template("contactUs.html", feedback=feedback)
 
-
+@app.route('/encomendaConfirmada', methods=['GET', 'POST'])
+def encomendaConfirmada():
+    msg_cliente = Message('Encomenda Confirmada', sender = 'contact.wake.pt@gmail.com', recipients = [session['Email']])
+    msg_cliente.body = 'A tua encomenda com o número "PT4256" foi registada e será enviada o mais rápido possível.\n\n' + '\n\nAssim que for enviada para a transportadora irás receber um novo e-mail com um link para poderes fazer o seguimento da encomenda.\n\nObrigado por escolheres a WAKE\n\n\n\nWaking Up Fashion since 2021'   
+    mail.send(msg_cliente)
+    return render_template('orderConfirmation.html')
 
 @app.route("/forgotPassword")
 def forgotPassword():
@@ -231,12 +236,11 @@ def logout():
     session.pop('loggedin', None)
     session.pop('id', None)
     session.pop('username', None)
+    session.pop('Email', None)
     # Redirect to login page
     return redirect(url_for('login'))
 
-@app.route('/encomendaConfirmada')
-def encomendaConfirmada():
-    return render_template('orderConfirmation.html')
+
 
 
 @app.route('/shop', methods=['GET', 'POST'])
