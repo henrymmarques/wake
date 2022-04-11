@@ -455,46 +455,46 @@ input[type=checkbox] {
         <div class="input-container ic2">
           <select id='orcamento' class="input" name='orcamento' placeholder="Selecione o orcamento" required>
             <option value="">Orçamento</option>
-            <option value="20">Menor que 20€ </option>
-            <option value="40">20€ - 40€</option>
-            <option value="60">40€ - 60€ </option>
-            <option value="80">60€ - 80€</option>
-            <option value="+80">Maior que 80€</option>
+            <option value="40">Até 40€ </option>
+            <option value="60">Até 60€</option>
+            <option value="90">Até 90€ </option>
+            <option value="120">Até 120€</option>
+            <option value="600">Maior que 120€</option>
           </select>
         </div>
         <br>       
-        <div class="legenda">
+        <!--div class="legenda">
           <div class="tipo">Tipo de Roupa</div>
           <div class="quantidade">Quantidade</div>
-        </div>
+        </div-->
         <div class="input-container ic12">
 
-          <input type="checkbox" class="clothes_box" id="calça" value="yes">
-          <input type="number" id="qnt_calcas" class="qnt" name="peso" placeholder="Qtd" min="0" disabled="disabled" >
+          <input type="checkbox" class="clothes_box" id="calça" name="calça" value="yes">
+          <input type="number" id="qnt_calcas" class="qnt" name="qnt_calcas" placeholder="Qtd" min="0" max="3" disabled="disabled" >
 
-          <input type="checkbox" class="clothes_box" id="camisola" value="yes">
-          <input type="number" id="qnt_camisola" class="qnt" name="peso" placeholder="Qtd" min="0" disabled="disabled" >
+          <input type="checkbox" class="clothes_box" id="camisola" name="camisola" value="yes">
+          <input type="number" id="qnt_camisola" class="qnt" name="qnt_camisola" placeholder="Qtd" min="0" max="3" disabled="disabled" >
 
-          <input type="checkbox" class="clothes_box" id="tshirt" value="yes">
-          <input type="number" id="qnt_tshirt" class="qnt" name="peso" placeholder="Qtd" min="0" disabled="disabled" >
+          <input type="checkbox" class="clothes_box" id="tshirt" name="tshirt" value="yes">
+          <input type="number" id="qnt_tshirt" class="qnt" name="qnt_tshirt" placeholder="Qtd" min="0" max="3" disabled="disabled" >
 
-          <input type="checkbox" class="clothes_box" id="sweat" value="yes">
-          <input type="number" id="qnt_sweat" class="qnt" name="peso" placeholder="Qtd" min="0" disabled="disabled" >
+          <input type="checkbox" class="clothes_box" id="sweat" name="sweat" value="yes">
+          <input type="number" id="qnt_sweat" class="qnt" name="qnt_sweat" placeholder="Qtd" min="0" max="3" disabled="disabled" >
 
-          <input type="checkbox" class="clothes_box" id="casaco" value="yes">
-          <input type="number" id="qnt_casaco" class="qnt" name="peso" placeholder="Qtd" min="0" disabled="disabled" >
+          <input type="checkbox" class="clothes_box" id="casaco" name="casaco" value="yes">
+          <input type="number" id="qnt_casaco" class="qnt" name="qnt_casaco" placeholder="Qtd" min="0" max="3" disabled="disabled" >
 
-          <input type="checkbox" class="clothes_box" id="calcoes" value="yes"> 
-          <input type="number" id="qnt_calcoes" class="qnt" name="peso" placeholder="Qtd" min="0" disabled="disabled" >
+          <input type="checkbox" class="clothes_box" id="calcoes" name="calcoes" value="yes"> 
+          <input type="number" id="qnt_calcoes" class="qnt" name="qnt_calcoes" placeholder="Qtd" min="0" max="3" disabled="disabled" >
 
-          <input type="checkbox" class="clothes_box" id="camisa" value="yes">
-          <input type="number" id="qnt_camisa" class="qnt" name="peso" placeholder="Qtd" min="0" disabled="disabled" >
+          <input type="checkbox" class="clothes_box" id="camisa" name="camisa" value="yes">
+          <input type="number" id="qnt_camisa" class="qnt" name="qnt_camisa" placeholder="Qtd" min="0" max="3" disabled="disabled" >
 
-          <input type="checkbox" class="clothes_box" id="saia" value="yes"> 
-          <input type="number" id="qnt_saia" class="qnt" name="peso" placeholder="Qtd" min="0" disabled="disabled" >
+          <input type="checkbox" class="clothes_box" id="saia" name="saia" value="yes"> 
+          <input type="number" id="qnt_saia" class="qnt" name="qnt_saia" placeholder="Qtd" min="0" max="3" disabled="disabled" >
 
-          <input type="checkbox" class="clothes_box" id="vestido" value="yes">
-          <input type="number" id="qnt_vestido" class="qnt" name="peso" placeholder="Qtd" min="0" disabled="disabled" >      
+          <input type="checkbox" class="clothes_box" id="vestido" name="vestido" value="yes">
+          <input type="number" id="qnt_vestido" class="qnt" name="qnt_vestido" placeholder="Qtd" min="0" max="3" disabled="disabled" >      
                 
         </div>
 
@@ -502,7 +502,9 @@ input[type=checkbox] {
           <input type="checkbox" class="" name="seePackage" id="seePackage" value="yes">
           <label for="seePackage" class="labelPackage">Pretendo visualizar o pacote antes de pagar.</label>
         </div>
-        
+        <div class="mensagem">
+          {{msg}}
+        </div>
         <input type="submit" class="submit" value="SEGUINTE">
       </form>
     </div>

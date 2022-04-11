@@ -302,6 +302,13 @@ def filtro():
     session.pop('urlCamisa0', None)
     session.pop('urlCamisa1', None)
     session.pop('urlCamisa2', None)
+    ####FEMALE####
+    session.pop('urlSaia0', None)
+    session.pop('urlSaia1', None)
+    session.pop('urlSaia2', None)
+    session.pop('urlVestido0', None)
+    session.pop('urlVestido1', None)
+    session.pop('urlVestido2', None)
     if request.method == 'POST' :
         session['camisola']=""
         session['calça']=""
@@ -310,6 +317,9 @@ def filtro():
         session['sweat']=""
         session['calcoes']=""
         session['camisa']=""
+        ###FEMALE"""
+        session['saia']=""
+        session['vestido']=""
         session['total_roupas']=0
         
         if 'formulario' in request.form:
@@ -337,6 +347,14 @@ def filtro():
             if 'qnt_camisa' in request.form and 'camisa' in request.form:
                 session['camisa'] = request.form['qnt_camisa']
                 session['total_roupas']+=int(session['camisa'])
+                ####FEMALE####
+            if 'qnt_saia' in request.form and 'saia' in request.form:
+                session['saia'] = request.form['qnt_saia']
+                session['total_roupas']+=int(session['saia'])
+            if 'qnt_vestido' in request.form and 'vestido' in request.form:
+                session['vestido'] = request.form['qnt_vestido']
+                session['total_roupas']+=int(session['vestido'])
+                ##############
             if 'orcamento' in request.form:
                 session['orcamento']=int(request.form['orcamento'])/session['total_roupas']
                 
@@ -522,6 +540,9 @@ def package():
     vetCasaco=[]
     vetCalcoes=[]
     vetCamisa=[]
+    #####
+    vetSaia=[]
+    vetVestido=[]
     
     if request.method=='POST':
         try:
@@ -532,6 +553,9 @@ def package():
             trocarRoupas('urlCasaco', 'casaco')
             trocarRoupas('urlCalcoes', 'calcoes')
             trocarRoupas('urlCamisa', 'camisa')
+            #####
+            trocarRoupas('urlSaia', 'saia')
+            trocarRoupas('urlVestido', 'vestido')
         except:
             mensagem="  Não existem mais trocas possíveis dentro do orçamento que selecionou. Por favor volte atrás e altere os valores.  "
             return render_template("package.html", erro=mensagem)
@@ -539,7 +563,7 @@ def package():
 
     try:
         
-        if not session.get('urlEstilo0') and not session.get('urlCamisola0') and not session.get('urlTshirt0') and not session.get('urlSweat0') and not session.get('urlCasaco0') and not session.get('urlCalcoes0') and not session.get('urlCamisa0'):
+        if not session.get('urlEstilo0') and not session.get('urlCamisola0') and not session.get('urlTshirt0') and not session.get('urlSweat0') and not session.get('urlCasaco0') and not session.get('urlCalcoes0') and not session.get('urlCamisa0') and not session.get('urlSaia0') and not session.get('urlVestido0'):
             print("_________")
             session.pop('precoFinal', None)
             session['precoFinal']=0
@@ -550,6 +574,9 @@ def package():
             filtragem('casaco', vetCasaco)
             filtragem('calcoes', vetCalcoes)
             filtragem('camisa', vetCamisa)
+            #####
+            filtragem('saia', vetSaia)
+            filtragem('vestido', vetVestido)
             print('Preco= ' + str(session['precoFinal']))
             #falta limpar os sessions
             #fazer for e criar variaveis session com concatenacao session0, session1...
@@ -581,28 +608,18 @@ def package():
                 nome ='urlCamisa'+str(x)
                 print(nome)
                 session[nome]=vetCamisa[x]
+            for x in range(len(vetSaia)):
+                nome ='urlSaia'+str(x)
+                print(nome)
+                session[nome]=vetSaia[x]
+            for x in range(len(vetVestido)):
+                nome ='urlVestido'+str(x)
+                print(nome)
+                session[nome]=vetVestido[x]
     except:
         session['msg']="O orçamento nao é compatível com a quantidade de roupa que deseja! Selecione um novo orçamento ou menos peças."
         return(redirect(url_for('filtro')))
-    """ session['urlCamisola']=vetCamisola[0]
-    session['urlCamisola1']=vetCamisola[1]
-    session['urlCamisola2']=vetCamisola[2]
-    session['urlTshirt']=vetTshirt[0]
-    session['urlTshirt1']=vetTshirt[1]
-    session['urlTshirt2']=vetTshirt[2]
-    session['urlSweat']=vetSweat[0]
-    session['urlSweat1']=vetSweat[1]
-    session['urlSweat2']=vetSweat[2]
-    session['urlCasaco']=vetCasaco[0]
-    session['urlCasaco1']=vetCasaco[1]
-    session['urlCasaco2']=vetCasaco[2]
-    session['urlCalcoes']=vetCalcoes[0]
-    session['urlCalcoes1']=vetCalcoes[1]
-    session['urlCalcoes2']=vetCalcoes[2]
-    session['urlCamisa']=vetCamisa[0]
-    session['urlCamisa1']=vetCamisa[1]
-    session['urlCamisa2']=vetCamisa[2]
-    """
+    
   
 
     return render_template("package.html")
