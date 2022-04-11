@@ -1,0 +1,427 @@
+<style>
+    html {
+        height: 100%;
+        min-height: 800px;
+    }
+
+    body {
+        background: #4e54c8;
+        background: -webkit-linear-gradient(to right, #8f94fb, #4e54c8);
+        background: linear-gradient(to right, #8f94fb, #4e54c8);
+        text-align: center;
+        color: #eee;
+        font-family: "Poppins", sans-serif;
+        font-size: 16px;
+
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    h1 {
+        color: #eee;
+        font-family: "Poppins", sans-serif;
+        font-size: 36px;
+        font-weight: 600;
+        margin-top: 30px;
+    }
+
+    #svg_form_time {
+        height: 15px;
+        max-width: 80%;
+        margin: 40px auto 20px;
+        display: block;
+    }
+
+    #svg_form_time circle,
+    #svg_form_time rect {
+        fill: white;
+    }
+
+    .button {
+        background: rgb(21, 201, 186);
+        border-radius: 5px;
+        padding: 15px 25px;
+        display: inline-block;
+        margin: 10px;
+        font-weight: bold;
+        color: white;
+        cursor: pointer;
+        box-shadow: 0px 2px 5px rgb(0, 0, 0, 0.5);
+    }
+
+    .button:hover {
+        filter: brightness(90%);
+    }
+
+    .disabled {
+        display: none;
+    }
+
+    section {
+        background-color: #15172b;
+        border-radius: 20px;
+        box-sizing: border-box;
+        height: auto;
+        padding: 20px;
+        padding-bottom: 30px;
+        width: auto;
+        text-align: center;
+        position: relative;
+        margin: auto;
+        margin-left: 130px;
+        margin-right: 130px;
+    }
+
+    p {
+        text-align: center;
+        margin-top: 0;
+        font-size: 18px;
+
+    }
+
+
+    .input-container {
+        height: 50px;
+        position: relative;
+        width: 100%;
+    }
+
+    .ic1 {
+        margin-top: 40px;
+    }
+
+    .ic2 {
+        margin-top: 30px;
+    }
+
+    .input {
+        background-color: #303245;
+        border-radius: 12px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        font-size: 18px;
+        font-family: "Poppins", sans-serif;
+        height: 100%;
+        outline: 0;
+        padding: 4px 20px 0;
+        width: 100%;
+    }
+
+    .form {
+        background-color: #15172b;
+        border-radius: 20px;
+        box-sizing: border-box;
+        height: 525px;
+        padding: 20px;
+        width: 320px;
+        text-align: center;
+        position: relative;
+        margin: auto;
+    }
+
+    label {
+        background-color: #303245;
+        border-radius: 12px;
+        border: 4px;
+        border-style: solid;
+        border-color: #303245;
+        box-sizing: border-box;
+        color: #eee;
+        font-size: 18px;
+        font-family: "Poppins", sans-serif;
+        height: auto;
+        outline: 0;
+        padding: 4px 20px 0;
+        width: 80%;
+        font-display: auto;
+    }
+
+
+
+    input[type="submit"] {
+        font-size: larger;
+        background-color: rgb(21, 201, 186);
+    }
+
+
+    /************************/
+
+    .myGallery {
+        display: flex;
+
+        grid-gap: 10px;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    }
+
+    .img {
+        flex: 33.33%;
+        padding: 5px;
+        float: left;
+        width: 100%;
+    }
+
+    .img img {
+        width: 400px;
+        height: 400px;
+
+        /*Scale down will take the necessary specified space that is 100px x 100px without stretching the image*/
+        object-fit: scale-down;
+    }
+
+    /*******--*******/
+
+    input[type=radio] {
+        -webkit-appearance: none;
+        outline: 0;
+        position: relative;
+        border-radius: 12px;
+        background-size: cover;
+        display: inside;
+        width: 100px;
+        height: 100px;
+        /*Scale down will take the necessary specified space that is 100px x 100px without stretching the image*/
+        object-fit: scale-down;
+
+    }
+
+    input[type=radio]:hover {
+        transform: scale(1.02);
+        filter: brightness(105%);
+    }
+
+    input[type=radio]:checked {
+        filter: brightness(120%);
+    }
+
+    input[type=radio]:checked {
+        border-radius: 12px;
+        border: solid 7px;
+        border-color: rgb(21, 201, 186);
+
+    }
+
+    #radio1_1 {
+
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/btns/tr.png");
+    }
+
+    #radio1_2 {
+
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/btns/neutro.png");
+    }
+
+    #radio1_3 {
+
+        background-image: url("https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/btns/smile.png");
+    }
+</style>
+
+
+<head>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function () {
+            var base_color = "rgb(230,230,230)";
+            var active_color = "rgb(21, 201, 186)";
+
+
+
+            var child = 1;
+            var length = $("section").length - 1;
+            $("#prev").addClass("disabled");
+            $("#submit").addClass("disabled");
+
+            $("section").not("section:nth-of-type(1)").hide();
+            $("section").not("section:nth-of-type(1)").css('transform', 'translateX(100px)');
+
+            var svgWidth = length * 200 + 24;
+            $("#svg_wrap").html(
+                '<svg version="1.1" id="svg_form_time" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 ' +
+                svgWidth +
+                ' 24" xml:space="preserve"></svg>'
+            );
+
+            function makeSVG(tag, attrs) {
+                var el = document.createElementNS("http://www.w3.org/2000/svg", tag);
+                for (var k in attrs) el.setAttribute(k, attrs[k]);
+                return el;
+            }
+
+            for (i = 0; i < length; i++) {
+                var positionX = 12 + i * 200;
+                var rect = makeSVG("rect", { x: positionX, y: 9, width: 200, height: 6 });
+                document.getElementById("svg_form_time").appendChild(rect);
+                // <g><rect x="12" y="9" width="200" height="6"></rect></g>'
+                var circle = makeSVG("circle", {
+                    cx: positionX,
+                    cy: 12,
+                    r: 12,
+                    width: positionX,
+                    height: 6
+                });
+                document.getElementById("svg_form_time").appendChild(circle);
+            }
+
+            var circle = makeSVG("circle", {
+                cx: positionX + 200,
+                cy: 12,
+                r: 12,
+                width: positionX,
+                height: 6
+            });
+            document.getElementById("svg_form_time").appendChild(circle);
+
+            $('#svg_form_time rect').css('fill', base_color);
+            $('#svg_form_time circle').css('fill', base_color);
+            $("circle:nth-of-type(1)").css("fill", active_color);
+
+
+            $(".button").click(function () {
+                $("#svg_form_time rect").css("fill", active_color);
+                $("#svg_form_time circle").css("fill", active_color);
+                var id = $(this).attr("id");
+                if (id == "next") {
+                    $("#prev").removeClass("disabled");
+                    if (child >= length) {
+                        $(this).addClass("disabled");
+                        $('#submit').removeClass("disabled");
+                    }
+                    if (child <= length) {
+                        child++;
+                    }
+                } else if (id == "prev") {
+                    $("#next").removeClass("disabled");
+                    $('#submit').addClass("disabled");
+                    if (child <= 2) {
+                        $(this).addClass("disabled");
+                    }
+                    if (child > 1) {
+                        child--;
+                    }
+                }
+                var circle_child = child + 1;
+                $("#svg_form_time rect:nth-of-type(n + " + child + ")").css(
+                    "fill",
+                    base_color
+                );
+                $("#svg_form_time circle:nth-of-type(n + " + circle_child + ")").css(
+                    "fill",
+                    base_color
+                );
+                var currentSection = $("section:nth-of-type(" + child + ")");
+                currentSection.fadeIn();
+                currentSection.css('transform', 'translateX(0)');
+                currentSection.prevAll('section').css('transform', 'translateX(-100px)');
+                currentSection.nextAll('section').css('transform', 'translateX(100px)');
+                $('section').not(currentSection).hide();
+            });
+
+        });
+    </script>
+
+</head>
+
+<body>
+
+
+
+    <!--FONTE: https://codepen.io/ainalem/pen/GRqPwoz-->
+    <!--FONTE: https://codepen.io/webbarks/full/QWjwWNV-->
+    <div id="logo"><img class="irc_mi img-fluid cursor-pointer "
+            src="https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/logo.png" width="180" height="70">
+    </div>
+    <div id="svg_wrap"></div>
+    <form method="post">
+        <h1>Ajuda-nos a melhorar</h1>
+        <h2>Responde às 5 perguntas que se seguem</h2>
+        <section>
+            <h2>Estás satisfeit@ com a tua compra no geral?</h2>
+            <div class="myGallery">
+                <div class="img">
+                    <input type="radio" name="radio1" id="radio1_1" value="yes">
+                </div>
+                <div class="img">
+                    <input type="radio" name="radio1" id="radio1_2" value="yes">
+                </div>
+                <div class="img">
+                    <input type="radio" name="radio1" id="radio1_3" value="yes">
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Como classificas a qualidade da roupa comprada?</h2>
+            <div class="myGallery">
+                <div class="img">
+                    <input type="radio" name="radio2" id="radio2" value="yes">
+                </div>
+                <div class="img">
+                    <input type="radio" name="radio2" id="radio2" value="yes">
+                </div>
+                <div class="img">
+                    <input type="radio" name="radio2" id="radio2" value="yes">
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>O algoritmo foi de encontro ao teu estilo?</h2>
+            <div class="myGallery">
+
+                <div class="img">
+                    <input type="radio" name="radio3" id="radio3" value="yes">
+                </div>
+                <div class="img">
+                    <input type="radio" name="radio3" id="radio3" value="yes">
+                </div>
+                <div class="img">
+                    <input type="radio" name="radio3" id="radio3" value="yes">
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Os tamanhos estavam corretos?</h2>
+            <div class="myGallery">
+
+                <div class="img">
+                    <input type="radio" name="radio4" id="radio4" value="yes">
+                </div>
+                <div class="img">
+                    <input type="radio" name="radio4" id="radio4" value="yes">
+                </div>
+                <div class="img">
+                    <input type="radio" name="radio4" id="radio4" value="yes">
+                </div>
+            </div>
+        </section>
+        <section>
+            <h2>Voltarias a comprar na WAKE?</h2>
+            <div class="myGallery">
+
+                <div class="img">
+                    <input type="radio" name="radio5" id="radio5" value="yes">
+                </div>
+                <div class="img">
+                    <input type="radio" name="radio5" id="radio5" value="yes">
+                </div>
+                <div class="img">
+                    <input type="radio" name="radio5" id="radio5" value="yes">
+                </div>
+            </div>
+        </section>
+        <section>
+            <h1>Obrigado pelo teu feedback!</h1>
+            <h2>Vamos utilizar essas informações para melhorar os nossos algoritmos.</h2>
+            <h2>Até à próxima!</h2>
+
+        </section>
+        <div class="button" id="prev">&larr; Anterior</div>
+        <div class="button" id="next">Próximo &rarr;</div>
+
+        <input type="submit" id="submit" class="button" value="CONFIRMAR">
+    </form>
+</body>

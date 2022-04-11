@@ -137,6 +137,12 @@ def register():
 def about_us():
     return render_template("aboutUs.html")
 
+@app.route("/feedback", methods=['GET', 'POST'])
+def feedback():
+    if request.method == 'POST':
+        return redirect(url_for('home'))
+    return render_template("feedback.html")
+
 @app.route("/contact", methods=['GET', 'POST'])
 def contact():
     print("*****________*****")
