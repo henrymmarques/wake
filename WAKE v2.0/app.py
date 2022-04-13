@@ -33,7 +33,7 @@ mail= Mail(app)
 app.config['MAIL_SERVER']='smtp.gmail.com'
 app.config['MAIL_PORT'] = 465
 app.config['MAIL_USERNAME'] = 'contact.wake.pt@gmail.com'
-app.config['MAIL_PASSWORD'] = 'Wake4ever'
+app.config['MAIL_PASSWORD'] = 'Wake4ever.'
 app.config['MAIL_USE_TLS'] = False
 app.config['MAIL_USE_SSL'] = True
 mail = Mail(app)
@@ -168,7 +168,7 @@ def contact():
 @app.route('/encomendaConfirmada', methods=['GET', 'POST'])
 def encomendaConfirmada():
     msg_cliente = Message('Encomenda Confirmada', sender = 'contact.wake.pt@gmail.com', recipients = [session['Email']])
-    msg_cliente.body = 'A tua encomenda com o número "PT4256" foi registada e será enviada o mais rápido possível.\n\n' + '\n\nAssim que for enviada para a transportadora irás receber um novo e-mail com um link para poderes fazer o seguimento da encomenda.\n\nObrigado por escolheres a WAKE\n\n\n\nWaking Up Fashion since 2021'   
+    msg_cliente.body = 'A tua encomenda com o número "PT4256" foi registada e será enviada o mais rápido possível.\n\n' + '\n\nAssim que for enviada para a transportadora irás receber um novo e-mail com um link para poderes fazer o seguimento da encomenda.\nPedimos-te que respondas ao breve questionário sobre a tua última conta neste link: http://127.0.0.1:5000/feedback\n\nObrigado por escolheres a WAKE\n\n\n\nWaking Up Fashion since 2021'   
     mail.send(msg_cliente)
     return render_template('orderConfirmation.html')
 
