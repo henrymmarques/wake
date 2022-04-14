@@ -357,6 +357,27 @@ INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://r
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/homem_pacote/streetwear_tshirt3.jpg', 'male', 'tshirt', '30');
 
 #inserir roupa mulher
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_calcao1.jpg', 'female', 'calcoes', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_calcao2.jpg', 'female', 'calcoes', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_calcao3.jpg', 'female', 'calcoes', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_calcas1.jpg', 'female', 'calça', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_calcas2.jpg', 'female', 'calça', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_calcas3.jpg', 'female', 'calça', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_camisa1.jpg', 'female', 'camisa', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_camisa2.jpg', 'female', 'camisa', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_camisa3.jpg', 'female', 'camisa', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_camisola1.jpg', 'female', 'camisola', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_camisola2.jpg', 'female', 'camisola', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_camisola3.jpg', 'female', 'camisola', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_casaco1.jpg', 'female', 'casaco', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_casaco2.jpg', 'female', 'casaco', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_casaco3.jpg', 'female', 'casaco', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_saia1.jpg', 'female', 'saia', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_saia2.jpg', 'female', 'saia', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_saia3.jpg', 'female', 'saia', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_sweat1.jpg', 'female', 'sweat', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_sweat2.jpg', 'female', 'sweat', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_sweat3.jpg', 'female', 'sweat', '30');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_tshirt1.jpg', 'female', 'tshirt', '10');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_tshirt2.jpg', 'female', 'tshirt', '20');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_tshirt3.jpg', 'female', 'tshirt', '30');
@@ -364,8 +385,29 @@ INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://r
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_vestido2.jpg', 'female', 'vestido', '20');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/boho_vestido3.jpg', 'female', 'vestido', '30');
 
+
+
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_calcao1.jpg', 'female', 'calcoes', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_calcao2.jpg', 'female', 'calcoes', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_calcao3.jpg', 'female', 'calcoes', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_calcas1.jpg', 'female', 'calça', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_calcas2.jpg', 'female', 'calça', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_calcas3.jpg', 'female', 'calça', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_camisa1.jpg', 'female', 'camisa', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_camisa2.jpg', 'female', 'camisa', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_camisa3.jpg', 'female', 'camisa', '30');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_camisola1.jpg', 'female', 'camisola', '10');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_camisola2.jpg', 'female', 'camisola', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_camisola3.jpg', 'female', 'camisola', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_casaco1.jpg', 'female', 'casaco', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_casaco2.jpg', 'female', 'casaco', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_casaco3.jpg', 'female', 'casaco', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_saia1.jpg', 'female', 'saia', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_saia2.jpg', 'female', 'saia', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_saia3.jpg', 'female', 'saia', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_sweat1.jpg', 'female', 'sweat', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_sweat2.jpg', 'female', 'sweat', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_sweat3.jpg', 'female', 'sweat', '30');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_tshirt1.jpg', 'female', 'tshirt', '10');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_tshirt2.jpg', 'female', 'tshirt', '20');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_tshirt3.jpg', 'female', 'tshirt', '30');
@@ -373,8 +415,29 @@ INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://r
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_vestido2.jpg', 'female', 'vestido', '20');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/casual_vestido3.jpg', 'female', 'vestido', '30');
 
+
+
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_calcao1.jpg', 'female', 'calcoes', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_calcao2.jpg', 'female', 'calcoes', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_calcao3.jpg', 'female', 'calcoes', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_calcas1.jpg', 'female', 'calça', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_calcas2.jpg', 'female', 'calça', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_calcas3.jpg', 'female', 'calça', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_camisa1.jpg', 'female', 'camisa', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_camisa2.jpg', 'female', 'camisa', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_camisa3.jpg', 'female', 'camisa', '30');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_camisola1.jpg', 'female', 'camisola', '10');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_camisola2.jpg', 'female', 'camisola', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_camisola3.jpg', 'female', 'camisola', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_casaco1.jpg', 'female', 'casaco', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_casaco2.jpg', 'female', 'casaco', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_casaco3.jpg', 'female', 'casaco', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_saia1.jpg', 'female', 'saia', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_saia2.jpg', 'female', 'saia', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_saia3.jpg', 'female', 'saia', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_sweat1.jpg', 'female', 'sweat', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_sweat2.jpg', 'female', 'sweat', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_sweat3.jpg', 'female', 'sweat', '30');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_tshirt1.jpg', 'female', 'tshirt', '10');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_tshirt2.jpg', 'female', 'tshirt', '20');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_tshirt3.jpg', 'female', 'tshirt', '30');
@@ -382,6 +445,30 @@ INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://r
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_vestido2.jpg', 'female', 'vestido', '20');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/classic_vestido3.jpg', 'female', 'vestido', '30');
 
+
+
+
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_calcao1.jpg', 'female', 'calcoes', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_calcao2.jpg', 'female', 'calcoes', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_calcao3.jpg', 'female', 'calcoes', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_calcas1.jpg', 'female', 'calça', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_calcas2.jpg', 'female', 'calça', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_calcas3.jpg', 'female', 'calça', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_camisa1.jpg', 'female', 'camisa', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_camisa2.jpg', 'female', 'camisa', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_camisa3.jpg', 'female', 'camisa', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_camisola1.jpg', 'female', 'camisola', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_camisola2.jpg', 'female', 'camisola', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_camisola3.jpg', 'female', 'camisola', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_casaco1.jpg', 'female', 'casaco', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_casaco2.jpg', 'female', 'casaco', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_casaco3.jpg', 'female', 'casaco', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_saia1.jpg', 'female', 'saia', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_saia2.jpg', 'female', 'saia', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_saia3.jpg', 'female', 'saia', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_sweat1.jpg', 'female', 'sweat', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_sweat2.jpg', 'female', 'sweat', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_sweat3.jpg', 'female', 'sweat', '30');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_tshirt1.jpg', 'female', 'tshirt', '10');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_tshirt2.jpg', 'female', 'tshirt', '20');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_tshirt3.jpg', 'female', 'tshirt', '30');
@@ -389,13 +476,37 @@ INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://r
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_vestido2.jpg', 'female', 'vestido', '20');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/comfy_vestido3.jpg', 'female', 'vestido', '30');
 
+
+
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_calcao1.jpg', 'female', 'calcoes', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_calcao2.jpg', 'female', 'calcoes', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_calcao3.jpg', 'female', 'calcoes', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_calcas1.jpg', 'female', 'calça', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_calcas2.jpg', 'female', 'calça', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_calcas3.jpg', 'female', 'calça', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_camisa1.jpg', 'female', 'camisa', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_camisa2.jpg', 'female', 'camisa', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_camisa3.jpg', 'female', 'camisa', '30');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_camisola1.jpg', 'female', 'camisola', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_camisola2.jpg', 'female', 'camisola', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_camisola3.jpg', 'female', 'camisola', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_casaco1.jpg', 'female', 'casaco', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_casaco2.jpg', 'female', 'casaco', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_casaco3.jpg', 'female', 'casaco', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_saia1.jpg', 'female', 'saia', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_saia2.jpg', 'female', 'saia', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_saia3.jpg', 'female', 'saia', '30');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_sweat1.jpg', 'female', 'sweat', '10');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_sweat2.jpg', 'female', 'sweat', '20');
+INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_sweat3.jpg', 'female', 'sweat', '30');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_tshirt1.jpg', 'female', 'tshirt', '10');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_tshirt2.jpg', 'female', 'tshirt', '20');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_tshirt3.jpg', 'female', 'tshirt', '30');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_vestido1.jpg', 'female', 'vestido', '10');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_vestido2.jpg', 'female', 'vestido', '20');
 INSERT INTO `wake`.`roupa` (`URL`, `Genero`, `Tipo`, `Preco`) VALUES ('https://raw.githubusercontent.com/hmpms-iscte/wake/main/wake_img/mulher_pacote/streetwear_vestido3.jpg', 'female', 'vestido', '30');
+
+
 
 INSERT INTO `wake`.`estilo` (`Nome_Estilo`) VALUES ('boho');
 INSERT INTO `wake`.`estilo` (`Nome_Estilo`) VALUES ('alterno');
@@ -405,6 +516,7 @@ INSERT INTO `wake`.`estilo` (`Nome_Estilo`) VALUES ('classic');
 INSERT INTO `wake`.`estilo` (`Nome_Estilo`) VALUES ('streetwear');
 INSERT INTO `wake`.`estilo` (`Nome_Estilo`) VALUES ('desportivo');
 INSERT INTO `wake`.`estilo` (`Nome_Estilo`) VALUES ('flannel');
+
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('2', '1');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('2', '2');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('2', '3');
@@ -426,6 +538,7 @@ INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('2', '19');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('2', '20');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('2', '21');
+
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '22');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '23');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '24');
@@ -447,6 +560,7 @@ INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '40');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '41');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '42');
+
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('7', '43');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('7', '44');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('7', '45');
@@ -468,6 +582,7 @@ INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('7', '61');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('7', '62');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('7', '63');
+
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('8', '64');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('8', '65');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('8', '66');
@@ -489,6 +604,7 @@ INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('8', '82');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('8', '83');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('8', '84');
+
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '85');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '86');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '87');
@@ -519,32 +635,137 @@ INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '109');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '110');
 INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '111');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '112');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '113');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '114');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '115');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '116');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '117');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '118');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '119');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '120');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '121');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '122');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '123');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '124');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '125');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '126');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '127');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '128');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '129');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '130');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '131');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '132');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '133');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '134');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '135');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '136');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '137');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '138');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '139');
-INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '140');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '112');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '113');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '114');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '115');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '116');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '117');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '118');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '119');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '120');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '121');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '122');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '123');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '124');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '125');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '126');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '127');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '128');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '129');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '130');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '131');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('1', '132');
+
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '133');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '134');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '135');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '136');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '137');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '138');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '139');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '140');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '141');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '142');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '143');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '144');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '145');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '146');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '147');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '148');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '149');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '150');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '151');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '152');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '153');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '154');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '155');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '156');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '157');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '158');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('4', '159');
+
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '160');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '161');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '162');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '163');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '164');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '165');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '166');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '167');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '168');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '169');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '170');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '171');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '172');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '173');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '174');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '175');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '176');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '177');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '178');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '179');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '180');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '181');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '182');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '183');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '184');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '185');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('5', '186');
+
+
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '187');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '188');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '189');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '190');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '191');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '192');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '193');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '194');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '195');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '196');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '197');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '198');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '199');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '200');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '201');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '202');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '203');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '204');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '205');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '206');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '207');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '208');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '209');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '210');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '211');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '212');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('3', '213');
+
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '214');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '215');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '216');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '217');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '218');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '219');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '220');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '221');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '222');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '223');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '224');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '225');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '226');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '227');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '228');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '229');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '230');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '231');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '232');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '233');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '234');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '235');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '236');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '237');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '238');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '239');
+INSERT INTO `wake`.`estilo_roupa` (`Estilo_idEstilo`, `Roupa_idRoupa`) VALUES ('6', '240');
